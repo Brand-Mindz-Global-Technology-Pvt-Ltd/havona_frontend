@@ -1,3 +1,70 @@
+// Global state for Transformation Carousel
+const categories = ['architecture', 'construction', 'interior', 'pmc', 'realestate'];
+const categoryImages = {
+    'architecture': {
+        after: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2000&auto=format&fit=crop',
+        before: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop'
+    },
+    'construction': {
+        after: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop',
+        before: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop'
+    },
+    'interior': {
+        after: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
+        before: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop'
+    },
+    'pmc': {
+        after: 'https://images.unsplash.com/photo-1507537297725-24a1c434e3ea?q=80&w=2000&auto=format&fit=crop',
+        before: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2000&auto=format&fit=crop'
+    },
+    'realestate': {
+        after: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000&auto=format&fit=crop',
+        before: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop'
+    }
+};
+let currentIndex = 2; // Start with interior
+
+// Transformation Toggle Logic (Before/After)
+function toggleTransform(state) {
+    const img = document.getElementById('transform-img');
+    const bg = document.getElementById('toggle-bg');
+    const btnBefore = document.getElementById('btn-before');
+    const btnAfter = document.getElementById('btn-after');
+
+    // categories is globally available via another script block or in local scope
+    // But since it's defined in a DOMContentLoaded block, let's make sure toggleTransform
+    // can access the data. Usually, it's better to pass or use global.
+    // For now, I'll use the existing global `categories` and `currentIndex`.
+
+    if (state === 'before') {
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = categoryImages[categories[currentIndex]].before;
+            img.style.opacity = '1';
+        }, 300);
+
+        bg.style.transform = 'translateX(0)';
+        bg.style.backgroundColor = '#FFFFFF';
+        btnBefore.classList.remove('text-white/60', 'text-white');
+        btnBefore.classList.add('text-black');
+        btnAfter.classList.remove('text-black', 'text-white');
+        btnAfter.classList.add('text-white/60');
+    } else {
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = categoryImages[categories[currentIndex]].after;
+            img.style.opacity = '1';
+        }, 300);
+
+        bg.style.transform = 'translateX(100%)';
+        bg.style.backgroundColor = '#FFFFFF';
+        btnAfter.classList.remove('text-white/60', 'text-white');
+        btnAfter.classList.add('text-black');
+        btnBefore.classList.remove('text-black', 'text-white');
+        btnBefore.classList.add('text-white/60');
+    }
+}
+
 // Service Accordion Functionality
 document.addEventListener('DOMContentLoaded', function () {
     const serviceItems = document.querySelectorAll('.service-item');
@@ -17,133 +84,108 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Transformation Toggle Logic (Before/After)
-function toggleTransform(state) {
-    const img = document.getElementById('transform-img');
-    const bg = document.getElementById('toggle-bg');
-    const btnBefore = document.getElementById('btn-before');
-    const btnAfter = document.getElementById('btn-after');
-
-    if (state === 'before') {
-        img.style.opacity = '0';
-        setTimeout(() => {
-            img.src = 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop'; // "Before" raw space
-            img.style.opacity = '1';
-        }, 300);
-
-        bg.style.transform = 'translate-x(0)';
-        btnBefore.classList.remove('text-white');
-        btnBefore.classList.add('text-black');
-        btnAfter.classList.remove('text-black');
-        btnAfter.classList.add('text-white');
-    } else {
-        img.style.opacity = '0';
-        setTimeout(() => {
-            img.src = 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop'; // "After" styled space
-            img.style.opacity = '1';
-        }, 300);
-
-        bg.style.transform = 'translate-x(100%)';
-        btnAfter.classList.remove('text-white');
-        btnAfter.classList.add('text-black');
-        btnBefore.classList.remove('text-black');
-        btnBefore.classList.add('text-white');
-    }
-}
-
-// Category Filter with Banner Image Change and Auto-Rotation
+// Category Carousel Logic
 document.addEventListener('DOMContentLoaded', function () {
     const categoryButtons = document.querySelectorAll('.category-filter-btn');
     const bannerImage = document.querySelector('.category-banner-img');
     const paginationDots = document.querySelectorAll('.pagination-dot');
 
-    // Categories array for carousel
-    const categories = ['architecture', 'construction', 'interior', 'pmc', 'realestate'];
-
-    // Category-specific images mapping
-    const categoryImages = {
-        'architecture': 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2000&auto=format&fit=crop',
-        'construction': 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop',
-        'interior': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
-        'pmc': 'https://images.unsplash.com/photo-1507537297725-24a1c434e3ea?q=80&w=2000&auto=format&fit=crop',
-        'realestate': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000&auto=format&fit=crop'
-    };
-
-    let currentIndex = 2; // Start with interior (index 2)
-    let autoRotateInterval;
+    if (!bannerImage || categoryButtons.length === 0) return;
 
     // Function to update active category and banner
-    function updateCarousel(index) {
+    window.updateCarousel = function (index) {
         currentIndex = index;
         const category = categories[index];
 
         // Update category buttons
         categoryButtons.forEach((btn, idx) => {
             if (idx === index) {
-                btn.classList.remove('border-gray-400', 'text-gray-600');
-                btn.classList.add('bg-[#475467]', 'text-white', 'shadow-lg', 'shadow-gray-400/50', 'transform', 'scale-105');
+                btn.className = "category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full bg-[#475467] text-white font-['Rethink_Sans'] text-xs md:text-sm whitespace-nowrap transform scale-105 transition-all shadow-lg shadow-black/30";
             } else {
-                btn.classList.remove('bg-[#475467]', 'text-white', 'shadow-lg', 'shadow-gray-400/50', 'scale-105');
-                btn.classList.add('border-gray-400', 'text-gray-600');
+                btn.className = "category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-['Rethink_Sans'] text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap";
             }
         });
 
         // Update pagination dots
         paginationDots.forEach((dot, idx) => {
             if (idx === index) {
-                // Active dot: black border and black filled circle
-                dot.classList.remove('border-white', 'bg-white');
-                dot.classList.add('border-black', 'bg-black');
+                dot.className = "pagination-dot w-2 h-2 rounded-full bg-black scale-150 transition-all duration-300 cursor-pointer";
             } else {
-                // Inactive dot: white border and white filled circle
-                dot.classList.remove('border-black', 'bg-black');
-                dot.classList.add('border-white', 'bg-white');
+                dot.className = "pagination-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 cursor-pointer";
             }
         });
 
-        // Update banner image
-        if (bannerImage && categoryImages[category]) {
-            bannerImage.style.opacity = '0';
-            setTimeout(() => {
-                bannerImage.src = categoryImages[category];
-                bannerImage.style.opacity = '1';
-            }, 300);
+        // Update images with sliding-like fade
+        const previewLeft = document.getElementById('preview-left-img');
+        const previewRight = document.getElementById('preview-right-img');
+
+        bannerImage.style.opacity = '0';
+        if (previewLeft) previewLeft.parentElement.style.opacity = '0';
+        if (previewRight) previewRight.parentElement.style.opacity = '0';
+
+        setTimeout(() => {
+            // Main Image (Always show "After" initially)
+            if (categoryImages[category]) {
+                bannerImage.src = categoryImages[category].after;
+            }
+
+            // Previews
+            const leftIdx = (index - 1 + categories.length) % categories.length;
+            const rightIdx = (index + 1) % categories.length;
+
+            if (previewLeft) previewLeft.src = categoryImages[categories[leftIdx]].after;
+            if (previewRight) previewRight.src = categoryImages[categories[rightIdx]].after;
+
+            bannerImage.style.opacity = '1';
+            // Previews fully opaque as requested
+            if (previewLeft) {
+                previewLeft.parentElement.style.opacity = '1';
+                previewLeft.style.opacity = '1';
+            }
+            if (previewRight) {
+                previewRight.parentElement.style.opacity = '1';
+                previewRight.style.opacity = '1';
+            }
+
+            resetToggle();
+        }, 300);
+    };
+
+    // Helper to reset toggle visual
+    window.resetToggle = function () {
+        const bg = document.getElementById('toggle-bg');
+        const btnBefore = document.getElementById('btn-before');
+        const btnAfter = document.getElementById('btn-after');
+        if (bg) {
+            bg.style.transform = 'translateX(100%)';
+            bg.style.backgroundColor = '#FFFFFF';
         }
-    }
-
-    // Auto-rotate every 5 seconds
-    function startAutoRotate() {
-        autoRotateInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % categories.length;
-            updateCarousel(currentIndex);
-        }, 5000);
-    }
-
-    // Stop auto-rotate
-    function stopAutoRotate() {
-        clearInterval(autoRotateInterval);
-    }
+        if (btnBefore) {
+            btnBefore.classList.remove('text-black', 'text-white');
+            btnBefore.classList.add('text-white/60');
+        }
+        if (btnAfter) {
+            btnAfter.classList.remove('text-white/60', 'text-white');
+            btnAfter.classList.add('text-black');
+        }
+    };
 
     // Category button click handler
     categoryButtons.forEach((button, index) => {
         button.addEventListener('click', function () {
-            stopAutoRotate();
             updateCarousel(index);
-            startAutoRotate();
         });
     });
 
     // Pagination dot click handler
     paginationDots.forEach((dot, index) => {
         dot.addEventListener('click', function () {
-            stopAutoRotate();
             updateCarousel(index);
-            startAutoRotate();
         });
     });
 
-    // Start auto-rotation on page load
-    startAutoRotate();
+    // Initialize
+    updateCarousel(currentIndex);
 });
 
 // Design Insights Horizontal Scroll with Pagination
@@ -168,9 +210,9 @@ document.addEventListener('DOMContentLoaded', function () {
         paginationDots.forEach((dot, index) => {
             if (index === currentPage) {
                 dot.classList.remove('bg-gray-300');
-                dot.classList.add('bg-black');
+                dot.classList.add('bg-[#4D606C]', 'scale-150');
             } else {
-                dot.classList.remove('bg-black');
+                dot.classList.remove('bg-[#4D606C]', 'scale-150');
                 dot.classList.add('bg-gray-300');
             }
         });
@@ -202,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (scrollLeftBtn && scrollRightBtn) {
         scrollLeftBtn.addEventListener('click', function () {
-            const scrollAmount = 400; // Card width (380px) + gap (20px)
+            const scrollAmount = scrollContainer.clientWidth * 0.8; // Scroll 80% of view
             scrollContainer.scrollBy({
                 left: -scrollAmount,
                 behavior: 'smooth'
@@ -210,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         scrollRightBtn.addEventListener('click', function () {
-            const scrollAmount = 400;
+            const scrollAmount = scrollContainer.clientWidth * 0.8;
             scrollContainer.scrollBy({
                 left: scrollAmount,
                 behavior: 'smooth'
@@ -278,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Top card (previous testimonial)
                 const prevIndex = (newIndex - 1 + testimonials.length) % testimonials.length;
                 card.querySelector('img').src = testimonials[prevIndex].image;
-                card.classList.add('opacity-50', 'h-[90px]');
+                card.classList.add('opacity-100', 'h-[90px]');
             } else if (index === 1) {
                 // Middle card (current testimonial) - ACTIVE
                 card.querySelector('img').src = testimonials[newIndex].image;
@@ -287,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Bottom card (next testimonial)
                 const nextIndex = (newIndex + 1) % testimonials.length;
                 card.querySelector('img').src = testimonials[nextIndex].image;
-                card.classList.add('opacity-50', 'h-[90px]');
+                card.classList.add('opacity-100', 'h-[90px]');
             }
         });
 
@@ -312,4 +354,83 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize with first testimonial
     updateTestimonial(1);
+});
+
+// Video Modal Logic
+document.addEventListener('DOMContentLoaded', function () {
+    const openBtn = document.getElementById('open-video-modal');
+    const closeBtn = document.getElementById('close-video-modal');
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('modal-video');
+
+    if (!openBtn || !modal || !video) return;
+
+    openBtn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        video.play();
+    });
+
+    const closeModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        video.pause();
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on backdrop click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+});
+
+// Built On Vision USP Scroller (Mobile/Tablet)
+document.addEventListener('DOMContentLoaded', function () {
+    const scroller = document.getElementById('usp-scroller');
+    const container = document.getElementById('usp-scroller-container');
+
+    if (!scroller || !container) return;
+
+    const cards = scroller.querySelectorAll('.usp-card-mobile');
+    let scrollIndex = 0;
+
+    function autoScroll() {
+        if (window.innerWidth >= 768) return; // Only for mobile (Tablet has 2x2 grid)
+
+        scrollIndex = (scrollIndex + 1) % cards.length;
+        const gap = 16;
+        const scrollAmount = (cards[0].offsetWidth + gap) * scrollIndex;
+
+        scroller.style.transform = `translateX(-${scrollAmount}px)`;
+    }
+
+    let scrollInterval = setInterval(autoScroll, 3000);
+
+    // Pause on touch/interaction
+    container.addEventListener('touchstart', () => clearInterval(scrollInterval));
+    container.addEventListener('touchend', () => {
+        clearInterval(scrollInterval);
+        scrollInterval = setInterval(autoScroll, 3000);
+    });
+
+    // Reset on resize
+    window.addEventListener('resize', () => {
+        scrollIndex = 0;
+        scroller.style.transform = 'translateX(0)';
+    });
+});
+
+// Hero Scroll Down functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollArrow = document.getElementById('scroll-to-next');
+    if (scrollArrow) {
+        scrollArrow.addEventListener('click', () => {
+            const nextSection = document.getElementById('hero').nextElementSibling;
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
 });
