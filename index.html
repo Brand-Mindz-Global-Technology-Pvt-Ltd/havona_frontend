@@ -19,6 +19,7 @@
         extend: {
           fontFamily: {
             'new-york': ['New York', 'Times New Roman', 'Times', 'serif'],
+            'rethink': ['Rethink Sans', 'sans-serif'],
           }
         }
       }
@@ -87,31 +88,31 @@
 
       <!-- Desktop Navigation -->
       <nav
-        class="hidden lg:flex items-center bg-black/20 backdrop-blur-2xl border border-white/10 rounded-full font-['Rethink_Sans'] shadow-2xl">
+        class="hidden lg:flex items-center bg-black/20 backdrop-blur-2xl border border-white/10 rounded-full font-rethink shadow-2xl">
         <a href="./index.html"
-          class="px-8 py-3 rounded-full bg-white text-black text-sm font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">Home</a>
+          class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">Home</a>
         <div class="flex items-center px-4">
           <a href="./about/about.html"
-            class="px-4 text-white/80 text-sm font-medium hover:text-white transition-colors">About Us</a>
+            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">About Us</a>
           <a href="./service/service.html"
-            class="px-4 text-white/80 text-sm font-medium hover:text-white transition-colors flex items-center gap-1">
+            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors flex items-center gap-1">
             Service
             <i class="ph ph-caret-down text-[10px] mt-0.5 opacity-70"></i>
           </a>
           <a href="./blog/blog.html"
-            class="px-4 text-white/80 text-sm font-medium hover:text-white transition-colors">Blog</a>
+            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Blog</a>
           <a href="./contact/contact.html"
-            class="px-4 text-white/80 text-sm font-medium hover:text-white transition-colors">Contact Us</a>
+            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Contact Us</a>
         </div>
       </nav>
 
       <!-- CTA & Mobile Toggle -->
       <div class="flex items-center gap-4">
         <button
-          class="hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-['Rethink_Sans'] text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
+          class="hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
           <span
-            class="w-8 h-8 flex items-center justify-center bg-white rounded-full text-black transition-transform group-hover:rotate-12">
-            <i class="ph-fill ph-phone text-lg"></i>
+            class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
+            <img src="./assets/Header/Vector.svg" alt="Phone" class="w-4 h-4">
           </span>
           <span class="font-medium">Get a Consultation</span>
         </button>
@@ -142,7 +143,7 @@
           </button>
         </div>
 
-        <nav class="flex flex-col gap-6 font-['Rethink_Sans'] text-lg">
+        <nav class="flex flex-col gap-6 font-rethink text-lg">
           <a href="./index.html" class="text-white font-semibold">Home</a>
           <a href="./about/about.html" class="text-white/70 hover:text-white transition-colors">About Us</a>
           <a href="./service/service.html" class="text-white/70 hover:text-white transition-colors">Service</a>
@@ -184,7 +185,7 @@
 
         <!-- Subheading -->
         <p
-          class="mt-4 sm:mt-8 text-sm sm:text-lg md:text-xl font-['Rethink_Sans'] text-white/90 max-w-3xl mx-auto font-light tracking-wide px-4">
+          class="mt-4 sm:mt-8 text-sm sm:text-lg md:text-xl font-rethink text-white/90 max-w-3xl mx-auto font-light tracking-wide px-4">
           Future ready <span class="font-semibold text-base sm:text-xl md:text-2xl">Spaces, Seamlessly Designed, Built,
             And Managed!</span>
         </p>
@@ -192,12 +193,12 @@
         <!-- Buttons -->
         <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <button
-            class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-transparent border border-white font-['Rethink_Sans'] text-[10px] sm:text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md">
+            class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-transparent border border-white font-rethink text-[10px] sm:text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md">
             PLAN YOUR PROJECT
           </button>
 
           <button
-            class="w-full sm:w-auto flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full backdrop-blur-xl border border-white/20 font-['Rethink_Sans'] text-[10px] sm:text-sm text-white hover:bg-[#3B4854] transition-all duration-300"
+            class="w-full sm:w-auto flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full backdrop-blur-xl border border-white/20 font-rethink text-[10px] sm:text-sm text-white hover:bg-[#3B4854] transition-all duration-300"
             style="background-color:#4F606D">
             <span>
               <img src="./assets/home/View-projects.svg" alt="Projects" class="w-5 h-5 sm:w-6 sm:h-6 object-contain">
@@ -261,8 +262,7 @@
             <h2 class="font-new-york text-4xl sm:text-5xl md:text-6xl leading-[1.1] mb-6 tracking-tight text-[#000000]">
               BUILT ON VISION
             </h2>
-            <p
-              class="font-['Rethink_Sans'] text-[#4D4D4D] text-lg md:text-xl leading-relaxed max-w-[1000px] font-light">
+            <p class="font-rethink text-[#4D4D4D] text-lg md:text-xl leading-relaxed max-w-[1000px] font-light">
               Shaping spaces with purpose, precision, and passion. We bring together architecture,
               construction, and interior design to deliver end-to-end solutions that elevate everyday living.
             </p>
@@ -276,7 +276,7 @@
               class="absolute inset-0 border border-[#4F5B66] rounded-full transition-all duration-300 group-hover:-rotate-6 ">
             </div>
             <button
-              class="relative bg-[#4F5B66] text-white px-10 py-4 rounded-full font-['Rethink_Sans'] text-sm font-medium hover:bg-[#3D4750] transition-all shadow-xl">
+              class="relative bg-[#4F5B66] text-white px-10 py-4 rounded-full font-rethink text-sm font-medium hover:bg-[#3D4750] transition-all shadow-xl">
               Know more
             </button>
           </div>
@@ -305,53 +305,45 @@
 
             <!-- Play Button Container -->
             <button id="open-video-modal"
-              class="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full bg-white transition-all duration-300 hover:scale-105 group cursor-pointer overflow-hidden relative">
+              class="w-16 h-16 sm:w-20 sm:h-20 bg-white backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center text-black/20 hover:bg-white hover:text-black transition-all duration-300">
               <!-- SVG with cutout play arrow using mask -->
-              <svg class="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24">
-                <defs>
-                  <mask id="play-mask-v2">
-                    <rect width="24" height="24" fill="white" />
-                    <path d="M8 5v14l11-7z" fill="black" />
-                  </mask>
-                </defs>
-                <rect width="24" height="24" fill="white" mask="url(#play-mask-v2)" />
-              </svg>
+              <i class="ph-fill ph-play text-2xl sm:text-3xl ml-1"></i>
             </button>
           </div>
 
           <!-- USP Overlapping Cards Section -->
           <div class="absolute bottom-0 left-0 w-full p-4 md:p-10">
             <!-- Desktop View: Overlapping Cards (LG and Up) -->
-            <div id="usp-cards-desktop" class="hidden lg:flex justify-center -space-x-12 max-w-7xl mx-auto">
+            <div id="usp-cards-desktop" class="hidden lg:flex justify-center -space-x-6 max-w-7xl mx-auto">
               <!-- USP Box 1 -->
               <div
                 class="usp-card group relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-[32px] p-8 w-[280px] text-center text-white hover:bg-white/15 transition-all hover:-translate-y-2 z-40">
-                <div class="text-4xl xl:text-5xl font-['Rethink_Sans'] font-medium mb-2">5+</div>
-                <div class="text-[0.7rem] uppercase tracking-[0.2em] text-white/80 font-['Rethink_Sans'] font-light">
+                <div class="text-4xl xl:text-5xl font-rethink font-medium mb-2">5+</div>
+                <div class="text-[0.7rem] uppercase tracking-[0.2em] text-white/80 font-rethink font-light">
                   Years Of Expertise</div>
               </div>
 
               <!-- USP Box 2 -->
               <div
                 class="usp-card group relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-[32px] p-8 w-[280px] text-center text-white hover:bg-white/15 transition-all hover:-translate-y-2 z-30">
-                <div class="text-4xl xl:text-5xl font-['Rethink_Sans'] font-medium mb-2">32+</div>
-                <div class="text-[0.7rem] uppercase tracking-[0.2em] text-white/80 font-['Rethink_Sans'] font-light">
+                <div class="text-4xl xl:text-5xl font-rethink font-medium mb-2">32+</div>
+                <div class="text-[0.7rem] uppercase tracking-[0.2em] text-white/80 font-rethink font-light">
                   Projects Delivered</div>
               </div>
 
               <!-- USP Box 3 -->
               <div
                 class="usp-card group relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-[32px] p-8 w-[280px] text-center text-white hover:bg-white/15 transition-all hover:-translate-y-2 z-20">
-                <div class="text-4xl xl:text-5xl font-['Rethink_Sans'] font-medium mb-2">14+</div>
-                <div class="text-[0.7rem] uppercase tracking-[0.2em] text-white/80 font-['Rethink_Sans'] font-light">
+                <div class="text-4xl xl:text-5xl font-rethink font-medium mb-2">14+</div>
+                <div class="text-[0.7rem] uppercase tracking-[0.2em] text-white/80 font-rethink font-light">
                   Ongoing Projects</div>
               </div>
 
               <!-- USP Box 4 -->
               <div
                 class="usp-card group relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-[32px] p-8 w-[280px] text-center text-white hover:bg-white/15 transition-all hover:-translate-y-2 z-10">
-                <div class="text-4xl xl:text-5xl font-['Rethink_Sans'] font-medium mb-2">10+</div>
-                <div class="text-[0.7rem] uppercase tracking-[0.2em] text-white/80 font-['Rethink_Sans'] font-light">
+                <div class="text-4xl xl:text-5xl font-rethink font-medium mb-2">10+</div>
+                <div class="text-[0.7rem] uppercase tracking-[0.2em] text-white/80 font-rethink font-light">
                   Years Warranty</div>
               </div>
             </div>
@@ -360,22 +352,22 @@
             <div class="hidden md:grid lg:hidden grid-cols-2 gap-4 max-w-4xl mx-auto">
               <div
                 class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-[24px] p-6 text-center text-white">
-                <div class="text-3xl font-['Rethink_Sans'] font-medium mb-1">5+</div>
+                <div class="text-3xl font-rethink font-medium mb-1">5+</div>
                 <div class="text-[0.65rem] uppercase tracking-widest text-white/70">Years Of Expertise</div>
               </div>
               <div
                 class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-[24px] p-6 text-center text-white">
-                <div class="text-3xl font-['Rethink_Sans'] font-medium mb-1">32+</div>
+                <div class="text-3xl font-rethink font-medium mb-1">32+</div>
                 <div class="text-[0.65rem] uppercase tracking-widest text-white/70">Projects Delivered</div>
               </div>
               <div
                 class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-[24px] p-6 text-center text-white">
-                <div class="text-3xl font-['Rethink_Sans'] font-medium mb-1">14+</div>
+                <div class="text-3xl font-rethink font-medium mb-1">14+</div>
                 <div class="text-[0.65rem] uppercase tracking-widest text-white/70">Ongoing Projects</div>
               </div>
               <div
                 class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-[24px] p-6 text-center text-white">
-                <div class="text-3xl font-['Rethink_Sans'] font-medium mb-1">10+</div>
+                <div class="text-3xl font-rethink font-medium mb-1">10+</div>
                 <div class="text-[0.65rem] uppercase tracking-widest text-white/70">Years Warranty</div>
               </div>
             </div>
@@ -386,25 +378,25 @@
                 <!-- Box 1 -->
                 <div
                   class="usp-card-mobile shrink-0 w-full sm:w-[300px] flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-8 py-4 text-white">
-                  <span class="text-3xl font-['Rethink_Sans'] font-medium mr-3">5+</span>
+                  <span class="text-3xl font-rethink font-medium mr-3">5+</span>
                   <span class="text-xs uppercase tracking-widest text-white/70">Years Of Expertise</span>
                 </div>
                 <!-- Box 2 -->
                 <div
                   class="usp-card-mobile shrink-0 w-full sm:w-[300px] flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-8 py-4 text-white">
-                  <span class="text-3xl font-['Rethink_Sans'] font-medium mr-3">32+</span>
+                  <span class="text-3xl font-rethink font-medium mr-3">32+</span>
                   <span class="text-xs uppercase tracking-widest text-white/70">Projects Delivered</span>
                 </div>
                 <!-- Box 3 -->
                 <div
                   class="usp-card-mobile shrink-0 w-full sm:w-[300px] flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-8 py-4 text-white">
-                  <span class="text-3xl font-['Rethink_Sans'] font-medium mr-3">14+</span>
+                  <span class="text-3xl font-rethink font-medium mr-3">14+</span>
                   <span class="text-xs uppercase tracking-widest text-white/70">Ongoing Projects</span>
                 </div>
                 <!-- Box 4 -->
                 <div
                   class="usp-card-mobile shrink-0 w-full sm:w-[300px] flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-8 py-4 text-white">
-                  <span class="text-3xl font-['Rethink_Sans'] font-medium mr-3">10+</span>
+                  <span class="text-3xl font-rethink font-medium mr-3">10+</span>
                   <span class="text-xs uppercase tracking-widest text-white/70">Years Warranty</span>
                 </div>
               </div>
@@ -455,13 +447,13 @@
 
             <!-- Main Button -->
             <button
-              class="relative bg-white border border-[#4D606C] px-10 py-3 rounded-full font-['Rethink_Sans'] text-sm tracking-wide text-[#4D606C] active:translate-y-0.5 z-10 w-full hover:bg-[#4D606C] hover:text-white transition-all duration-300">
+              class="relative bg-white border border-[#4D606C] px-10 py-3 rounded-full font-rethink text-sm tracking-wide text-[#4D606C] active:translate-y-0.5 z-10 w-full hover:bg-[#4D606C] hover:text-white transition-all duration-300">
               Our Services
             </button>
           </div>
         </div>
 
-        <div class="max-w-md text-[#4D4D4D] font-['Rethink_Sans'] text-lg leading-relaxed pt-2">
+        <div class="max-w-md text-[#4D4D4D] font-rethink text-lg leading-relaxed pt-2">
           We Deliver End-To-End Solutions In Architecture, Construction, Interior Design, Project Management (PMC), And
           Real Estate.
         </div>
@@ -488,7 +480,7 @@
             class="relative z-10 overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-[.active]:max-h-80 group-[.active]:opacity-100 group-[.active]:bg-[#4D606C] rounded-b-[30px]">
             <div class="p-8 md:p-12 pr-10 md:pr-40 lg:pr-60 text-white/90 relative">
               <p
-                class="font-['Rethink_Sans'] leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
+                class="font-rethink leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
                 We Design Architecture With Clarity, Purpose, And Precision. Each Project Reflects A Seamless Blend Of
                 Aesthetics And Functionality. Built To Respond To People, Place, And Time.
               </p>
@@ -525,7 +517,7 @@
             class="relative z-10 overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-[.active]:max-h-80 group-[.active]:opacity-100 group-[.active]:bg-[#4D606C] group-[.active]:rounded-b-[30px]">
             <div class="p-8 md:p-12 pr-10 md:pr-40 lg:pr-60 text-white/90 relative">
               <p
-                class="font-['Rethink_Sans'] leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
+                class="font-rethink leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
                 Excellence in construction with a focus on durability, safety, and innovation. We bring your blueprints
                 to life with high-quality materials and expert craftsmanship.
               </p>
@@ -562,7 +554,7 @@
             class="relative z-10 overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-[.active]:max-h-80 group-[.active]:opacity-100 group-[.active]:bg-[#4D606C] group-[.active]:rounded-b-[30px]">
             <div class="p-8 md:p-12 pr-10 md:pr-40 lg:pr-60 text-white/90 relative">
               <p
-                class="font-['Rethink_Sans'] leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
+                class="font-rethink leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
                 Creating immersive interior spaces that tell a story. From concept to execution, we design interiors
                 that are both inspiring and functional.
               </p>
@@ -599,7 +591,7 @@
             class="relative z-10 overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-[.active]:max-h-80 group-[.active]:opacity-100 group-[.active]:bg-[#4D606C] group-[.active]:rounded-b-[30px]">
             <div class="p-8 md:p-12 pr-10 md:pr-40 lg:pr-60 text-white/90 relative">
               <p
-                class="font-['Rethink_Sans'] leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
+                class="font-rethink leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
                 Comprehensive project management services ensuring timely delivery, cost efficiency, and quality control
                 throughout the project lifecycle.
               </p>
@@ -636,7 +628,7 @@
             class="relative z-10 overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-[.active]:max-h-80 group-[.active]:opacity-100 group-[.active]:bg-[#4D606C] group-[.active]:rounded-b-[30px]">
             <div class="p-8 md:p-12 pr-10 md:pr-40 lg:pr-60 text-white/90 relative">
               <p
-                class="font-['Rethink_Sans'] leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
+                class="font-rethink leading-relaxed text-base md:text-lg max-w-full lg:max-w-[70%] xl:max-w-2xl font-light">
                 Expert guidance in real estate investment, property management, and strategic development to maximize
                 value and potential.
               </p>
@@ -674,16 +666,16 @@
       <div class="max-w-[1400px] mx-auto px-4 mb-2 md:mb-12">
         <div class="flex flex-wrap justify-center gap-3 md:gap-4 overflow-x-auto py-4 md:py-8 hide-scrollbar">
           <button data-category="architecture"
-            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-['Rethink_Sans'] text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap">Architecture</button>
+            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-rethink text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap">Architecture</button>
           <button data-category="construction"
-            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-['Rethink_Sans'] text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap">Construction</button>
+            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-rethink text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap">Construction</button>
           <button data-category="interior"
-            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full bg-[#475467] text-white font-['Rethink_Sans'] text-xs md:text-sm whitespace-nowrap transform scale-105 transition-all shadow-2xl shadow-black/30">Interior</button>
+            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full bg-[#475467] text-white font-rethink text-xs md:text-sm whitespace-nowrap transform scale-105 transition-all shadow-2xl shadow-black/30">Interior</button>
           <button data-category="pmc"
-            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-['Rethink_Sans'] text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap">Project
+            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-rethink text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap">Project
             Management</button>
           <button data-category="realestate"
-            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-['Rethink_Sans'] text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap">Real
+            class="category-filter-btn px-6 md:px-8 py-2.5 md:py-3 rounded-full border border-gray-400 text-gray-600 font-rethink text-xs md:text-sm hover:border-gray-800 transition-all whitespace-nowrap">Real
             Estate</button>
         </div>
       </div>
@@ -716,7 +708,7 @@
               <img src="assets/home/havona Group-06.png" class="w-6 h-6 md:w-8 md:h-8 object-contain" alt="Havona Logo">
             </div>
             <span
-              class="font-['Rethink_Sans'] text-[10px] md:text-sm font-semibold tracking-wider ml-3 md:ml-4 whitespace-nowrap">Designed
+              class="font-rethink text-[10px] md:text-sm font-semibold tracking-wider ml-3 md:ml-4 whitespace-nowrap">Designed
               By Havona</span>
           </div>
 
@@ -736,10 +728,10 @@
               </div>
 
               <button onclick="toggleTransform('before')"
-                class="relative z-10 px-6 md:px-8 lg:px-12 py-1.5 md:py-2.5 rounded-full font-['Rethink_Sans'] text-[10px] md:text-xs lg:text-sm font-bold text-black transition-colors duration-500"
+                class="relative z-10 px-6 md:px-8 lg:px-12 py-1.5 md:py-2.5 rounded-full font-rethink text-[10px] md:text-xs lg:text-sm font-bold text-black transition-colors duration-500"
                 id="btn-before">Before</button>
               <button onclick="toggleTransform('after')"
-                class="relative z-10 px-6 md:px-8 lg:px-12 py-1.5 md:py-2.5 rounded-full font-['Rethink_Sans'] text-[10px] md:text-xs lg:text-sm font-bold text-black transition-colors duration-500"
+                class="relative z-10 px-6 md:px-8 lg:px-12 py-1.5 md:py-2.5 rounded-full font-rethink text-[10px] md:text-xs lg:text-sm font-bold text-black transition-colors duration-500"
                 id="btn-after">After</button>
             </div>
 
@@ -747,7 +739,7 @@
             <div class="flex-1 flex justify-center sm:justify-end w-full sm:w-auto">
               <!-- Reach Us Button -->
               <button
-                class="flex items-center gap-2 md:gap-3 bg-black/60 border border-white/40 text-white px-6 md:px-8 lg:px-12 py-2.5 md:py-3.5 lg:py-4 rounded-full font-['Rethink_Sans'] text-[10px] md:text-xs lg:text-sm xl:text-base font-semibold hover:bg-white hover:text-black transition-all shadow-2xl group/btn whitespace-nowrap">
+                class="flex items-center gap-2 md:gap-3 bg-black/60 border border-white/40 text-white px-6 md:px-8 lg:px-12 py-2.5 md:py-3.5 lg:py-4 rounded-full font-rethink text-[10px] md:text-xs lg:text-sm xl:text-base font-semibold hover:bg-white hover:text-black transition-all shadow-2xl group/btn whitespace-nowrap">
                 Reach Us
                 <i
                   class="ph ph-arrow-right text-xs md:text-sm lg:text-base group-hover/btn:translate-x-1 transition-transform"></i>
@@ -807,7 +799,7 @@
               style="border-radius: 100px 100px 100px 100px / 100px 100px 100px 100px;"></div>
 
             <button
-              class="relative px-8 py-2.5 bg-white border border-[#4D606C] text-[#4D606C] font-['Rethink_Sans'] text-sm font-medium rounded-full hover:bg-[#4D606C]/5 transition-all z-10">
+              class="relative px-8 py-2.5 bg-white border border-[#4D606C] text-[#4D606C] font-rethink text-sm font-medium rounded-full hover:bg-[#4D606C]/5 transition-all z-10">
               View All
             </button>
           </div>
@@ -846,7 +838,7 @@
               <!-- Category Tag -->
               <div class="absolute top-6 right-6">
                 <span
-                  class="px-4 py-2 bg-[#4D606C] text-white text-[11px] font-['Rethink_Sans'] font-medium uppercase tracking-wider rounded-full shadow-md border border-white/10">
+                  class="px-4 py-2 bg-[#4D606C] text-white text-[11px] font-rethink font-medium uppercase tracking-wider rounded-full shadow-md border border-white/10">
                   Construction
                 </span>
               </div>
@@ -854,10 +846,10 @@
               <!-- Content Overlay -->
               <div class="absolute bottom-0 left-0 right-0 p-8 bg-black/20 backdrop-blur-sm rounded-b-[24px]">
                 <h3
-                  class="font-['Rethink_Sans'] text-xl font-semibold mb-3 leading-tight text-white group-hover:text-blue-50 transition-colors">
+                  class="font-rethink text-xl font-semibold mb-3 leading-tight text-white group-hover:text-blue-50 transition-colors">
                   Understanding Construction Timelines And Cost Planning
                 </h3>
-                <p class="text-white/80 text-sm font-['Rethink_Sans'] line-clamp-2 leading-relaxed">
+                <p class="text-white/80 text-sm font-rethink line-clamp-2 leading-relaxed">
                   Deep dive into the intricacies of modern construction project management.
                 </p>
               </div>
@@ -875,14 +867,13 @@
 
                 <div class="absolute top-4 right-4">
                   <span
-                    class="px-4 py-1.5 bg-[#4D606C] text-white text-[10px] font-['Rethink_Sans'] font-medium uppercase tracking-wider rounded-full shadow-md">
+                    class="px-4 py-1.5 bg-[#4D606C] text-white text-[10px] font-rethink font-medium uppercase tracking-wider rounded-full shadow-md">
                     Interior
                   </span>
                 </div>
 
                 <div class="absolute bottom-0 left-0 right-0 p-6 bg-black/20 backdrop-blur-sm rounded-b-[24px]">
-                  <h3
-                    class="font-['Rethink_Sans'] text-sm sm:text-lg lg:text-xl font-semibold leading-tight text-white">
+                  <h3 class="font-rethink text-sm sm:text-lg lg:text-xl font-semibold leading-tight text-white">
                     Modern Minimalist Interior Trends
                   </h3>
                 </div>
@@ -898,14 +889,13 @@
 
                 <div class="absolute top-4 right-4">
                   <span
-                    class="px-4 py-1.5 bg-[#4D606C] text-white text-[10px] font-['Rethink_Sans'] font-medium uppercase tracking-wider rounded-full shadow-md">
+                    class="px-4 py-1.5 bg-[#4D606C] text-white text-[10px] font-rethink font-medium uppercase tracking-wider rounded-full shadow-md">
                     Architecture
                   </span>
                 </div>
 
                 <div class="absolute bottom-0 left-0 right-0 p-6 bg-black/20 backdrop-blur-sm rounded-b-[24px]">
-                  <h3
-                    class="font-['Rethink_Sans'] text-sm sm:text-lg lg:text-xl font-semibold leading-tight text-white">
+                  <h3 class="font-rethink text-sm sm:text-lg lg:text-xl font-semibold leading-tight text-white">
                     Sustainable Urban Architecture Concepts
                   </h3>
                 </div>
@@ -922,16 +912,16 @@
 
               <div class="absolute top-6 right-6">
                 <span
-                  class="px-4 py-2 bg-[#4D606C] text-white text-[11px] font-['Rethink_Sans'] font-medium uppercase tracking-wider rounded-full shadow-md">
+                  class="px-4 py-2 bg-[#4D606C] text-white text-[11px] font-rethink font-medium uppercase tracking-wider rounded-full shadow-md">
                   PMC
                 </span>
               </div>
 
               <div class="absolute bottom-0 left-0 right-0 p-8 bg-black/20 backdrop-blur-sm rounded-b-[15px]">
-                <h3 class="font-['Rethink_Sans'] text-xl font-semibold mb-3 leading-tight text-white">
+                <h3 class="font-rethink text-xl font-semibold mb-3 leading-tight text-white">
                   Effective Project Management Strategies
                 </h3>
-                <p class="text-white/80 text-sm font-['Rethink_Sans'] line-clamp-2 leading-relaxed">
+                <p class="text-white/80 text-sm font-rethink line-clamp-2 leading-relaxed">
                   Streamlined workflows for complex architectural projects.
                 </p>
               </div>
@@ -981,7 +971,7 @@
                   style="border-radius: 100px 100px 100px 100px / 100px 100px 100px 100px;"></div>
                 <!-- Normal Border Main Badge -->
                 <span
-                  class="relative block px-10 py-2.5 bg-white border border-[#4D606C] text-[#4D606C] font-['Rethink_Sans'] text-base font-medium tracking-tight rounded-full z-10">
+                  class="relative block px-10 py-2.5 bg-white border border-[#4D606C] text-[#4D606C] font-rethink text-base font-medium tracking-tight rounded-full z-10">
                   Testimonials
                 </span>
               </div>
@@ -1055,13 +1045,13 @@
                   data-testimonial="0">
                   <!-- Testimonial Title -->
                   <h3
-                    class="font-['Rethink_Sans'] text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-black mb-6 md:mb-10 leading-snug">
+                    class="font-rethink text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-black mb-6 md:mb-10 leading-snug">
                     Working With Havona Was An Exceptional Experience From Start To Finish.
                   </h3>
 
                   <!-- Testimonial Text -->
                   <p
-                    class="font-['Rethink_Sans'] text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-10 md:mb-16">
+                    class="font-rethink text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-10 md:mb-16">
                     They Understood Our Lifestyle And Translated It Beautifully Into The Design. Every Detail Was
                     Thoughtfully Planned And Executed With Precision. The Space Feels Elegant, Functional, And Truly
                     Personal. Quality, Timelines, And Communication Were Handled Seamlessly. We Couldn't Be Happier With
@@ -1102,9 +1092,9 @@
 
                     <!-- Name and Designation -->
                     <div class="pt-0">
-                      <h4 class="font-['Rethink_Sans'] text-xl sm:text-2xl font-semibold text-gray-900">Mr. Prashana
+                      <h4 class="font-rethink text-xl sm:text-2xl font-semibold text-gray-900">Mr. Prashana
                         Balaji</h4>
-                      <p class="font-['Rethink_Sans'] text-lg sm:text-xl text-gray-500">Founder Of Princeton, Coimbatore
+                      <p class="font-rethink text-lg sm:text-xl text-gray-500">Founder Of Princeton, Coimbatore
                       </p>
                     </div>
 
@@ -1138,7 +1128,7 @@
             <img src="./assets/home/havona Group-06.png" alt="Havona Group" class="w-16 h-16">
           </div>
 
-          <p class="text-sm text-white/70 leading-relaxed max-w-sm font-['Rethink Sans']">
+          <p class="text-sm text-white/70 leading-relaxed max-w-sm font-rethink">
             Havona Group is a multidisciplinary architecture, construction, interior, and real estate firm delivering
             future-ready residential, commercial, and industrial projects.
           </p>
@@ -1161,7 +1151,7 @@
         </div>
 
         <!-- Navigation -->
-        <div class="font-['Rethink Sans']">
+        <div class="font-rethink">
           <h4 class="text-sm uppercase tracking-widest text-white/60 mb-6">Quick Links</h4>
           <ul class="space-y-3 text-sm">
             <li><a href="#" class="hover:text-white transition">Home</a></li>
@@ -1173,7 +1163,7 @@
         </div>
 
         <!-- Contact Info -->
-        <div class="font-['Rethink Sans']">
+        <div class="font-rethink">
           <h4 class="text-sm uppercase tracking-widest text-white/60 mb-6">Contact</h4>
 
           <ul class="space-y-4 text-sm text-white/70">
@@ -1203,7 +1193,7 @@
 
         <!-- Bottom Footer -->
         <div
-          class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-['Rethink Sans']">
+          class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
 
           <div class="flex items-center gap-3 mb-6">
             <img src="./assets/home/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
