@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Havona</title>
+  <!-- Rethink Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- New York Font -->
+  <link href="./dist/output.css" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'new-york': ['New York', 'Times New Roman', 'Times', 'serif'],
+            'rethink': ['Rethink Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* New York Font - Proper Declaration */
+    @font-face {
+      font-family: 'New York';
+      src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot');
+      src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot?#iefix') format('embedded-opentype'),
+        url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff2') format('woff2'),
+        url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff') format('woff'),
+        url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.ttf') format('truetype'),
+        url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.svg#New York') format('svg');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    .font-new-york {
+      font-family: 'New York', 'Times New Roman', Times, serif;
+      font-weight: 400;
+    }
+
+    @keyframes glass-rise {
+      0% {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .glass-rise {
+      animation: glass-rise 700ms ease-out both;
+    }
+  </style>
+</head>
+
+<body class="bg-[#F0F0F0]">
+  <!-- Header (exactly as Home) -->
+  <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 py-6 transition-all duration-300"
+    id="main-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="./index.html" class="flex items-center gap-2 group transition-transform hover:scale-105">
+        <img src="./assets/home/havona Group-06.png" alt="Havona Logo" class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav
+        class="hidden lg:flex items-center bg-black/20 backdrop-blur-2xl border border-white/10 rounded-full font-rethink shadow-2xl">
+        <a href="./index.html"
+          class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">Home</a>
+        <div class="flex items-center px-4">
+          <a href="./about/about.html"
+            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">About Us</a>
+          <a href="./service/service.html"
+            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors flex items-center gap-1">
+            Service
+            <i class="ph ph-caret-down text-[10px] mt-0.5 opacity-70"></i>
+          </a>
+          <a href="./blog/blog.html"
+            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Blog</a>
+          <a href="./contact/contact.html"
+            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Contact Us</a>
+        </div>
+      </nav>
+
+      <!-- CTA & Mobile Toggle -->
+      <div class="flex items-center gap-4">
+        <button
+          class="hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
+          <span
+            class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
+            <img src="./assets/Header/Vector.svg" alt="Phone" class="w-4 h-4">
+          </span>
+          <span class="font-medium">Get a Consultation</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle"
+          class="lg:hidden p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all">
+          <i class="ph ph-list text-2xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-100 hidden lg:hidden">
+      <!-- Backdrop -->
+      <div id="mobile-menu-overlay"
+        class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+      <!-- Content -->
+      <div id="mobile-menu-content"
+        class="absolute top-0 right-0 w-[280px] h-full bg-[#1A1D1F]/95 backdrop-blur-2xl border-l border-white/10 p-8 transform translate-x-full transition-transform duration-300 shadow-2xl">
+        <div class="flex items-center justify-between mb-12">
+          <img src="./assets/home/havona Group-06.png" alt="Havona" class="w-16 h-16 object-contain">
+          <button id="mobile-menu-close" class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
+            <i class="ph ph-x text-2xl"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-6 font-rethink text-lg">
+          <a href="./index.html" class="text-white font-semibold">Home</a>
+          <a href="./about/about.html" class="text-white/70 hover:text-white transition-colors">About Us</a>
+          <a href="./service/service.html" class="text-white/70 hover:text-white transition-colors">Service</a>
+          <a href="./blog/blog.html" class="text-white/70 hover:text-white transition-colors">Blog</a>
+          <a href="./contact/contact.html" class="text-white/70 hover:text-white transition-colors">Contact Us</a>
+        </nav>
+
+        <div class="absolute bottom-10 left-8 right-8">
+          <button
+            class="w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
+            Get a Consultation
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="relative min-h-screen w-full bg-cover bg-center overflow-hidden"
+    style="background-image:url('./assets/home/Hero-banner.png');">
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- Glass title panel from bottom to center -->
+    <div class="absolute inset-x-0 bottom-0 h-[56%] sm:h-[52%] md:h-[50%] glass-rise">
+      <div
+        class="absolute inset-0 bg-white/10 backdrop-blur-2xl border-t border-white/20 rounded-t-[28px] sm:rounded-t-[36px]">
+      </div>
+      <div class="relative h-full flex items-center justify-center px-6">
+        <h1
+          class="font-new-york text-white text-4xl sm:text-6xl md:text-7xl lg:text-[80px] tracking-tight leading-none text-center drop-shadow">
+          Privacy Policy
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <script src="./js/home/header.js"></script>
+</body>
+
+</html>
+
+

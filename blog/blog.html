@@ -151,7 +151,7 @@
 
             <!-- Glass Fade Effect Layer (Bottom to Middle) -->
             <div class="absolute inset-x-0 bottom-0 h-full pointer-events-none overflow-hidden z-0">
-                <div class="absolute inset-0 backdrop-blur-[40px]"
+                <div class="absolute inset-0 backdrop-blur-[120px]"
                     style="mask-image: linear-gradient(to top, black 0%, black 40%, transparent 70%); -webkit-mask-image: linear-gradient(to top, black 0%, black 40%, transparent 70%);">
                 </div>
             </div>
@@ -453,7 +453,11 @@
 
                 <!-- Huge Background Overlay Heading -->
                 <h2
-                    class="absolute top-10 left-[100px] text-[10vw] leading-none font-new-york text-[#EAEAEA] select-none pointer-events-none opacity-60 z-0 tracking-tighter w-auto">
+                    class="absolute z-0 font-new-york text-[#EAEAEA] select-none pointer-events-none tracking-tighter leading-none opacity-60 whitespace-nowrap
+                           top-8 left-[30%] -translate-x-[50%] text-[72px]
+                           sm:top-20 sm:text-[14vw]
+                           md:top-20 md:text-[12vw]
+                           lg:top-10 lg:left-[100px] lg:-translate-x-0 lg:text-[10vw]">
                     GALLERY
                 </h2>
 
@@ -479,34 +483,164 @@
                             <!-- Right Column: Vertical Image -->
                             <div class="lg:col-span-5">
                                 <div
-                                    class="w-full h-[450px] sm:h-[600px] lg:h-[800px] bg-gray-100 rounded-[30px] object-cover">
-                                </div>
+                                    class="w-full h-[450px] sm:h-[600px] lg:h-[800px] bg-gray-100 rounded-[30px] object-cover"></div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Navigation Controls -->
-                    <div class="flex items-center justify-center gap-6 mt-16">
-                        <button id="gallery-prev"
-                            class="w-14 h-14 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#4D606C] transition-colors duration-300">
-                            <i class="ph ph-arrow-left text-xl"></i>
-                        </button>
+                <!-- Navigation Controls -->
+                <div class="flex items-center justify-center gap-6 mt-16">
+                    <button id="gallery-prev"
+                        class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#4D606C] transition-colors duration-300">
+                        <i class="ph ph-arrow-left text-xl"></i>
+                    </button>
 
-                        <span id="gallery-pagination"
-                            class="font-rethink text-lg font-medium text-[#1A1A1A] min-w-[60px] text-center">
-                            1 / 5
-                        </span>
+                    <span id="gallery-pagination"
+                        class="font-rethink text-lg font-medium text-[#1A1A1A] min-w-[60px] text-center">
+                        1 / 5
+                    </span>
 
-                        <button id="gallery-next"
-                            class="w-14 h-14 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#4D606C] transition-colors duration-300">
-                            <i class="ph ph-arrow-right text-xl"></i>
-                        </button>
-                    </div>
+                    <button id="gallery-next"
+                        class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-[#4D606C] transition-colors duration-300">
+                        <i class="ph ph-arrow-right text-xl"></i>
+                    </button>
+                </div>
 
+            </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner Section (duplicated from About page) -->
+        <section class="relative py-20 px-4 sm:px-8 lg:px-20">
+            <div
+                class="relative w-full max-w-[1700px] mx-auto h-[400px] sm:h-[500px] md:h-[400px] rounded-[20px] overflow-hidden group">
+                <!-- Background Image -->
+                <img src="../assets/home/Hero-banner.png" alt="Modern Architecture"
+                    class="absolute inset-0 w-full h-full object-cover">
+
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-black/50"></div>
+
+                <!-- Content -->
+                <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
+                    <h2
+                        class="font-new-york text-white text-5xl sm:text-7xl md:text-7xl lg:text-[75px] mb-4 tracking-tight leading-none font-light">
+                        STOP WAITING</h2>
+                    <p class="font-rethink text-white/90 text-base sm:text-xl lg:text-2xl max-w-2xl mb-10 font-light">
+                        Start Transforming Your Space Into A Masterpiece.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <a href="../contact/contact.html"
+                        class="inline-block px-10 py-4 bg-black/60 border border-white/80 rounded-full text-white font-rethink tracking-widest text-xs sm:text-sm md:text-base hover:bg-black/40 transition-all duration-500">
+                        PLAN YOUR PROJECT
+                    </a>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Footer (duplicated from About page) -->
+    <footer class="bg-[#0B0B0B] text-white px-4 sm:px-8 lg:px-16 pt-20 pb-8">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Top Footer -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
+
+                <!-- Brand & Description -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="../assets/home/havona Group-06.png" alt="Havona Group" class="w-16 h-16">
+                    </div>
+
+                    <p class="text-sm text-white/70 leading-relaxed max-w-sm font-rethink">
+                        Havona Group is a multidisciplinary architecture, construction, interior, and real estate firm
+                        delivering
+                        future-ready residential, commercial, and industrial projects.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex items-center gap-4 mt-6 text-white/80">
+                        <a href="#" class="hover:text-white transition">
+                            <i class="ph ph-facebook-logo text-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i class="ph ph-instagram-logo text-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i class="ph ph-linkedin-logo text-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i class="ph ph-youtube-logo text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="font-rethink">
+                    <h4 class="text-sm uppercase tracking-widest text-white/60 mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="../about/about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blogs</a></li>
+                        <li><a href="../contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="font-rethink">
+                    <h4 class="text-sm uppercase tracking-widest text-white/60 mb-6">Contact</h4>
+
+                    <ul class="space-y-4 text-sm text-white/70">
+                        <li class="flex items-start gap-3">
+                            <i class="ph ph-map-pin text-lg text-white mt-0.5"></i>
+                            <span>L66, TNHB Colony, Tenkasi – 62811</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-phone text-lg text-white"></i>
+                            <span>+91 8110000878</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-phone text-lg text-white"></i>
+                            <span>+91 8110000878</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-envelope text-lg text-white"></i>
+                            <span>info@havona.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-white/10 pt-2">
+
+                <!-- Bottom Footer -->
+                <div
+                    class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
+
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="../assets/home/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6">
+                        <a href="#" class="hover:text-white transition">Terms & Conditions</a>
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Cookies Policy</a>
+                    </div>
+
+                    <div>
+                        © 2025 Havona. All Rights Reserved.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
 
     <script src="../js/home/header.js"></script>
     <script src="../js/blog/blog-insights.js"></script>
