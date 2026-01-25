@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Detail - Havona</title>
+    <!-- Rethink Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- New York Font -->
+    <link href="../dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'new-york': ['New York', 'Times New Roman', 'Times', 'serif'],
+                        'rethink': ['Rethink Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* New York Font - Proper Declaration */
+        @font-face {
+            font-family: 'New York';
+            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot');
+            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot?#iefix') format('embedded-opentype'),
+                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff2') format('woff2'),
+                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff') format('woff'),
+                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.ttf') format('truetype'),
+                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.svg#New York') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .font-new-york {
+            font-family: 'New York', 'Times New Roman', Times, serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F0F0F0]">
+    <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 py-6 transition-all duration-300"
+        id="main-header">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center gap-2 group transition-transform hover:scale-105">
+                <img src="../assets/home/havona Group-06.png" alt="Havona Logo"
+                    class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav
+                class="hidden lg:flex items-center bg-black/20 backdrop-blur-2xl border border-white/10 rounded-full font-rethink shadow-2xl">
+                <div class="flex items-center px-4">
+                    <a href="../index.html"
+                        class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Home</a>
+                    <a href="../about/about.html"
+                        class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">About Us</a>
+                    <a href="../service/service.html"
+                        class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors flex items-center gap-1">
+                        Service
+                        <i class="ph ph-caret-down text-[10px] mt-0.5 opacity-70"></i>
+                    </a>
+                </div>
+                <a href="./blog.html"
+                    class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">Blog</a>
+                <div class="flex items-center px-4">
+                    <a href="../contact/contact.html"
+                        class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Contact Us</a>
+                </div>
+            </nav>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
+                    <span
+                        class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
+                        <img src="../assets/Header/Vector.svg" alt="Phone" class="w-4 h-4">
+                    </span>
+                    <span class="font-medium">Get a Consultation</span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle"
+                    class="lg:hidden p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="fixed inset-0 z-[100] hidden lg:hidden">
+            <!-- Backdrop -->
+            <div id="mobile-menu-overlay"
+                class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+            <!-- Content -->
+            <div id="mobile-menu-content"
+                class="absolute top-0 right-0 w-[280px] h-full bg-[#1A1D1F]/95 backdrop-blur-2xl border-l border-white/10 p-8 transform translate-x-full transition-transform duration-300 shadow-2xl">
+                <div class="flex items-center justify-between mb-12">
+                    <img src="../assets/home/havona Group-06.png" alt="Havona" class="w-16 h-16 object-contain">
+                    <button id="mobile-menu-close"
+                        class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
+                        <i class="ph ph-x text-2xl"></i>
+                    </button>
+                </div>
+
+                <nav class="flex flex-col gap-6 font-rethink text-lg">
+                    <a href="../index.html" class="text-white/70 hover:text-white transition-colors">Home</a>
+                    <a href="../about/about.html" class="text-white/70 hover:text-white transition-colors">About Us</a>
+                    <a href="../service/service.html"
+                        class="text-white/70 hover:text-white transition-colors">Service</a>
+                    <a href="./blog.html" class="text-white font-semibold">Blog</a>
+                    <a href="../contact/contact.html" class="text-white/70 hover:text-white transition-colors">Contact
+                        Us</a>
+                </nav>
+
+                <div class="absolute bottom-10 left-8 right-8">
+                    <button
+                        class="w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
+                        Get a Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[70vh] w-full overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img src="../assets/home/Hero-banner.png" alt="Construction Background"
+                    class="w-full h-full object-cover">
+            </div>
+
+            <!-- Main Black Overlay (35% Opacity) -->
+            <div class="absolute inset-0 bg-black/35 z-0 pointer-events-none"></div>
+
+            <!-- Glass Fade Effect Layer (Bottom to Middle) -->
+            <div class="absolute inset-x-0 bottom-0 h-full pointer-events-none overflow-hidden z-0">
+                <div class="absolute inset-0 backdrop-blur-[120px]"
+                    style="mask-image: linear-gradient(to top, black 0%, black 40%, transparent 70%); -webkit-mask-image: linear-gradient(to top, black 0%, black 40%, transparent 70%);">
+                </div>
+            </div>
+
+            <!-- Hero Content -->
+            <div
+                class="relative z-10 w-full min-h-[70vh] flex flex-col justify-end pb-8 sm:pb-10 lg:pb-16 px-6 sm:px-10 lg:px-16">
+                <div
+                    class="max-w-[1700px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_auto] items-start gap-8 lg:gap-x-12 lg:gap-y-6">
+
+                    <!-- Heading -->
+                    <h1
+                        class="font-new-york text-white text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] uppercase tracking-wide max-w-6xl text-justify order-1">
+                        CONSTRUCTION SERVICES BUILT ON<br class="hidden lg:block"> STRENGTH AND PRECISION
+                    </h1>
+
+                    <!-- CTA Button -->
+                    <div class="flex items-center justify-center lg:justify-end lg:pt-4 order-3 lg:order-2">
+                        <a href="#"
+                            class="group flex items-center gap-6 p-1.5 pr-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-rethink text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-500 shadow-2xl min-w-[200px]">
+                            <span
+                                class="w-10 h-10 flex items-center justify-center bg-white rounded-full text-black transition-transform group-hover:scale-110">
+                                <i class="ph ph-arrow-right text-xl"></i>
+                            </span>
+                            <span class="font-bold">View Full</span>
+                        </a>
+                    </div>
+
+                    <!-- Description -->
+                    <p
+                        class="font-rethink text-white/90 text-sm sm:text-lg lg:text-xl font-light leading-relaxed text-justify order-2 lg:order-3 max-w-5xl lg:col-span-1">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris. Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    </p>
+                </div> <!-- End Boxed Wrapper -->
+            </div>
+        </section>
+
+        <!-- Blog Content Section -->
+        <section class="py-16 sm:py-24 bg-white">
+            <div class="max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-16">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+
+                    <!-- Main Content (Left Column) -->
+                    <div class="lg:col-span-8">
+                        <div class="mb-10">
+                            <h2
+                                class="font-new-york text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A] mb-4 leading-tight">
+                                Running a small business in India
+                            </h2>
+                            <p class="font-rethink text-gray-400 text-sm mb-6">2025-11-25 12:05:48</p>
+
+                            <div
+                                class="flex items-center gap-6 text-gray-500 font-rethink text-sm border-b border-gray-100 pb-8">
+                                <div class="flex items-center gap-2">
+                                    <i class="ph ph-eye text-lg"></i>
+                                    <span>9</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="ph ph-heart text-lg"></i>
+                                    <span>0</span>
+                                </div>
+                                <button
+                                    class="flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors">
+                                    <i class="ph ph-share-network text-lg"></i>
+                                    <span class="font-medium">Share</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="prose prose-lg max-w-none font-rethink text-gray-700 leading-relaxed space-y-8 text-justify">
+                            <p>
+                                Running a small business in India comes with constant financial challenges—seasonal
+                                sales drops, sudden expenses, emergency purchases, and the need for continuous working
+                                capital. In such situations, traditional bank loans often involve lengthy paperwork,
+                                collateral requirements, and long approval times. Running a small business in India
+                                comes with constant financial challenges—seasonal sales drops, sudden expenses,
+                                emergency purchases, and the need for continuous working capital. In such situations,
+                                traditional bank loans often involve lengthy paperwork, collateral requirements, and
+                                long approval times.
+                            </p>
+                            <p>
+                                Running a small business in India comes with constant financial challenges—seasonal
+                                sales drops, sudden expenses, emergency purchases, and the need for continuous working
+                                capital. In such situations, traditional bank loans often involve lengthy paperwork,
+                                collateral requirements, and long approval times. Running a small business in India
+                                comes with constant financial challenges—seasonal sales drops, sudden expenses,
+                                emergency purchases, and the need for continuous working capital. In such situations,
+                                traditional bank loans often involve lengthy paperwork, collateral requirements, and
+                                long approval times.
+                            </p>
+                            <p>
+                                Running a small business in India comes with constant financial challenges—seasonal
+                                sales drops, sudden expenses, emergency purchases, and the need for continuous working
+                                capital. In such situations, traditional bank loans often involve lengthy paperwork,
+                                collateral requirements, and long approval times. Running a small business in India
+                                comes with constant financial challenges—seasonal sales drops, sudden expenses,
+                                emergency purchases, and the need for continuous working capital. In such situations,
+                                traditional bank loans often involve lengthy paperwork, collateral requirements, and
+                                long approval times.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar (Right Column) -->
+                    <div class="lg:col-span-4">
+                        <h3 class="font-new-york text-2xl sm:text-3xl text-[#1A1A1A] mb-8">Related Blogs</h3>
+
+                        <div class="space-y-8">
+                            <!-- Related Card 1 -->
+                            <div class="flex gap-4 group cursor-pointer">
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-2xl overflow-hidden shadow-md">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=400&auto=format&fit=crop"
+                                        alt="Savings"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <div class="flex flex-col justify-center">
+                                    <span
+                                        class="inline-block self-start px-3 py-1 bg-blue-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">Savings</span>
+                                    <h4
+                                        class="font-rethink text-sm sm:text-base font-bold text-[#1A1A1A] line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors">
+                                        A Simple, Transparent, And Rewarding Way To Grow Your Savings Together.
+                                    </h4>
+                                    <p class="font-rethink text-gray-400 text-[10px] mt-2 italic">October 28, 2025</p>
+                                </div>
+                            </div>
+
+                            <!-- Related Card 2 -->
+                            <div class="flex gap-4 group cursor-pointer">
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-2xl overflow-hidden shadow-md">
+                                    <img src="https://images.unsplash.com/photo-1454165833767-1316b312b217?q=80&w=400&auto=format&fit=crop"
+                                        alt="Finance"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <div class="flex flex-col justify-center">
+                                    <span
+                                        class="inline-block self-start px-3 py-1 bg-blue-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">Finance</span>
+                                    <h4
+                                        class="font-rethink text-sm sm:text-base font-bold text-[#1A1A1A] line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors">
+                                        Maximize Your Financial Potential With Flexible And Secure Chit Fund Options.
+                                    </h4>
+                                    <p class="font-rethink text-gray-400 text-[10px] mt-2 italic">October 23, 2025</p>
+                                </div>
+                            </div>
+
+                            <!-- Related Card 3 -->
+                            <div class="flex gap-4 group cursor-pointer">
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-2xl overflow-hidden shadow-md">
+                                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=400&auto=format&fit=crop"
+                                        alt="Success"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <div class="flex flex-col justify-center">
+                                    <span
+                                        class="inline-block self-start px-3 py-1 bg-blue-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">Success</span>
+                                    <h4
+                                        class="font-rethink text-sm sm:text-base font-bold text-[#1A1A1A] line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors">
+                                        Understand The Benefits And Success Stories Behind India's Most Trusted Saving
+                                        Model.
+                                    </h4>
+                                    <p class="font-rethink text-gray-400 text-[10px] mt-2 italic">October 17, 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner Section -->
+        <section class="relative py-20 px-4 sm:px-8 lg:px-20 bg-white">
+            <div
+                class="relative w-full max-w-[1700px] mx-auto h-[400px] sm:h-[500px] md:h-[400px] rounded-[20px] overflow-hidden group">
+                <!-- Background Image -->
+                <img src="../assets/home/Hero-banner.png" alt="Modern Architecture"
+                    class="absolute inset-0 w-full h-full object-cover">
+
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-black/50"></div>
+
+                <!-- Content -->
+                <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
+                    <h2
+                        class="font-new-york text-white text-5xl sm:text-7xl md:text-7xl lg:text-[75px] mb-4 tracking-tight leading-none font-light">
+                        STOP WAITING</h2>
+                    <p class="font-rethink text-white/90 text-base sm:text-xl lg:text-2xl max-w-2xl mb-10 font-light">
+                        Start Transforming Your Space Into A Masterpiece.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <a href="../contact/contact.html"
+                        class="inline-block px-10 py-4 bg-black/60 border border-white/80 rounded-full text-white font-rethink tracking-widest text-xs sm:text-sm md:text-base hover:bg-black/40 transition-all duration-500">
+                        PLAN YOUR PROJECT
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0B0B0B] text-white px-4 sm:px-8 lg:px-16 pt-20 pb-8">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Top Footer -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
+
+                <!-- Brand & Description -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="../assets/home/havona Group-06.png" alt="Havona Group" class="w-16 h-16">
+                    </div>
+
+                    <p class="text-sm text-white/70 leading-relaxed max-w-sm font-rethink">
+                        Havona Group is a multidisciplinary architecture, construction, interior, and real estate firm
+                        delivering
+                        future-ready residential, commercial, and industrial projects.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex items-center gap-4 mt-6 text-white/80">
+                        <a href="#" class="hover:text-white transition">
+                            <i class="ph ph-facebook-logo text-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i class="ph ph-instagram-logo text-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i class="ph ph-linkedin-logo text-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i class="ph ph-youtube-logo text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="font-rethink">
+                    <h4 class="text-sm uppercase tracking-widest text-white/60 mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="../about/about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blogs</a></li>
+                        <li><a href="../contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="font-rethink">
+                    <h4 class="text-sm uppercase tracking-widest text-white/60 mb-6">Contact</h4>
+
+                    <ul class="space-y-4 text-sm text-white/70">
+                        <li class="flex items-start gap-3">
+                            <i class="ph ph-map-pin text-lg text-white mt-0.5"></i>
+                            <span>L66, TNHB Colony, Tenkasi – 62811</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-phone text-lg text-white"></i>
+                            <span>+91 8110000878</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-phone text-lg text-white"></i>
+                            <span>+91 8110000878</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-envelope text-lg text-white"></i>
+                            <span>info@havona.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-white/10 pt-2">
+
+                <!-- Bottom Footer -->
+                <div
+                    class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
+
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="../assets/home/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6">
+                        <a href="#" class="hover:text-white transition">Terms & Conditions</a>
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Cookies Policy</a>
+                    </div>
+
+                    <div>
+                        © 2025 Havona. All Rights Reserved.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="../js/home/header.js"></script>
+</body>
+
+</html>

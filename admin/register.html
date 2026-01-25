@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration - Havona</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'new-york': ['New York', 'Times New Roman', 'serif'],
+                        'rethink': ['Rethink Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#1A1D1F',
+                            gray: '#4D4D4D',
+                            accent: '#4F5B66'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @font-face {
+            font-family: 'New York';
+            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff2') format('woff2');
+            font-display: swap;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F0F0F0] font-rethink min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+
+    <!-- Background Elements -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#4F5B66]/10 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#000000]/5 rounded-full blur-[100px]"></div>
+        <img src="../assets/home/Buildings-sketch.png"
+            class="absolute inset-0 w-full h-full object-cover opacity-[0.03]" alt="Background">
+    </div>
+
+    <!-- Registration Card -->
+    <div
+        class="relative z-10 w-full max-w-5xl bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+
+        <!-- Left Side: Image/Branding -->
+        <div
+            class="w-full md:w-5/12 bg-[#1A1D1F] text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
+            <!-- Background Image Overlay -->
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop"
+                class="absolute inset-0 w-full h-full object-cover opacity-40" alt="Admin">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/80"></div>
+
+            <div class="relative z-10">
+                <img src="../assets/home/havona Group-06.png"
+                    class="w-16 h-16 object-contain mb-8 filter brightness-0 invert" alt="Logo">
+                <h1 class="font-new-york text-4xl md:text-5xl leading-tight mb-4">Join the<br>Experience</h1>
+                <p class="text-white/70 font-light text-lg">Manage your business with elegance and efficiency.</p>
+            </div>
+
+            <div class="relative z-10 mt-12">
+                <div class="flex items-center gap-2 text-white/50 text-sm">
+                    <span>Already have an account?</span>
+                    <a href="login.html" class="text-white underline hover:text-white/80 transition-colors">Sign In</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <div class="w-full md:w-7/12 p-8 md:p-12 bg-white flex flex-col justify-center">
+            <h2 class="font-new-york text-3xl mb-1 text-black">Create Admin Account</h2>
+            <p class="text-brand-gray mb-8 text-sm">Fill in your details to get started.</p>
+
+            <form id="registerForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Name -->
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-500">Full Name</label>
+                        <input type="text" name="name" required
+                            class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-black focus:ring-0 focus:bg-white transition-all outline-none"
+                            placeholder="John Doe">
+                    </div>
+                    <!-- Shop Name -->
+
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Email -->
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-500">Email Address</label>
+                        <input type="email" name="email" required
+                            class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-black focus:ring-0 focus:bg-white transition-all outline-none"
+                            placeholder="john@example.com">
+                    </div>
+                    <!-- Phone -->
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-500">Phone Number</label>
+                        <input type="tel" name="phone" required
+                            class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-black focus:ring-0 focus:bg-white transition-all outline-none"
+                            placeholder="+91 98765 43210">
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="space-y-1 relative">
+                    <label class="text-xs font-bold uppercase tracking-wider text-gray-500">Password</label>
+                    <input type="password" name="password" id="password" required
+                        class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-black focus:ring-0 focus:bg-white transition-all outline-none"
+                        placeholder="••••••••">
+                    <p class="text-[10px] text-gray-400 mt-1">Must contain 1 Capital letter & 1 Symbol.</p>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="space-y-1">
+                    <label class="text-xs font-bold uppercase tracking-wider text-gray-500">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" required
+                        class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-black focus:ring-0 focus:bg-white transition-all outline-none"
+                        placeholder="••••••••">
+                </div>
+
+                <!-- Error/Success Message -->
+                <div id="message" class="hidden text-center text-sm p-2 rounded-lg"></div>
+
+                <button type="submit" id="submitBtn"
+                    class="w-full bg-black text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition-all transform active:scale-[0.99] shadow-lg mt-4 flex items-center justify-center gap-2">
+                    <span>Create Account</span>
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+
+</html>
