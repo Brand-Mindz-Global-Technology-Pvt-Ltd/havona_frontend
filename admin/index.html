@@ -10,6 +10,8 @@
         rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Consolidated Scripts -->
+    <!-- Scripts moved to bottom -->
     <script>
         tailwind.config = {
             theme: {
@@ -43,25 +45,27 @@
         </div>
 
         <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
-            <a href="#" class="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-xl text-white font-medium">
+            <button
+                onclick="showSection('dashboard-section', this); if(typeof updateDashboardStats === 'function') updateDashboardStats();"
+                class="nav-link w-full flex items-center gap-3 px-4 py-3 bg-white/10 rounded-xl text-white font-medium transition-all">
                 <i class="ph ph-squares-four text-xl"></i>
                 Dashboard
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-xl text-white/70 hover:text-white transition-colors">
-                <i class="ph ph-users text-xl"></i>
-                Users
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-xl text-white/70 hover:text-white transition-colors">
-                <i class="ph ph-package text-xl"></i>
-                Orders
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-xl text-white/70 hover:text-white transition-colors">
+            </button>
+            <button onclick="showSection('blogs-section', this); fetchBlogs();"
+                class="nav-link w-full flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-xl text-white/70 hover:text-white transition-colors">
+                <i class="ph ph-article text-xl"></i>
+                Blogs
+            </button>
+            <button onclick="showSection('categories-section', this); fetchCategories();"
+                class="nav-link w-full flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-xl text-white/70 hover:text-white transition-colors">
                 <i class="ph ph-tag text-xl"></i>
-                Products
-            </a>
+                Categories
+            </button>
+            <button onclick="showSection('enquiries-section', this); fetchEnquiries();"
+                class="nav-link w-full flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-xl text-white/70 hover:text-white transition-colors">
+                <i class="ph ph-envelope text-xl"></i>
+                Enquiries
+            </button>
         </nav>
 
         <div class="p-4 border-t border-white/10">
@@ -85,60 +89,329 @@
             <button class="p-2 text-gray-600"><i class="ph ph-list text-2xl"></i></button>
         </header>
 
-        <!-- Welcome Banner -->
-        <div class="relative w-full rounded-[30px] overflow-hidden bg-[#1A1D1F] text-white p-8 md:p-12 mb-8 shadow-xl">
-            <!-- Decorative Backgound -->
-            <div class="absolute inset-0">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
-                    class="w-full h-full object-cover opacity-20" alt="Banner">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#1A1D1F] via-[#1A1D1F]/80 to-transparent"></div>
-            </div>
-
-            <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                <div>
-                    <span
-                        class="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-medium tracking-wider mb-3 border border-white/20">ADMIN
-                        PANEL</span>
-                    <h1 class="font-new-york text-3xl md:text-5xl mb-2">Welcome Back, <span id="adminName">Admin</span>!
-                    </h1>
-                    <p class="text-white/60 max-w-lg font-light text-lg">Here's what's happening with your store today.
-                    </p>
+        <!-- DASHBOARD SECTION -->
+        <div id="dashboard-section" class="section-content">
+            <!-- Welcome Banner -->
+            <div
+                class="relative w-full rounded-[30px] overflow-hidden bg-[#1A1D1F] text-white p-8 md:p-12 mb-8 shadow-xl">
+                <div class="absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
+                        class="w-full h-full object-cover opacity-20" alt="Banner">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#1A1D1F] via-[#1A1D1F]/80 to-transparent"></div>
                 </div>
 
-                <div class="flex gap-3">
-                    <div
-                        class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center min-w-[100px]">
-                        <div class="text-xs text-white/50 uppercase tracking-widest mb-1">Orders</div>
-                        <div class="text-2xl font-bold">12</div>
+                <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    <div>
+                        <span
+                            class="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-medium tracking-wider mb-3 border border-white/20">ADMIN
+                            PANEL</span>
+                        <h1 class="font-new-york text-3xl md:text-5xl mb-2">Welcome Back, <span
+                                id="adminName">Admin</span>!
+                        </h1>
+                        <p class="text-white/60 max-w-lg font-light text-lg">Manage your website content here.
+                        </p>
                     </div>
-                    <div
-                        class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center min-w-[100px]">
-                        <div class="text-xs text-white/50 uppercase tracking-widest mb-1">Revenue</div>
-                        <div class="text-2xl font-bold">$1.2k</div>
-                    </div>
+                </div>
+            </div>
+
+            <!-- Content Widgets -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Blog Stats Widget (Dynamic) -->
+                <div
+                    class="bg-white p-6 rounded-[24px] shadow-sm border border-gray-100 h-64 flex flex-col items-center justify-center text-center">
+                    <i class="ph ph-article text-5xl mb-4 text-[#1A1D1F]/20"></i>
+                    <span id="totalBlogsCount" class="text-4xl font-bold text-[#1A1D1F] mb-1">0</span>
+                    <span class="font-medium text-gray-500 uppercase tracking-wider text-xs">Total Blogs</span>
+                </div>
+                <!-- Category Stats Widget (Dynamic) -->
+                <div
+                    class="bg-white p-6 rounded-[24px] shadow-sm border border-gray-100 h-64 flex flex-col items-center justify-center text-center">
+                    <i class="ph ph-tag text-5xl mb-4 text-[#1A1D1F]/20"></i>
+                    <span id="totalCategoriesCount" class="text-4xl font-bold text-[#1A1D1F] mb-1">0</span>
+                    <span class="font-medium text-gray-500 uppercase tracking-wider text-xs">Categories</span>
+                </div>
+                <!-- Enquiry Stats Widget (Dynamic) -->
+                <div
+                    class="bg-white p-6 rounded-[24px] shadow-sm border border-gray-100 h-64 flex flex-col items-center justify-center text-center">
+                    <i class="ph ph-envelope text-5xl mb-4 text-[#1A1D1F]/20"></i>
+                    <span id="unreadEnquiriesCount" class="text-4xl font-bold text-[#1A1D1F] mb-1">0</span>
+                    <span class="font-medium text-gray-500 uppercase tracking-wider text-xs">Unread Enquiries</span>
                 </div>
             </div>
         </div>
 
-        <!-- Content Placeholder -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div
-                class="bg-white p-6 rounded-[24px] shadow-sm border border-gray-100 h-64 flex items-center justify-center text-gray-400">
-                Widget Placeholder
+        <!-- BLOGS LIST SECTION -->
+        <div id="blogs-section" class="section-content hidden">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-4">
+                    <h1 class="font-new-york text-3xl">Manage Blogs</h1>
+                </div>
+                <button onclick="showAddBlogForm()"
+                    class="bg-[#1A1D1F] text-white px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-black transition-colors">
+                    <i class="ph ph-plus text-lg"></i>
+                    Add New Blog
+                </button>
             </div>
-            <div
-                class="bg-white p-6 rounded-[24px] shadow-sm border border-gray-100 h-64 flex items-center justify-center text-gray-400">
-                Widget Placeholder
-            </div>
-            <div
-                class="bg-white p-6 rounded-[24px] shadow-sm border border-gray-100 h-64 flex items-center justify-center text-gray-400">
-                Widget Placeholder
+
+            <!-- Blogs Table -->
+            <div class="bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-100 bg-gray-50/50">
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Image</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Title</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Category
+                                </th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Status</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Date</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="blogsTableBody">
+                            <!-- Content will be loaded dynamically -->
+                            <tr>
+                                <td colspan="6" class="p-8 text-center text-gray-400">Loading blogs...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
+        <!-- CATEGORIES SECTION -->
+        <div id="categories-section" class="section-content hidden">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-4">
+                    <h1 class="font-new-york text-3xl">Manage Categories</h1>
+                </div>
+                <button onclick="showAddCategoryModal()"
+                    class="bg-[#1A1D1F] text-white px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-black transition-colors">
+                    <i class="ph ph-plus text-lg"></i>
+                    Add Category
+                </button>
+            </div>
+
+            <!-- Categories Table -->
+            <div class="bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-100 bg-gray-50/50">
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">ID</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Name</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Slug</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoriesTableBody">
+                            <tr>
+                                <td colspan="4" class="p-8 text-center text-gray-400">Loading categories...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOG ADDIEDIT FORM SECTION -->
+        <div id="blog-form-section" class="section-content hidden">
+            <!-- Header -->
+            <header class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-2 text-gray-400">
+                    <button onclick="showBlogSection()" class="hover:text-[#1A1D1F]">Blogs</button>
+                    <span>/</span>
+                    <span class="text-[#1A1D1F]" id="blogFormTitle">Add Blog</span>
+                </div>
+            </header>
+
+            <!-- Form -->
+            <div class="bg-white p-8 rounded-[24px] shadow-sm border border-gray-100 max-w-4xl mx-auto">
+                <form id="blogForm" class="space-y-6">
+                    <input type="hidden" name="id" id="blogId">
+                    <input type="hidden" name="action_type" id="blogActionType" value="add">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-gray-700">Blog Title *</label>
+                            <input type="text" name="title" id="title" required
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-gray-700">Slug *</label>
+                            <input type="text" name="slug" id="slug" required
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Short Description *</label>
+                        <textarea name="short_description" id="short_description" rows="3" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white"></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">Full Content *</label>
+                        <textarea name="content" id="content" rows="10" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-gray-700">Category *</label>
+                            <select name="category" id="category" required
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white">
+                                <option value="">Select Category</option>
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-gray-700">Tags (comma separated)</label>
+                            <input type="text" name="tags" id="tags"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-gray-700">SEO Meta Title</label>
+                            <input type="text" name="meta_title" id="meta_title"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-gray-700">SEO Meta Description</label>
+                            <textarea name="meta_description" id="meta_description" rows="2"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-gray-700">Status</label>
+                            <select name="status" id="status"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white">
+                                <option value="Published">Published</option>
+                                <option value="Draft">Draft</option>
+                                <option value="Archived">Archived</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold text-gray-700">Featured Image</label>
+                            <input type="file" name="image" id="image" accept="image/*"
+                                class="w-full px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900/10 focus:border-gray-900 transition-all bg-gray-50 focus:bg-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-900 file:text-white hover:file:bg-black">
+                            <img id="imagePreview" class="mt-4 w-32 h-32 object-cover rounded-xl hidden">
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-gray-100 flex gap-4">
+                        <button type="submit" id="saveBlogBtn"
+                            class="px-8 py-3 bg-[#1A1D1F] text-white font-medium rounded-xl hover:bg-black transition-colors shadow-lg shadow-gray-200">
+                            Save Blog Post
+                        </button>
+                        <button type="button" onclick="showBlogSection()"
+                            class="px-8 py-3 bg-white text-gray-600 font-medium rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
+                            Cancel
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- ENQUIRIES SECTION -->
+        <div id="enquiries-section" class="section-content hidden">
+            <header class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-4">
+                    <h1 class="font-new-york text-3xl">Enquiries</h1>
+                </div>
+            </header>
+
+            <div class="bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-100 bg-gray-50/50">
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Name</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Last Name
+                                </th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Email</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Phone</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Service
+                                </th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Message
+                                </th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Date</th>
+                                <th class="p-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="enquiriesTableBody">
+                            <tr>
+                                <td colspan="5" class="p-8 text-center text-gray-400">Loading enquiries...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Modals (e.g., Add Category) -->
+        <div id="categoryModal" class="fixed inset-0 z-100 hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeCategoryModal()"></div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+                <h3 class="font-new-york text-2xl mb-6">Add Category</h3>
+                <form id="addCategoryForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                        <input type="text" name="name" id="catName" required
+                            class="w-full px-4 py-2 rounded-xl border border-gray-200">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Slug</label>
+                        <input type="text" name="slug" id="catSlug" required
+                            class="w-full px-4 py-2 rounded-xl border border-gray-200">
+                    </div>
+                    <div class="flex justify-end gap-3 pt-4">
+                        <button type="button" onclick="closeCategoryModal()"
+                            class="px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">Cancel</button>
+                        <button type="submit"
+                            class="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
 
+    <script src="js/dashboard.js"></script>
+    <script src="js/blogs.js"></script>
+    <script src="js/categories.js"></script>
+    <script src="js/enquiries.js"></script>
     <script>
+        // Tab Navigation
+        function showSection(sectionId, btnElement) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(el => el.classList.add('hidden'));
+
+            // Show target section
+            document.getElementById(sectionId).classList.remove('hidden');
+
+            // Update Navigation State
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('bg-white/10', 'text-white', 'font-medium');
+                el.classList.add('hover:bg-white/5', 'text-white/70', 'hover:text-white');
+            });
+
+            if (btnElement) {
+                btnElement.classList.remove('hover:bg-white/5', 'text-white/70', 'hover:text-white');
+                btnElement.classList.add('bg-white/10', 'text-white', 'font-medium');
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const userStr = localStorage.getItem('admin_user');
             if (!userStr) {
@@ -153,6 +426,8 @@
                 localStorage.removeItem('admin_user');
                 window.location.href = 'login.html';
             });
+
+            // Ensure first tab is active by default if needed, or rely on HTML state
         });
     </script>
 </body>
