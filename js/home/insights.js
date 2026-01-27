@@ -55,7 +55,7 @@ function createLargeCard(blog) {
     const imgUrl = blog.image ? `https://havona.brandmindz.com/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/420x520';
     // Using layout from the user's static HTML
     return `
-    <div class="shrink-0 w-[300px] sm:w-[350px] md:w-[420px] h-[520px] rounded-[24px] overflow-hidden shadow-[0_15px_50px_-12px_rgba(0,0,0,0.15)] relative group cursor-pointer snap-start border border-gray-100" onclick="window.location.href='blog/blogdetail.html?slug=${blog.slug}'">
+    <div class="shrink-0 w-[300px] sm:w-[350px] md:w-[420px] h-[520px] rounded-[24px] overflow-hidden relative group cursor-pointer snap-start border border-gray-100" onclick="window.location.href='blog/blogdetail.html?slug=${blog.slug}'">
         <img src="${imgUrl}"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             alt="${blog.title}">

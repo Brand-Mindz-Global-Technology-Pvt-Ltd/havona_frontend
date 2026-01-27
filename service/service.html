@@ -80,7 +80,7 @@
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center gap-4">
                 <button
-                    class="hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
+                    class="btn-consultation hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
                     <span
                         class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
                         <img src="../assets/Header/Vector.svg" alt="Phone" class="w-4 h-4">
@@ -125,7 +125,7 @@
 
                 <div class="absolute bottom-10 left-8 right-8">
                     <button
-                        class="w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
+                        class="btn-consultation w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
                         Get a Consultation
                     </button>
                 </div>
@@ -214,6 +214,171 @@
 
         </section>
 
+        <!-- Dynamic Services Section -->
+        <section class="relative py-[48px] lg:py-[96px] px-[16px] sm:px-[32px] lg:px-[64px] bg-white overflow-hidden">
+            <div class="max-w-[1600px] mx-auto relative px-[20px] md:px-0">
+
+                <!-- Left Vertical Rotated Title (Brighter, Overflowing Outside) -->
+                <div class="hidden xl:flex absolute left-[-75px] top-1/2 -translate-y-1/2 z-30 pointer-events-none">
+                    <h2 id="service-rotated-title"
+                        class="[writing-mode:vertical-lr] rotate-180 font-new-york text-[100px] text-[#E0E0E0] uppercase tracking-tighter leading-none select-none opacity-80">
+                        Interior
+                    </h2>
+                </div>
+
+                <!-- Main Section Container (Image + Overlays) -->
+                <div
+                    class="flex-1 relative shadow-2xl bg-gray-900 group min-h-[500px] lg:min-h-[640px] rounded-[50px] lg:rounded-[40px]">
+
+                    <!-- Background Images / Slider -->
+                    <div id="service-bg-container"
+                        class="absolute inset-0 z-0 rounded-[50px] lg:rounded-[80px] overflow-hidden">
+                        <!-- Interior Slider (Default) -->
+                        <div id="interior-slider" class="w-full h-full relative">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
+                                class="service-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000"
+                                alt="Interior 1">
+                            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop"
+                                class="service-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+                                alt="Interior 2">
+                            <img src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?q=80&w=2000&auto=format&fit=crop"
+                                class="service-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+                                alt="Interior 3">
+                        </div>
+                    </div>
+
+                    <!-- Top Right Overlapping Tabs (White Box, Integrated Flow) -->
+                    <div
+                        class="absolute top-0 right-0 z-50 bg-white pl-[40px] pb-[32px] rounded-bl-[40px] rounded-tr-[40px] hidden md:block shadow-sm">
+                        <div class="flex items-center gap-[40px] font-rethink pt-[32px] pr-[80px]">
+                            <button onclick="switchService('Architecture', this)"
+                                class="service-tab text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
+                                Architecture
+                            </button>
+                            <button onclick="switchService('Construction', this)"
+                                class="service-tab text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
+                                Construction
+                            </button>
+                            <button onclick="switchService('Interior', this)"
+                                class="service-tab text-[22px] text-black font-semibold relative py-[8px] transition-all duration-300">
+                                <!-- Active Line Above Heading -->
+                                <span
+                                    class="tab-indicator absolute -top-[24px] left-0 w-full h-[3px] bg-[#4D606C]"></span>
+                                Interior
+                            </button>
+                            <button onclick="switchService('PMC', this)"
+                                class="service-tab text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
+                                PMC
+                            </button>
+                            <button onclick="switchService('Real Estate', this)"
+                                class="service-tab text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
+                                Real Estate
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Inner Hidden Frame for Layout clipping -->
+                    <div
+                        class="absolute inset-0 z-30 pointer-events-none rounded-[50px] lg:rounded-[80px] overflow-hidden">
+                        <!-- Small Vertical Title for smaller screens (Inside) -->
+                        <div class="xl:hidden hidden md:flex absolute left-[-40px] top-1/2 -translate-y-1/2 z-30">
+                            <h2 id="service-rotated-title-inner"
+                                class="[writing-mode:vertical-lr] rotate-180 font-new-york text-[100px] text-white/10 uppercase tracking-tighter leading-none select-none">
+                                Interior
+                            </h2>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Tabs (Horizontal Scroll)-->
+                    <div
+                        class="md:hidden absolute top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md px-4 py-4 overflow-x-auto flex gap-6 border-b border-gray-100 no-scrollbar">
+                        <button onclick="switchService('Architecture', this)"
+                            class="service-tab-mob shrink-0 text-gray-500 font-medium border-b-2 border-transparent pb-1">Architecture</button>
+                        <button onclick="switchService('Construction', this)"
+                            class="service-tab-mob shrink-0 text-gray-500 font-medium border-b-2 border-transparent pb-1">Construction</button>
+                        <button onclick="switchService('Interior', this)"
+                            class="service-tab-mob shrink-0 text-black font-bold border-b-2 border-[#4D606C] pb-1">Interior</button>
+                        <button onclick="switchService('PMC', this)"
+                            class="service-tab-mob shrink-0 text-gray-500 font-medium border-b-2 border-transparent pb-1">PMC</button>
+                        <button onclick="switchService('Real Estate', this)"
+                            class="service-tab-mob shrink-0 text-gray-500 font-medium border-b-2 border-transparent pb-1">Real
+                            Estate</button>
+                    </div>
+
+                    <!-- Overlay Darkening -->
+                    <div class="absolute inset-0 bg-black/30 z-10 rounded-[50px] lg:rounded-[80px]"></div>
+
+                    <!-- Content Wrapper -->
+                    <div class="relative z-20 h-full flex flex-col justify-start pt-[80px] md:pt-[100px]">
+
+                        <!-- Interior Solutions Title Box (Dark Box) -->
+                        <div class="px-[40px] md:px-[64px] lg:px-[80px] mb-[24px] md:mb-[32px] transition-all duration-500"
+                            id="service-header-panel">
+                            <div
+                                class="inline-block bg-black/60 backdrop-blur-md p-[24px] md:p-[32px] rounded-[16px] shadow-2xl">
+                                <h3 id="service-main-title"
+                                    class="font-new-york text-[32px] md:text-[42px] lg:text-[56px] text-white uppercase tracking-[0.05em] leading-tight">
+                                    Interior Solutions
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Main Descriptive Text Overlay -->
+                        <div class="px-[40px] md:px-[64px] lg:px-[80px] max-w-[1000px] transition-all duration-500"
+                            id="service-content-box">
+                            <!-- Tagline/Quote -->
+                            <div class="mb-[32px]">
+                                <p id="service-quote"
+                                    class="font-rethink text-white text-[18px] md:text-[20px] lg:text-[24px] font-light leading-relaxed italic opacity-90">
+                                    " Smart, Elegant Interiors Tailored For Your Lifestyle Or Workspace "
+                                </p>
+                            </div>
+
+                            <!-- Description Text -->
+                            <div id="service-description" class="space-y-[24px] max-w-[800px] mb-[40px]">
+                                <p
+                                    class="font-rethink text-white/90 text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">
+                                    Our Interior Solutions Focus On Creating Spaces That Are Both Beautiful And
+                                    Functional. From Conceptual Design To Execution, We Craft Interiors That Reflect
+                                    Your Personality, Brand, And Lifestyle. Every Element Is Thoughtfully Planned To
+                                    Ensure Comfort, Style, And Efficiency, Making Your Space Truly One-Of-A-Kind.
+                                </p>
+                                <p
+                                    class="font-rethink text-white/90 text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">
+                                    Our Interior Solutions Focus On Creating Spaces That Are Both Beautiful And
+                                    Functional.
+                                </p>
+                            </div>
+
+                            <!-- CTA -->
+                            <div class="pt-[4px]">
+                                <a href="../contact/contact.html"
+                                    class="inline-flex items-center gap-[16px] px-[32px] py-[14px] bg-[#4D606C]/80 backdrop-blur-lg rounded-full text-white font-rethink text-[15px] font-semibold hover:bg-[#4D606C] transition-all duration-300 group shadow-xl">
+                                    <span
+                                        class="w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center text-[#4D606C] group-hover:rotate-12 transition-transform">
+                                        <i class="ph ph-phone-call text-[20px]"></i>
+                                    </span>
+                                    Get a Consultation
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Slider Dots -->
+                        <div id="service-pagination"
+                            class="absolute bottom-[60px] left-1/2 -translate-x-1/2 flex gap-[12px] z-30">
+                            <button onclick="setSlide(0)"
+                                class="service-dot w-[14px] h-[14px] rounded-full bg-white transition-all duration-300 shadow-lg"></button>
+                            <button onclick="setSlide(1)"
+                                class="service-dot w-[14px] h-[14px] rounded-full bg-white/30 transition-all duration-300 shadow-lg"></button>
+                            <button onclick="setSlide(2)"
+                                class="service-dot w-[14px] h-[14px] rounded-full bg-white/30 transition-all duration-300 shadow-lg"></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Gallery Section -->
         <section class="relative py-28 pb-12 overflow-hidden bg-white">
             <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
@@ -282,7 +447,8 @@
 
             <!-- Background Sketch -->
             <div class="absolute inset-0 z-0 opacity-100 pointer-events-none">
-                <img src="../assets/home/Buildings-sketch.png" class="w-full h-full object-cover grayscale" alt="Background">
+                <img src="../assets/home/Buildings-sketch.png" class="w-full h-full object-cover grayscale"
+                    alt="Background">
             </div>
 
             <div class="relative z-10 max-w-[1450px] mx-auto">
@@ -290,10 +456,12 @@
 
                     <!-- Left Column -->
                     <div>
-                        <h2 class="font-new-york text-5xl md:text-6xl leading-tight mb-8">
+                        <span
+                            class="block text-[10px] sm:text-xs font-rethink tracking-[0.3em] text-gray-500 mb-4 uppercase">FAQS</span>
+                        <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">
                             FREQUENTLY ASK<br>QUESTIONS
                         </h2>
-                        <p class="font-rethink text-gray-400 text-lg leading-relaxed max-w-md font-light">
+                        <p class="font-rethink text-gray-400 text-base md:text-lg leading-relaxed max-w-md font-light">
                             Find quick answers to common questions about our services and process. If you need more
                             help,
                             our
@@ -467,7 +635,7 @@
                 <!-- Content -->
                 <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
                     <h2
-                        class="font-new-york text-white text-5xl sm:text-7xl md:text-7xl lg:text-[75px] mb-4 tracking-tight leading-none font-light">
+                        class="font-new-york text-white text-3xl md:text-4xl lg:text-5xl mb-4 tracking-tight leading-none font-light">
                         STOP WAITING</h2>
                     <p class="font-rethink text-white/90 text-base sm:text-xl lg:text-2xl max-w-2xl mb-10 font-light">
                         Start Transforming Your Space Into A Masterpiece.
@@ -586,6 +754,7 @@
 
     <script src="../js/home/header.js"></script>
     <script src="../js/blog/blog-gallery.js"></script>
+    <script src="../js/services/services-section.js"></script>
     <script>
         // FAQ Logic
         function toggleFaq(button) {
@@ -606,6 +775,7 @@
         // Open first item by default
         document.querySelector('.faq-item')?.classList.add('active');
     </script>
+    <script src="../js/shared/consultation-modal.js"></script>
 </body>
 
 </html>

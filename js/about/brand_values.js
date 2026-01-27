@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startAutoScroll() {
         stopAutoScroll();
-        autoScrollInterval = setInterval(nextSet, 5000);
+        autoScrollInterval = setInterval(nextSet, 2500);
     }
 
     function stopAutoScroll() {
@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoScroll();
 
     // Pause on hover
-    track.parentElement.addEventListener('mouseenter', stopAutoScroll);
-    track.parentElement.addEventListener('mouseleave', startAutoScroll);
+    // track.parentElement.addEventListener('mouseenter', stopAutoScroll);
+    // track.parentElement.addEventListener('mouseleave', startAutoScroll);
 
     // Initial call
     updateBrandCarousel();

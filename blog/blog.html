@@ -83,7 +83,7 @@
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center gap-4">
                 <button
-                    class="hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
+                    class="btn-consultation hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
                     <span
                         class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
                         <img src="../assets/Header/Vector.svg" alt="Phone" class="w-4 h-4">
@@ -129,7 +129,7 @@
 
                 <div class="absolute bottom-10 left-8 right-8">
                     <button
-                        class="w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
+                        class="btn-consultation w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all font-rethink">
                         Get a Consultation
                     </button>
                 </div>
@@ -200,10 +200,14 @@
 
                     <!-- Section Header -->
                     <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-8">
-                        <h2
-                            class="font-new-york text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black leading-[1.1] uppercase tracking-wide">
-                            LATEST INSIGHTS<br>CURATED BY OUR STUDIO
-                        </h2>
+                        <div>
+                            <span
+                                class="block text-[10px] sm:text-xs font-rethink tracking-[0.3em] text-gray-500 mb-4 uppercase">BLOG</span>
+                            <h2
+                                class="font-new-york text-3xl md:text-4xl lg:text-5xl text-black leading-tight uppercase tracking-wide">
+                                LATEST INSIGHTS<br>CURATED BY OUR STUDIO
+                            </h2>
+                        </div>
 
                         <!-- Navigation Arrows -->
                         <div class="flex items-center gap-4">
@@ -364,9 +368,14 @@
 
                 <!-- Section Header -->
                 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-10 mb-20">
-                    <h2 class="font-new-york text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A] uppercase tracking-tight">
-                        Studio Notes
-                    </h2>
+                    <div class="mb-10 lg:mb-12">
+                        <span
+                            class="block text-[10px] sm:text-xs font-rethink tracking-[0.3em] text-gray-500 mb-4 uppercase">INSIGHTS</span>
+                        <h2
+                            class="font-new-york text-3xl md:text-4xl lg:text-5xl text-[#1A1A1A] uppercase tracking-tight">
+                            Studio Notes
+                        </h2>
+                    </div>
 
                     <div class="flex flex-wrap items-center gap-6 lg:gap-8">
                         <!-- Category Filter Buttons -->
@@ -456,7 +465,7 @@
                            top-8 left-[30%] -translate-x-[50%] text-[72px]
                            sm:top-20 sm:text-[14vw]
                            md:top-20 md:text-[12vw]
-                           lg:top-10 lg:left-[100px] lg:-translate-x-0 lg:text-[10vw]">
+                           lg:top-10 lg:left-[100px] lg:translate-x-0 lg:text-[10vw]">
                     GALLERY
                 </h2>
 
@@ -525,7 +534,7 @@
                 <!-- Content -->
                 <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
                     <h2
-                        class="font-new-york text-white text-5xl sm:text-7xl md:text-7xl lg:text-[75px] mb-4 tracking-tight leading-none font-light">
+                        class="font-new-york text-white text-3xl md:text-4xl lg:text-5xl mb-4 tracking-tight leading-none font-light">
                         STOP WAITING</h2>
                     <p class="font-rethink text-white/90 text-base sm:text-xl lg:text-2xl max-w-2xl mb-10 font-light">
                         Start Transforming Your Space Into A Masterpiece.
@@ -646,6 +655,7 @@
     <script src="../js/blog/blog-insights.js"></script>
     <script src="../js/blog/blog-frontend-script.js"></script>
     <script src="../js/blog/blog-gallery.js"></script>
+    <script src="../js/shared/consultation-modal.js"></script>
 </body>
 
 </html>

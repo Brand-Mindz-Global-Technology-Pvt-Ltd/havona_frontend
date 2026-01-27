@@ -125,7 +125,7 @@
             <!-- CTA & Mobile Toggle -->
             <div class="flex items-center gap-4">
                 <button
-                    class="hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
+                    class="btn-consultation hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
                     <span
                         class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
                         <img src="../assets/Header/Vector.svg" alt="Phone" class="w-4 h-4">
@@ -171,7 +171,7 @@
 
                 <div class="absolute bottom-10 left-8 right-8">
                     <button
-                        class="w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
+                        class="btn-consultation w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
                         Get a Consultation
                     </button>
                 </div>
@@ -287,12 +287,13 @@
             <div class="pl-0 lg:pl-0 pt-0 lg:pt-8">
                 <span class="block text-sm font-rethink tracking-[0.3em] text-gray-500 mb-4 uppercase">HAVONA</span>
 
-                <h2 class="mb-8 leading-none">
-                    <span class="font-new-york text-6xl sm:text-7xl lg:text-[5.5rem] text-[#D8D8D8] block">Contact
+                <h2 class="mb-8 leading-tight">
+                    <span class="font-new-york text-3xl md:text-4xl lg:text-5xl text-[#D8D8D8] block">Contact
                         US</span>
                 </h2>
 
-                <p class="font-rethink text-gray-500 text-lg leading-relaxed mb-10 font-light text-justify">
+                <p
+                    class="font-rethink text-gray-500 text-base md:text-lg leading-relaxed mb-10 font-light text-justify">
                     We'd love to hear from you. Whether you have a question, a project in mind, or are looking for the
                     right partner to bring your ideas to life, our team is here to help. Reach out to us to discuss your
                     requirements, explore possibilities, or simply start a conversation. We believe meaningful
@@ -322,7 +323,10 @@
 
             <!-- Floating Title (Outside Sidebar) -->
             <div class="mb-8 lg:mb-12 text-left">
-                <h2 class="font-new-york text-4xl sm:text-5xl lg:text-[4rem] leading-none tracking-wide text-white">
+                <span
+                    class="block text-[10px] sm:text-xs font-rethink tracking-[0.3em] text-white/50 mb-4 uppercase">GET
+                    IN TOUCH</span>
+                <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl leading-tight tracking-wide text-white">
                     CONTACT<br>INFORMATION
                 </h2>
             </div>
@@ -593,7 +597,7 @@
             <!-- Content -->
             <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
                 <h2
-                    class="font-new-york text-white text-5xl sm:text-7xl md:text-7xl lg:text-[75px] mb-4 tracking-tight leading-none font-light">
+                    class="font-new-york text-white text-3xl md:text-4xl lg:text-5xl mb-4 tracking-tight leading-none font-light">
                     STOP WAITING</h2>
                 <p class="font-rethink text-white/90 text-base sm:text-xl lg:text-2xl max-w-2xl mb-10 font-light">
                     Start Transforming Your Space Into A Masterpiece.
@@ -622,10 +626,12 @@
 
                 <!-- Left Column -->
                 <div>
-                    <h2 class="font-new-york text-5xl md:text-7xl leading-tight mb-8">
+                    <span
+                        class="block text-[10px] sm:text-xs font-rethink tracking-[0.3em] text-gray-500 mb-4 uppercase">FAQS</span>
+                    <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">
                         FREQUENTLY ASK<br>QUESTIONS
                     </h2>
-                    <p class="font-rethink text-gray-400 text-lg leading-relaxed max-w-md font-light">
+                    <p class="font-rethink text-gray-400 text-base md:text-lg leading-relaxed max-w-md font-light">
                         Find quick answers to common questions about our services and process. If you need more help,
                         our
                         team is just a message away.
@@ -893,6 +899,7 @@
     <script src="../js/home/header.js"></script>
     <script src="../js/blog/blog-gallery.js"></script>
     <script src="../js/contact/contact.js"></script>
+    <script src="../js/shared/consultation-modal.js"></script>
 </body>
 
 </html>
