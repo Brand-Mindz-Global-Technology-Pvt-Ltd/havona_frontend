@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startAutoScroll() {
         stopAutoScroll();
-        autoScrollInterval = setInterval(nextSet, 2500);
+        autoScrollInterval = setInterval(nextSet, 3000);
     }
 
     function stopAutoScroll() {

@@ -57,7 +57,7 @@ function createLargeCard(blog) {
     return `
     <div class="shrink-0 w-[300px] sm:w-[350px] md:w-[420px] h-[520px] rounded-[24px] overflow-hidden relative group cursor-pointer snap-start border border-gray-100" onclick="window.location.href='blog/blogdetail.html?slug=${blog.slug}'">
         <img src="${imgUrl}"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-80"
             alt="${blog.title}">
         <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
 

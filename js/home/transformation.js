@@ -2,20 +2,20 @@
 const categories = ['architecture', 'construction', 'interior', 'pmc', 'realestate'];
 const categoryImages = {
     'architecture': {
-        after: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2000&auto=format&fit=crop'
+        after: './assets/home/architecture-after.webp'
     },
     'construction': {
-        after: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop'
+        after: './assets/home/construction-after.webp'
     },
     'interior': {
-        after: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
-        before: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop'
+        after: './assets/home/interior-after.webp',
+        before: './assets/home/interior-before.webp'
     },
     'pmc': {
-        after: 'https://images.unsplash.com/photo-1507537297725-24a1c434e3ea?q=80&w=2000&auto=format&fit=crop'
+        after: './assets/home/Project-Management-after.webp'
     },
     'realestate': {
-        after: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000&auto=format&fit=crop'
+        after: './assets/home/Real-Estate-after.webp'
     }
 };
 let currentIndex = 2; // Start with interior

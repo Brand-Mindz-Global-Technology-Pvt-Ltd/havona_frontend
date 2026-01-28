@@ -35,9 +35,14 @@ function renderCategories(categories) {
             <td class="p-6 font-medium text-gray-900">${cat.name}</td>
             <td class="p-6 text-gray-600">${cat.slug}</td>
             <td class="p-6">
-                <button onclick="deleteCategory(${cat.id})" class="p-2 hover:bg-red-50 rounded-lg text-red-400 transition-colors" title="Delete">
-                    <i class="ph ph-trash text-xl"></i>
-                </button>
+                <div class="flex items-center gap-2">
+                    <button onclick="showEditCategoryModal(${cat.id}, '${cat.name.replace(/'/g, "\\'")}', '${cat.slug}')" class="p-2 hover:bg-gray-100 rounded-lg text-gray-600 transition-colors" title="Edit">
+                        <i class="ph ph-pencil-simple text-xl"></i>
+                    </button>
+                    <button onclick="deleteCategory(${cat.id})" class="p-2 hover:bg-red-50 rounded-lg text-red-400 transition-colors" title="Delete">
+                        <i class="ph ph-trash text-xl"></i>
+                    </button>
+                </div>
             </td>
         `;
         tbody.appendChild(tr);
@@ -62,8 +67,20 @@ function populateCategoryDropdowns(categories) {
 // Modal Logic
 function showAddCategoryModal() {
     document.getElementById('categoryModal').classList.remove('hidden');
+    document.getElementById('categoryModalTitle').textContent = 'Add Category';
+    document.getElementById('saveCategoryBtn').textContent = 'Save';
+    document.getElementById('categoryId').value = '';
+    document.getElementById('addCategoryForm').reset();
 }
 
+function showEditCategoryModal(id, name, slug) {
+    document.getElementById('categoryModal').classList.remove('hidden');
+    document.getElementById('categoryModalTitle').textContent = 'Edit Category';
+    document.getElementById('saveCategoryBtn').textContent = 'Update';
+    document.getElementById('categoryId').value = id;
+    document.getElementById('catName').value = name;
+    document.getElementById('catSlug').value = slug;
+}
 
 function closeCategoryModal() {
     document.getElementById('categoryModal').classList.add('hidden');
@@ -75,12 +92,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            const categoryId = document.getElementById('categoryId').value;
+            const action = categoryId ? 'edit.php' : 'add.php';
+
             const formData = {
                 name: document.getElementById('catName').value,
                 slug: document.getElementById('catSlug').value
             };
 
-            fetch('https://havona.brandmindz.com/api/categories/add.php', {
+            if (categoryId) {
+                formData.id = categoryId;
+            }
+
+            const submitBtn = document.getElementById('saveCategoryBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Saving...';
+
+            fetch(`https://havona.brandmindz.com/api/categories/${action}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -88,22 +117,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        alert('Category Added');
+                        alert(categoryId ? 'Category Updated' : 'Category Added');
                         closeCategoryModal();
                         fetchCategories();
                     } else {
                         alert(data.message);
                     }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
                 });
         });
 
         // Auto Slug for Category
         document.getElementById('catName').addEventListener('input', function () {
-            const slug = this.value.toLowerCase()
-                .replace(/[^a-z0-9 -]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/-+/g, '-');
-            document.getElementById('catSlug').value = slug;
+            // Only auto-slug if we are adding a new category, or you can keep it for edits too
+            // Let's keep it for edits but usually users might want to keep the old slug
+            const categoryId = document.getElementById('categoryId').value;
+            if (!categoryId) {
+                const slug = this.value.toLowerCase()
+                    .replace(/[^a-z0-9 -]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-');
+                document.getElementById('catSlug').value = slug;
+            }
         });
     }
 });

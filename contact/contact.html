@@ -26,18 +26,22 @@
         }
     </script>
     <style>
-        /* New York Font - Proper Declaration */
+        /* New York Font - Local Implementation */
         @font-face {
             font-family: 'New York';
-            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot');
-            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot?#iefix') format('embedded-opentype'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff2') format('woff2'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff') format('woff'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.ttf') format('truetype'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.svg#New York') format('svg');
+            src: url('../assets/fonts/newyork/NewYork PERSONAL USE.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'New York', 'Times New Roman', Times, serif;
         }
 
         .font-new-york {
@@ -192,10 +196,10 @@
 
                 <!-- Heading -->
                 <h1
-                    class="font-new-york text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] leading-tight sm:leading-none tracking-wide drop-shadow-xl flex flex-col items-center gap-3 sm:gap-4 text-center">
+                    class="font-new-york text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-tight sm:leading-none tracking-wide drop-shadow-xl flex flex-col items-center gap-3 sm:gap-4 text-center">
                     <span class="block">WHERE CONVERSATIONS</span>
                     <span
-                        class="block bg-black/40 backdrop-blur-sm px-4 xs:px-6 sm:px-10 py-2 rounded-tr-3xl rounded-bl-3xl text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[5rem]">
+                        class="block bg-black/40 backdrop-blur-sm px-4 xs:px-6 sm:px-10 py-2 rounded-tr-3xl rounded-bl-3xl text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[5rem]">
                         CREATE SOLUTIONS
                     </span>
                 </h1>
@@ -217,23 +221,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Scroll Indicator - 3 Arrows -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer z-20 group" id="scroll-to-next">
+            <div class="flex flex-col items-center -space-y-4 animate-bounce">
+                <i class="ph ph-caret-down text-2xl text-white/50 group-hover:text-white transition-colors"></i>
+                <i class="ph ph-caret-down text-2xl text-white/70 group-hover:text-white transition-colors"></i>
+                <i class="ph ph-caret-down text-2xl text-white group-hover:text-white transition-colors"></i>
+            </div>
+        </div>
+
     </section>
 
 
     <!-- Contact Intro Section -->
-    <section class="my-12 py-24 lg:py-12 px-4 sm:px-8 lg:px-16 bg-white relative overflow-hidden">
+    <section class="my-8 sm:my-12 py-12 sm:py-16 lg:py-12 px-4 sm:px-8 lg:px-16 bg-white relative overflow-hidden">
         <!-- Background Sketch Pattern -->
         <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
             <img src="../assets/city-sketch-bg.png" class="w-full h-full object-cover grayscale" alt="Background">
         </div>
 
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start relative z-10">
+        <div
+            class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-24 items-start relative z-10">
 
             <!-- Left Column (Images & Cards) -->
-            <div class="relative h-[500px] lg:h-[600px]  w-full">
+            <div class="relative h-[580px] sm:h-[600px] lg:h-[600px] w-full">
 
                 <!-- Image 1 (Top Left) -->
-                <div class="absolute top-10 left-0 w-[48%] h-[60%] rounded-[8px] overflow-hidden shadow-2xl z-10 group">
+                <div
+                    class="absolute top-0 sm:top-10 left-0 w-[60%] sm:w-[48%] h-[48%] sm:h-[60%] rounded-[8px] sm:rounded-[12px] overflow-hidden shadow-2xl z-10 group">
                     <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         alt="Interior 1">
@@ -241,7 +257,7 @@
 
                 <!-- Image 2 (Bottom Right) -->
                 <div
-                    class="absolute bottom-24 right-0 w-[48%] h-[60%] rounded-[8px] overflow-hidden shadow-2xl z-20 group">
+                    class="absolute bottom-0 sm:bottom-12 right-0 w-[60%] sm:w-[48%] h-[48%] sm:h-[60%] rounded-[8px] sm:rounded-[12px] overflow-hidden shadow-2xl z-20 group">
                     <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         alt="Interior 2">
@@ -249,28 +265,28 @@
 
                 <!-- Floating Card 1 (Top Right - 30,000+) -->
                 <div
-                    class="absolute top-0 right-[5%] bg-white p-5 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] z-30 max-w-[250px] transition-transform hover:-translate-y-2 duration-300 border border-gray-100">
+                    class="absolute top-0 right-[2%] sm:right-[5%] bg-white p-4 sm:p-5 rounded-xl sm:rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] z-30 w-[180px] sm:w-[220px] lg:max-w-[250px] transition-transform hover:-translate-y-2 duration-300 border border-gray-100">
                     <div class="flex items-start justify-between mb-2">
-                        <span class="text-2xl font-bold font-rethink text-[#0B0B0B]">30,000+</span>
-                        <i class="ph-bold ph-trend-up text-[#4ADE80] text-lg"></i>
+                        <span class="text-xl sm:text-2xl font-bold font-rethink text-[#0B0B0B]">30,000+</span>
+                        <i class="ph-bold ph-trend-up text-[#4ADE80] text-base sm:text-lg"></i>
                     </div>
-                    <p class="text-[10px] text-gray-500 font-rethink leading-relaxed">
+                    <p class="text-[9px] sm:text-[10px] text-gray-500 font-rethink leading-relaxed">
                         Client in July 2024 with 5 star ratings and happy clients.
                     </p>
                 </div>
 
                 <!-- Floating Card 2 (Bottom Left - Best Review) -->
                 <div
-                    class="absolute bottom-20 left-[5%] bg-white p-4 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] z-30 max-w-[240px] transition-transform hover:-translate-y-2 duration-300 border border-gray-100">
-                    <p class="text-[11px] font-bold font-rethink text-gray-900 mb-2">Best Review</p>
-                    <div class="flex gap-3">
+                    class="absolute bottom-4 sm:bottom-8 left-[2%] sm:left-[5%] bg-white p-3.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] z-30 w-[180px] sm:w-[220px] lg:max-w-[240px] transition-transform hover:-translate-y-2 duration-300 border border-gray-100">
+                    <p class="text-[10px] sm:text-[11px] font-bold font-rethink text-gray-900 mb-2">Best Review</p>
+                    <div class="flex gap-2.5 sm:gap-3">
                         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop"
-                            class="w-8 h-8 rounded-full object-cover shrink-0" alt="User">
+                            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover shrink-0" alt="User">
                         <div>
-                            <p class="text-[10px] text-gray-500 leading-tight mb-1">
+                            <p class="text-[9px] sm:text-[10px] text-gray-500 leading-tight mb-1">
                                 Great experience overall. Very professional.
                             </p>
-                            <div class="flex text-orange-400 text-[10px] gap-0.5">
+                            <div class="flex text-orange-400 text-[9px] sm:text-[10px] gap-0.5">
                                 <i class="ph-fill ph-star"></i>
                                 <i class="ph-fill ph-star"></i>
                                 <i class="ph-fill ph-star"></i>
@@ -285,15 +301,15 @@
 
             <!-- Right Column (Content) -->
             <div class="pl-0 lg:pl-0 pt-0 lg:pt-8">
-                <span class="block text-sm font-rethink tracking-[0.3em] text-gray-500 mb-4 uppercase">HAVONA</span>
 
-                <h2 class="mb-8 leading-tight">
-                    <span class="font-new-york text-3xl md:text-4xl lg:text-5xl text-[#D8D8D8] block">Contact
+                <h2 class="mb-6 sm:mb-8 leading-tight">
+                    <span
+                        class="font-new-york text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#D8D8D8] block">Contact
                         US</span>
                 </h2>
 
                 <p
-                    class="font-rethink text-gray-500 text-base md:text-lg leading-relaxed mb-10 font-light text-justify">
+                    class="font-rethink text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 font-light text-justify">
                     We'd love to hear from you. Whether you have a question, a project in mind, or are looking for the
                     right partner to bring your ideas to life, our team is here to help. Reach out to us to discuss your
                     requirements, explore possibilities, or simply start a conversation. We believe meaningful
@@ -301,7 +317,7 @@
                 </p>
 
                 <button
-                    class="bg-black text-white px-10 py-4 rounded-full font-rethink text-xs font-medium tracking-widest uppercase hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform">
+                    class="bg-black text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-rethink text-[10px] sm:text-xs font-medium tracking-widest uppercase hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform">
                     PLAN WITH US
                 </button>
             </div>
@@ -311,7 +327,7 @@
 
     <!-- Contact Information Section -->
     <section
-        class="relative py-12 lg:py-12 px-4 sm:px-8 lg:px-16 min-h-screen flex items-center justify-center overflow-hidden">
+        class="relative py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-16 min-h-0 sm:min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
             <img src="../assets/home/Hero-banner.png" class="w-full h-full object-cover" alt="Background">
@@ -322,20 +338,19 @@
         <div class="relative z-10 w-full max-w-[1200px] mx-auto">
 
             <!-- Floating Title (Outside Sidebar) -->
-            <div class="mb-8 lg:mb-12 text-left">
-                <span
-                    class="block text-[10px] sm:text-xs font-rethink tracking-[0.3em] text-white/50 mb-4 uppercase">GET
-                    IN TOUCH</span>
-                <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl leading-tight tracking-wide text-white">
+            <div class="mb-4 sm:mb-8 lg:mb-12 text-left">
+                <h2
+                    class="font-new-york text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-wide text-white">
                     CONTACT<br>INFORMATION
                 </h2>
             </div>
 
-            <div class="flex flex-col lg:flex-row rounded-[40px] overflow-hidden shadow-2xl text-white min-h-[600px]">
+            <div
+                class="flex flex-col lg:flex-row rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] overflow-hidden shadow-2xl text-white min-h-[500px] sm:min-h-[550px] lg:min-h-[600px]">
 
                 <!-- Left Sidebar (Dark Info Panel) -->
                 <div
-                    class="w-full lg:w-5/12 bg-black/70 p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden text-center lg:text-left group">
+                    class="w-full lg:w-5/12 bg-black/70 p-6 sm:p-8 lg:p-12 flex flex-col justify-center relative overflow-hidden text-center lg:text-left group min-h-[400px] sm:min-h-[450px]">
 
                     <!-- Decorative Circle Blur being kept for ambiance (optional) -->
                     <div
@@ -344,67 +359,66 @@
 
                     <!-- Details (Middle aligned vertically via flex-col justify-center of parent) -->
                     <div
-                        class="space-y-8 font-rethink text-sm sm:text-base text-white/90 font-light tracking-wide relative z-10 flex flex-col items-start pl-4 lg:pl-0 mx-auto lg:mx-0 max-w-xs lg:max-w-none">
+                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 md:gap-x-8 md:gap-y-8 font-rethink text-sm sm:text-base text-white/90 font-light tracking-wide relative z-10 w-full pb-16 sm:pb-20 lg:pb-0 text-left">
 
                         <!-- Email -->
-                        <div class="flex items-center gap-4">
-                            <i class="ph-fill ph-envelope-simple text-xl"></i>
-                            <span>contact@havona.com</span>
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <i class="ph-fill ph-envelope-simple text-lg sm:text-xl shrink-0"></i>
+                            <span class="text-xs sm:text-sm lg:text-base break-words">contact@havona.com</span>
                         </div>
 
                         <!-- Address -->
-                        <div class="flex items-start gap-4 text-left">
-                            <i class="ph-fill ph-map-pin text-xl mt-1"></i>
-                            <span class="leading-relaxed">L66, TNHB COLONY, TENKASI –<br>628111</span>
+                        <div class="flex items-start gap-3 sm:gap-4">
+                            <i class="ph-fill ph-map-pin text-lg sm:text-xl mt-1 shrink-0"></i>
+                            <span class="leading-relaxed text-xs sm:text-sm lg:text-base">L66, TNHB COLONY, TENKASI –
+                                628111</span>
                         </div>
 
-                        <!-- Spacer -->
-                        <!-- <div class="h-1"></div> -->
-
                         <!-- Days -->
-                        <div class="flex items-center gap-4">
-                            <i class="ph-fill ph-calendar-blank text-xl"></i>
-                            <span>Monday – Saturday</span>
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <i class="ph-fill ph-calendar-blank text-lg sm:text-xl shrink-0"></i>
+                            <span class="text-xs sm:text-sm lg:text-base">Monday – Saturday</span>
                         </div>
 
                         <!-- Hours -->
-                        <div class="flex items-center gap-4">
-                            <i class="ph-fill ph-clock text-xl"></i>
-                            <span>9:00 am To 6:00 pm</span>
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <i class="ph-fill ph-clock text-lg sm:text-xl shrink-0"></i>
+                            <span class="text-xs sm:text-sm lg:text-base">9:00 am To 6:00 pm</span>
                         </div>
 
                     </div>
 
                     <!-- Social Icons (Bottom Center) -->
-                    <div class="mt-12 lg:mt-auto pt-10 flex items-center justify-center gap-4 relative z-10 w-full">
+                    <div
+                        class="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-0 right-0 flex items-center justify-center gap-3 sm:gap-4 z-10">
                         <a href="#"
-                            class="w-10 h-10 rounded-lg bg-[#00ACEE] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
-                            <i class="ph-fill ph-twitter-logo text-white text-xl"></i>
+                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#00ACEE] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <i class="ph-fill ph-twitter-logo text-white text-lg sm:text-xl"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[#FD5949] to-[#D6249F] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
-                            <i class="ph-fill ph-instagram-logo text-white text-xl"></i>
+                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-tr from-[#FD5949] to-[#D6249F] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <i class="ph-fill ph-instagram-logo text-white text-lg sm:text-xl"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-lg bg-[#0077B5] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
-                            <i class="ph-fill ph-linkedin-logo text-white text-xl"></i>
+                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#0077B5] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <i class="ph-fill ph-linkedin-logo text-white text-lg sm:text-xl"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Right Form Panel (Glassmorphism) -->
                 <div
-                    class="w-full lg:w-7/12 bg-black/10 backdrop-blur-lg border-l border-white/5 p-8 lg:p-12 relative flex flex-col justify-center">
+                    class="w-full lg:w-7/12 bg-black/10 backdrop-blur-lg border-t lg:border-t-0 lg:border-l border-white/5 p-6 sm:p-8 lg:p-12 relative flex flex-col justify-center">
 
-                    <form class="space-y-8">
+                    <form class="space-y-6 sm:space-y-8">
                         <!-- Name Row -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
                             <div class="group relative">
                                 <label
                                     class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">First
                                     Name</label>
                                 <input type="text" id="firstName"
-                                    class="w-full bg-transparent border-b border-white/40 pb-2 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
+                                    class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
                                     placeholder="First Name" required>
                             </div>
                             <div class="group relative">
@@ -412,18 +426,18 @@
                                     class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">Last
                                     Name</label>
                                 <input type="text" id="lastName"
-                                    class="w-full bg-transparent border-b border-white/40 pb-2 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
+                                    class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
                                     placeholder="Last Name">
                             </div>
                         </div>
 
                         <!-- Contact Row -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
                             <div class="group relative">
                                 <label
                                     class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">Email</label>
                                 <input type="email" id="email"
-                                    class="w-full bg-transparent border-b border-white/40 pb-2 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
+                                    class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
                                     placeholder="Email" required>
                             </div>
                             <div class="group relative">
@@ -431,14 +445,14 @@
                                     class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">Phone
                                     Number</label>
                                 <input type="tel" id="phone"
-                                    class="w-full bg-transparent border-b border-white/40 pb-2 text-white placeholder-white/50 focus:outline-none focus:border-white transition-colors font-rethink font-light"
+                                    class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-white/50 focus:outline-none focus:border-white transition-colors font-rethink font-light"
                                     placeholder="+91">
                             </div>
                         </div>
 
                         <!-- Subjects (Custom Radio with White Circle) -->
-                        <div class="pt-4">
-                            <div class="flex flex-wrap gap-3">
+                        <div class="pt-2 sm:pt-4">
+                            <div class="flex flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">
                                 <!-- Reusable Radio Item -->
                                 <label class="cursor-pointer">
                                     <input type="radio" name="subject" class="peer sr-only">
@@ -498,18 +512,18 @@
                         </div>
 
                         <!-- Message -->
-                        <div class="group relative pt-4">
+                        <div class="group relative pt-2 sm:pt-4">
                             <label
                                 class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">Message</label>
                             <textarea rows="1" id="message"
-                                class="w-full bg-transparent border-b border-white/40 pb-2 text-white placeholder-white/50 focus:outline-none focus:border-white transition-colors font-rethink font-light resize-none"
+                                class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-white/50 focus:outline-none focus:border-white transition-colors font-rethink font-light resize-none"
                                 placeholder="Write your message.." required></textarea>
                         </div>
 
                         <!-- Submit Button -->
-                        <div class="flex justify-end pt-4">
+                        <div class="flex justify-center sm:justify-end pt-4">
                             <button type="submit"
-                                class="bg-black text-white px-8 py-3.5 rounded-full font-rethink text-sm font-medium tracking-wide hover:bg-gray-900 transition-all shadow-xl hover:scale-105 transform">
+                                class="bg-black text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-rethink text-xs sm:text-sm font-medium tracking-wide hover:bg-gray-900 transition-all shadow-xl hover:scale-105 transform w-full sm:w-auto">
                                 Plan with Us
                             </button>
                         </div>
@@ -525,15 +539,15 @@
 
             <!-- Huge Background Overlay Heading -->
             <h2 class="absolute z-0 font-new-york text-[#EAEAEA] select-none pointer-events-none tracking-tighter leading-none opacity-60 whitespace-nowrap
-                       top-8 left-[30%] -translate-x-[50%] text-[72px]
-                       sm:top-20 sm:text-[14vw]
-                       md:top-20 md:text-[12vw]
+                       top-6 left-6 text-[60px]
+                       sm:top-10 sm:left-10 sm:text-[14vw]
+                       md:top-12 md:left-12 md:text-[12vw]
                        lg:top-10 lg:left-[100px] lg:translate-x-0 lg:text-[10vw]">
                 GALLERY
             </h2>
 
             <!-- Gallery Content Wrapper -->
-            <div class="relative z-10 mt-[40px]">
+            <div class="relative z-10 mt-[-45px] sm:mt-[20px] md:mt-[10px] lg:mt-[40px]">
 
                 <!-- Dynamic Slide Container -->
                 <div id="gallery-container" class="relative w-full">
@@ -584,7 +598,7 @@
 
 
     <!-- CTA Banner Section -->
-    <section class="relative py-20 px-4 sm:px-8 lg:px-20 bg-white">
+    <section class="relative py-12 px-4 sm:px-8 lg:px-20 bg-white">
         <div
             class="relative w-full max-w-[1700px] mx-auto h-[400px] sm:h-[500px] md:h-[400px] rounded-[20px] overflow-hidden group">
             <!-- Background Image -->
@@ -626,8 +640,6 @@
 
                 <!-- Left Column -->
                 <div>
-                    <span
-                        class="block text-[10px] sm:text-xs font-rethink tracking-[0.3em] text-gray-500 mb-4 uppercase">FAQS</span>
                     <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">
                         FREQUENTLY ASK<br>QUESTIONS
                     </h2>
@@ -805,7 +817,7 @@
                 <!-- Brand & Description -->
                 <div class="lg:col-span-2">
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="../assets/havona Group-06.png" alt="Havona Group" class="w-16 h-16">
+                        <img src="../assets/home/havona Group-06.png" alt="Havona Group" class="w-16 h-16">
                     </div>
 
                     <p class="text-sm text-white/70 leading-relaxed max-w-sm font-rethink">
@@ -836,10 +848,10 @@
                     <h4 class="text-sm uppercase tracking-widest text-white/60 mb-6">Quick Links</h4>
                     <ul class="space-y-3 text-sm">
                         <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
-                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">Services</a></li>
-                        <li><a href="#" class="hover:text-white transition">Blogs</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="../about/about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="../service/service.html" class="hover:text-white transition">Services</a></li>
+                        <li><a href="../blog/blog.html" class="hover:text-white transition">Blogs</a></li>
+                        <li><a href="./contact.html" class="hover:text-white transition">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -877,13 +889,13 @@
                     class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
 
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="../assets/havona Group-06.png" alt="Havona Group" class="w-16 h-16">
+                        <img src="../assets/home/havona-footer-logo.png" alt="Havona Group" class="w-36 h-14">
                     </div>
 
                     <div class="flex flex-wrap items-center gap-6">
-                        <a href="#" class="hover:text-white transition">Terms & Conditions</a>
-                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                        <a href="#" class="hover:text-white transition">Cookies Policy</a>
+                        <a href="../PolicyPages/terms.html" class="hover:text-white transition">Terms & Conditions</a>
+                        <a href="../PolicyPages/privacy.html" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="../PolicyPages/cookies.html" class="hover:text-white transition">Cookies Policy</a>
                     </div>
 
                     <div>
@@ -897,8 +909,9 @@
     </footer>
 
     <script src="../js/home/header.js"></script>
-    <script src="../js/blog/blog-gallery.js"></script>
+    <script src="../js/contact/contact-gallery.js"></script>
     <script src="../js/contact/contact.js"></script>
+    <script src="../js/shared/scroll-to-next.js"></script>
     <script src="../js/shared/consultation-modal.js"></script>
 </body>
 

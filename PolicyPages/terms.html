@@ -26,18 +26,22 @@
     }
   </script>
   <style>
-    /* New York Font - Proper Declaration */
+    /* New York Font - Local Implementation */
     @font-face {
       font-family: 'New York';
-      src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot');
-      src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot?#iefix') format('embedded-opentype'),
-        url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff2') format('woff2'),
-        url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff') format('woff'),
-        url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.ttf') format('truetype'),
-        url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.svg#New York') format('svg');
+      src: url('../assets/fonts/newyork/NewYork PERSONAL USE.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'New York', 'Times New Roman', Times, serif;
     }
 
     .font-new-york {
@@ -71,25 +75,26 @@
 
       <!-- Logo -->
       <a href="./index.html" class="flex items-center gap-2 group transition-transform hover:scale-105">
-        <img src="../assets/home/havona Group-06.png" alt="Havona Logo" class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
+        <img src="../assets/home/havona Group-06.png" alt="Havona Logo"
+          class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
       </a>
 
       <!-- Desktop Navigation -->
       <nav
         class="hidden lg:flex items-center bg-black/20 backdrop-blur-2xl border border-white/10 rounded-full font-rethink shadow-2xl">
-        <a href="./index.html"
+        <a href="../index.html"
           class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">Home</a>
         <div class="flex items-center px-4">
-          <a href="./about/about.html"
+          <a href="../about/about.html"
             class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">About Us</a>
-          <a href="./service/service.html"
+          <a href="../service/service.html"
             class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors flex items-center gap-1">
             Service
             <i class="ph ph-caret-down text-[10px] mt-0.5 opacity-70"></i>
           </a>
-          <a href="./blog/blog.html"
+          <a href="../blog/blog.html"
             class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Blog</a>
-          <a href="./contact/contact.html"
+          <a href="../contact/contact.html"
             class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Contact Us</a>
         </div>
       </nav>
@@ -125,7 +130,8 @@
         class="absolute top-0 right-0 w-[280px] h-full bg-[#1A1D1F]/95 backdrop-blur-2xl border-l border-white/10 p-8 transform translate-x-full transition-transform duration-300 shadow-2xl">
         <div class="flex items-center justify-between mb-12">
           <img src="../assets/home/havona Group-06.png" alt="Havona" class="w-16 h-16 object-contain">
-          <button id="mobile-menu-close" class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
+          <button id="mobile-menu-close"
+            class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
             <i class="ph ph-x text-2xl"></i>
           </button>
         </div>
@@ -184,7 +190,7 @@
   <!-- Terms & Conditions Content -->
   <section class="bg-[#F0F0F0] py-16 px-4 sm:px-8 lg:px-16">
     <div class="max-w-8xl mx-auto bg-white rounded-2xl shadow-lg p-8 sm:p-12 lg:p-16">
-      
+
       <!-- Effective Date -->
       <div class="mb-8">
         <p class="text-gray-600 font-rethink text-sm">
@@ -195,7 +201,8 @@
       <!-- Introduction -->
       <div class="mb-10">
         <p class="text-gray-700 font-rethink leading-relaxed text-base">
-          By accessing or using the Havona website and services, you agree to comply with the following Terms & Conditions.
+          By accessing or using the Havona website and services, you agree to comply with the following Terms &
+          Conditions.
         </p>
       </div>
 
@@ -249,7 +256,8 @@
           Intellectual Property
         </h2>
         <p class="text-gray-700 font-rethink leading-relaxed">
-          All content on this website, including text, images, logos, and designs, is the property of Havona and may not be used without written consent.
+          All content on this website, including text, images, logos, and designs, is the property of Havona and may not
+          be used without written consent.
         </p>
       </div>
 
@@ -284,7 +292,8 @@
           Modifications
         </h2>
         <p class="text-gray-700 font-rethink leading-relaxed">
-          Havona reserves the right to modify these Terms & Conditions at any time. Continued use of the website implies acceptance of updated terms.
+          Havona reserves the right to modify these Terms & Conditions at any time. Continued use of the website implies
+          acceptance of updated terms.
         </p>
       </div>
 
@@ -398,8 +407,7 @@
       <div class="border-t border-white/10 pt-2">
 
         <!-- Bottom Footer -->
-        <div
-          class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
 
           <div class="flex items-center gap-3 mb-6">
             <img src="../assets/home/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
@@ -426,5 +434,3 @@
 </body>
 
 </html>
-
-

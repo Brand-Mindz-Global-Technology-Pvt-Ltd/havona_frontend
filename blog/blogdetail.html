@@ -26,18 +26,22 @@
         }
     </script>
     <style>
-        /* New York Font - Proper Declaration */
+        /* New York Font - Local Implementation */
         @font-face {
             font-family: 'New York';
-            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot');
-            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot?#iefix') format('embedded-opentype'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff2') format('woff2'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff') format('woff'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.ttf') format('truetype'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.svg#New York') format('svg');
+            src: url('../assets/fonts/newyork/NewYork PERSONAL USE.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'New York', 'Times New Roman', Times, serif;
         }
 
         .font-new-york {
@@ -362,7 +366,7 @@
                 <!-- Brand & Description -->
                 <div class="lg:col-span-2">
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="../assets/home/havona Group-06.png" alt="Havona Group" class="w-16 h-16">
+                        <img src="../assets/Header-Footer/havona-logo.png" alt="Havona Group" class="w-20 h-20">
                     </div>
 
                     <p class="text-sm text-white/70 leading-relaxed max-w-sm font-rethink">
@@ -373,18 +377,20 @@
 
                     <!-- Social Icons -->
                     <div class="flex items-center gap-4 mt-6 text-white/80">
-                        <a href="#" class="hover:text-white transition">
-                            <i class="ph ph-facebook-logo text-lg"></i>
+                        <a href="https://www.facebook.com/profile.php?id=61579150903137"
+                            class="hover:text-white transition">
+                            <img src="../assets/Header-Footer/Facebook.svg" alt="Facebook" class="w-4 h-4">
                         </a>
-                        <a href="#" class="hover:text-white transition">
-                            <i class="ph ph-instagram-logo text-lg"></i>
+                        <a href="https://www.instagram.com/havonagroup/" class="hover:text-white transition">
+                            <img src="../assets/Header-Footer/Instagram.svg" alt="Instagram" class="w-4 h-4">
                         </a>
-                        <a href="#" class="hover:text-white transition">
-                            <i class="ph ph-linkedin-logo text-lg"></i>
+                        <a href="https://www.linkedin.com/company/98998033/admin/dashboard/"
+                            class="hover:text-white transition">
+                            <img src="../assets/Header-Footer/Linkedin.svg" alt="Linkedin" class="w-4 h-4">
                         </a>
-                        <a href="#" class="hover:text-white transition">
-                            <i class="ph ph-youtube-logo text-lg"></i>
-                        </a>
+                        <!-- <a href="#" class="hover:text-white transition">
+              <img src="../assets/Header-Footer/Youtube.svg" alt="Youtube" class="w-4 h-4">
+            </a> -->
                     </div>
                 </div>
 
@@ -394,8 +400,8 @@
                     <ul class="space-y-3 text-sm">
                         <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
                         <li><a href="../about/about.html" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">Services</a></li>
-                        <li><a href="#" class="hover:text-white transition">Blogs</a></li>
+                        <li><a href="../service/service.html" class="hover:text-white transition">Services</a></li>
+                        <li><a href="./blog.html" class="hover:text-white transition">Blogs</a></li>
                         <li><a href="../contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
                     </ul>
                 </div>
@@ -406,19 +412,19 @@
 
                     <ul class="space-y-4 text-sm text-white/70">
                         <li class="flex items-start gap-3">
-                            <i class="ph ph-map-pin text-lg text-white mt-0.5"></i>
+                            <img src="../assets/Header-Footer/Location.svg" alt="Location" class="w-4 h-4 mt-0.5">
                             <span>L66, TNHB Colony, Tenkasi – 62811</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="ph ph-phone text-lg text-white"></i>
-                            <span>+91 8110000878</span>
+                            <img src="../assets/Header-Footer/Phone-symbol.svg" alt="Phone" class="w-4 h-4">
+                            <span>+91 9790190169</span>
                         </li>
+                        <!-- <li class="flex items-center gap-3">
+              <img src="../assets/Header-Footer/Whatsapp.svg" alt="Phone" class="w-4 h-4">
+              <span>+91 8110000878</span>
+            </li> -->
                         <li class="flex items-center gap-3">
-                            <i class="ph ph-phone text-lg text-white"></i>
-                            <span>+91 8110000878</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="ph ph-envelope text-lg text-white"></i>
+                            <img src="../assets/Header-Footer/Mail.svg" alt="Email" class="w-4 h-4">
                             <span>info@havona.com</span>
                         </li>
                     </ul>
@@ -434,13 +440,13 @@
                     class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
 
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="../assets/home/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
+                        <img src="../assets/Header-Footer/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
                     </div>
 
                     <div class="flex flex-wrap items-center gap-6">
-                        <a href="#" class="hover:text-white transition">Terms & Conditions</a>
-                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                        <a href="#" class="hover:text-white transition">Cookies Policy</a>
+                        <a href="../PolicyPages/terms.html" class="hover:text-white transition">Terms & Conditions</a>
+                        <a href="../PolicyPages/privacy.html" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="../PolicyPages/cookies.html" class="hover:text-white transition">Cookies Policy</a>
                     </div>
 
                     <div>

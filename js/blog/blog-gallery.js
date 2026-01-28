@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const item = galleryItems[index];
 
         const html = `
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start animate-fade-in">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-start animate-fade-in">
                 <!-- Left Column: Horizontal Image + Text -->
-                <div class="lg:col-span-7 flex flex-col gap-8 opacity-0 translate-y-4 animate-slide-up" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+                <div class="md:col-span-7 flex flex-col gap-8 opacity-0 translate-y-4 animate-slide-up" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
                     <div class="w-full h-[300px] sm:h-[400px] lg:h-[450px] rounded-[10px] overflow-hidden shadow-xl group">
                         <img src="${item.horizontal.src}" alt="Gallery Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 
                 <!-- Right Column: Vertical Image -->
-                <div class="lg:col-span-5 opacity-0 translate-y-4 animate-slide-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
-                    <div class="w-[90%] ml-auto h-[450px] sm:h-[550px] lg:h-[550px] rounded-[10px] overflow-hidden shadow-xl group">
+                <div class="md:col-span-5 opacity-0 translate-y-4 animate-slide-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+                    <div class="w-full md:w-[90%] md:ml-auto h-[450px] sm:h-[550px] lg:h-[550px] rounded-[10px] overflow-hidden shadow-xl group">
                         <img src="${item.vertical.src}" alt="Gallery Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                 </div>

@@ -26,18 +26,22 @@
         }
     </script>
     <style>
-        /* New York Font - Proper Declaration */
+        /* New York Font - Local Implementation */
         @font-face {
             font-family: 'New York';
-            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot');
-            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot?#iefix') format('embedded-opentype'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff2') format('woff2'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff') format('woff'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.ttf') format('truetype'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.svg#New York') format('svg');
+            src: url('../assets/fonts/newyork/NewYork PERSONAL USE.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'New York', 'Times New Roman', Times, serif;
         }
 
         .font-new-york {
@@ -54,7 +58,7 @@
 
             <!-- Logo -->
             <a href="../index.html" class="flex items-center gap-2 group transition-transform hover:scale-105">
-                <img src="../assets/home/havona Group-06.png" alt="Havona Logo"
+                <img src="../assets/Header-Footer/havona-logo.png" alt="Havona Logo"
                     class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
             </a>
 
@@ -86,7 +90,7 @@
                     class="btn-consultation hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
                     <span
                         class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
-                        <img src="../assets/Header/Vector.svg" alt="Phone" class="w-4 h-4">
+                        <img src="../assets/Header-Footer/Phone.svg" alt="Phone" class="w-4 h-4">
                     </span>
                     <span class="font-medium">Get a Consultation</span>
                 </button>
@@ -110,7 +114,7 @@
             <div id="mobile-menu-content"
                 class="absolute top-0 right-0 w-[280px] h-full bg-[#1A1D1F]/95 backdrop-blur-2xl border-l border-white/10 p-8 transform translate-x-full transition-transform duration-300 shadow-2xl">
                 <div class="flex items-center justify-between mb-12">
-                    <img src="../assets/home/havona Group-06.png" alt="Havona" class="w-16 h-16 object-contain">
+                    <img src="../assets/Header-Footer/havona-logo.png" alt="Havona" class="w-16 h-16 object-contain">
                     <button id="mobile-menu-close"
                         class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
                         <i class="ph ph-x text-2xl"></i>
@@ -142,7 +146,7 @@
         <section class="relative min-h-screen w-full overflow-hidden">
             <!-- Background Image -->
             <div class="absolute inset-0">
-                <img src="../assets/home/Hero-banner.png" alt="Construction Background"
+                <img src="../assets/Blog/Blog-Banner.webp" alt="Construction Background"
                     class="w-full h-full object-cover">
             </div>
 
@@ -462,15 +466,15 @@
 
                 <!-- Huge Background Overlay Heading -->
                 <h2 class="absolute z-0 font-new-york text-[#EAEAEA] select-none pointer-events-none tracking-tighter leading-none opacity-60 whitespace-nowrap
-                           top-8 left-[30%] -translate-x-[50%] text-[72px]
-                           sm:top-20 sm:text-[14vw]
-                           md:top-20 md:text-[12vw]
-                           lg:top-10 lg:left-[100px] lg:translate-x-0 lg:text-[10vw]">
+                       top-6 left-6 text-[60px]
+                       sm:top-10 sm:left-10 sm:text-[14vw]
+                       md:top-12 md:left-12 md:text-[12vw]
+                       lg:top-10 lg:left-[100px] lg:translate-x-0 lg:text-[10vw]">
                     GALLERY
                 </h2>
 
                 <!-- Gallery Content Wrapper -->
-                <div class="relative z-10 mt-[40px]">
+                <div class="relative z-10 mt-[-45px] sm:mt-[20px] md:mt-[10px] lg:mt-[40px]">
 
                     <!-- Dynamic Slide Container -->
                     <div id="gallery-container" class="relative w-full">
@@ -525,7 +529,7 @@
             <div
                 class="relative w-full max-w-[1700px] mx-auto h-[400px] sm:h-[500px] md:h-[400px] rounded-[20px] overflow-hidden group">
                 <!-- Background Image -->
-                <img src="../assets/home/Hero-banner.png" alt="Modern Architecture"
+                <img src="../assets/Blog/CTA.webp" alt="Modern Architecture"
                     class="absolute inset-0 w-full h-full object-cover">
 
                 <!-- Dark Overlay -->
@@ -592,8 +596,8 @@
                     <ul class="space-y-3 text-sm">
                         <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
                         <li><a href="../about/about.html" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">Services</a></li>
-                        <li><a href="#" class="hover:text-white transition">Blogs</a></li>
+                        <li><a href="../service/service.html" class="hover:text-white transition">Services</a></li>
+                        <li><a href="./blog.html" class="hover:text-white transition">Blogs</a></li>
                         <li><a href="../contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
                     </ul>
                 </div>
@@ -636,9 +640,9 @@
                     </div>
 
                     <div class="flex flex-wrap items-center gap-6">
-                        <a href="#" class="hover:text-white transition">Terms & Conditions</a>
-                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                        <a href="#" class="hover:text-white transition">Cookies Policy</a>
+                        <a href="../PolicyPages/terms.html" class="hover:text-white transition">Terms & Conditions</a>
+                        <a href="../PolicyPages/privacy.html" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="../PolicyPages/cookies.html" class="hover:text-white transition">Cookies Policy</a>
                     </div>
 
                     <div>

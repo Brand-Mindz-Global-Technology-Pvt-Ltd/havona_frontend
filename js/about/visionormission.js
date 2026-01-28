@@ -8,14 +8,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalSlides = slides.length;
 
     function updateSlider(index) {
+        // Calculate the actual slide index (mapping multiple sets of tabs/dots)
+        const slideIndex = index % totalSlides;
+
         // Update Track Position
         if (track) {
-            track.style.transform = `translateX(-${index * 100}%)`;
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
         }
 
-        // Update Tabs
+        // Update Tabs - Highlight all tabs that correspond to this slide index
         tabs.forEach((tab, i) => {
-            if (i === index) {
+            if (i % totalSlides === slideIndex) {
                 tab.classList.add('bg-[#4F5B66]', 'text-white', 'shadow-lg');
                 tab.classList.remove('bg-gray-200', 'text-gray-600', 'hover:bg-gray-300');
             } else {
@@ -26,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Update Dots
         dots.forEach((dot, i) => {
-            if (i === index) {
+            if (i === slideIndex) {
                 dot.classList.add('bg-black', 'scale-125');
                 dot.classList.remove('bg-gray-300');
             } else {
@@ -35,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        currentIndex = index;
+        currentIndex = slideIndex;
     }
 
     // Event Listeners for Tabs

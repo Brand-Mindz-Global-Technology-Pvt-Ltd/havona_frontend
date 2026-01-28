@@ -1,160 +1,165 @@
+// Services Data
 const servicesData = {
     'Architecture': {
         title: 'Architectural Excellence',
         quote: '" Innovative Designs That Harmonize With Environment And Lifestyle "',
         desc: 'Our architecture team combines creativity with technical expertise to design spaces that are both sustainable and aesthetically pleasing. We focus on modern living standards and future-ready structures.',
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000'
+        image: '../assets/Services/Architecture.webp'
     },
     'Construction': {
-        title: 'Premium Construction',
-        quote: '" Building Strong Foundations With Integrity and Quality "',
-        desc: 'We deliver high-quality construction services using the latest technology and materials. Our commitment to safety and excellence ensures that every project is completed on time and within budget.',
-        image: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2000'
+        title: 'Precision Construction',
+        quote: '" Building Strong Foundations For Your Future Dreams "',
+        desc: 'With a commitment to quality and safety, our construction services deliver excellence across residential and commercial projects. We use advanced technology to ensure precision in every brick laid.',
+        image: '../assets/Services/Construction.webp'
     },
     'Interior': {
         title: 'Interior Solutions',
         quote: '" Smart, Elegant Interiors Tailored For Your Lifestyle Or Workspace "',
-        desc: 'Our Interior Solutions Focus On Creating Spaces That Are Both Beautiful And Functional. From Conceptual Design To Execution, We Craft Interiors That Reflect Your Personality, Brand, And Lifestyle.',
+        desc: 'Our Interior Solutions Focus On Creating Spaces That Are Both Beautiful And Functional. From Conceptual Design To Execution, We Craft Interiors That Reflect Your Personality, Brand, And Lifestyle. Every Element Is Thoughtfully Planned To Ensure Comfort, Style, And Efficiency, Making Your Space Truly One-Of-A-Kind.',
         images: [
-            'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000',
-            'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000',
-            'https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?q=80&w=2000'
+            '../assets/Services/Interior.webp',
+            '../assets/Services/Interior-1.webp',
+            '../assets/Services/Interior-2.webp'
         ]
     },
     'PMC': {
         title: 'Project Management',
-        quote: '" Professional Management for Seamless Execution "',
-        desc: 'Our project management services ensure that every phase of your project is handled with precision. From planning to execution, we take care of all details to ensure a successful outcome.',
-        image: 'https://images.unsplash.com/photo-1454165833767-027ffea10c3b?q=80&w=2000'
+        quote: '" Seamless Coordination For Complex Projects "',
+        desc: 'Our PMC division ensures that every stage of your project is handled with maximum efficiency. From budget planning to timeline management, we keep everything on track and within scope.',
+        image: '../assets/Services/Project-Management.webp'
     },
     'Real Estate': {
-        title: 'Real Estate Services',
-        quote: '" Finding Your Perfect Space with Professional Guidance "',
-        desc: 'We provide comprehensive real estate services, helping you find the perfect property that meets all your requirements. Our local expertise ensures you get the best value for your investment.',
-        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000'
+        title: 'Real Estate Growth',
+        quote: '" Strategic Properties For Sustainable Investment "',
+        desc: 'We help you find and develop spaces that offer long-term value. Our real estate expertise covers land acquisition, development planning, and strategic marketing for high-end properties.',
+        image: '../assets/Services/Real-Estate.webp'
     }
 };
 
-let currentSlide = 0;
+let currentService = 'Interior';
+let interiorSlideIndex = 0;
 let slideInterval;
 
 function switchService(serviceName, btn) {
+    if (serviceName === currentService) return;
+
+    currentService = serviceName;
     const data = servicesData[serviceName];
-    if (!data) return;
 
-    // Update Tab Styles (Desktop)
-    document.querySelectorAll('.service-tab').forEach(t => {
-        t.classList.remove('font-semibold', 'text-black');
-        t.classList.add('text-gray-400');
-        const indicator = t.querySelector('.tab-indicator');
-        if (indicator) indicator.remove();
-    });
+    // Update Tab Styles (Synchronize Desktop & Mobile)
+    const allTabs = document.querySelectorAll('.service-tab, .service-tab-mob');
 
-    // Add styling back to active tab
-    btn.classList.add('font-semibold', 'text-black');
-    btn.classList.remove('text-gray-400');
+    allTabs.forEach(t => {
+        const isTarget = t.getAttribute('onclick').includes(`'${serviceName}'`);
 
-    // Create and add the active line ABOVE the heading
-    const indicator = document.createElement('span');
-    indicator.className = 'tab-indicator absolute -top-[24px] left-0 w-full h-[3px] bg-[#4D606C]';
-    btn.appendChild(indicator);
-
-    // Update Mobile Tabs
-    document.querySelectorAll('.service-tab-mob').forEach(t => {
-        t.classList.remove('text-black', 'font-bold', 'border-[#4D606C]');
-        t.classList.add('text-gray-500', 'font-medium', 'border-transparent');
-        if (t.innerText === serviceName) {
-            t.classList.add('text-black', 'font-bold', 'border-[#4D606C]');
-            t.classList.remove('text-gray-500', 'font-medium', 'border-transparent');
+        if (t.classList.contains('service-tab')) {
+            // Desktop Styles
+            if (isTarget) {
+                t.classList.remove('text-gray-400');
+                t.classList.add('text-black', 'font-semibold');
+                // Move Indicator
+                let indicator = document.querySelector('.tab-indicator');
+                if (indicator) t.appendChild(indicator);
+            } else {
+                t.classList.add('text-gray-400');
+                t.classList.remove('text-black', 'font-semibold');
+            }
+        } else {
+            // Mobile Styles (Pills)
+            if (isTarget) {
+                t.classList.remove('text-gray-500', 'bg-gray-100');
+                t.classList.add('text-white', 'bg-black', 'shadow-lg');
+            } else {
+                t.classList.add('text-gray-500', 'bg-gray-100');
+                t.classList.remove('text-white', 'bg-black', 'shadow-lg');
+            }
         }
     });
 
-    // Fade effect for content
-    const headerPanel = document.getElementById('service-header-panel');
+    // Fade out content
     const contentBox = document.getElementById('service-content-box');
-    const bgContainer = document.getElementById('service-bg-container');
-    const pagination = document.getElementById('service-pagination');
-
-    headerPanel.style.opacity = '0';
     contentBox.style.opacity = '0';
+    contentBox.style.transform = 'translateY(10px)';
 
     setTimeout(() => {
         // Update Content
+        document.getElementById('service-rotated-title').textContent = serviceName;
         document.getElementById('service-main-title').textContent = data.title;
         document.getElementById('service-quote').textContent = data.quote;
 
-        // Update both inner and outer rotated titles if they exist
-        const rotatedOuter = document.getElementById('service-rotated-title');
-        const rotatedInner = document.getElementById('service-rotated-title-inner');
-        if (rotatedOuter) rotatedOuter.textContent = serviceName;
-        if (rotatedInner) rotatedInner.textContent = serviceName;
-
-        // Description
+        // Handle Description (repeat text for Interior as per image)
         const descContainer = document.getElementById('service-description');
+        const pClass = "font-rethink text-white text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light";
+
         if (serviceName === 'Interior') {
-            descContainer.innerHTML = `
-                <p class="font-rethink text-white/90 text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">${data.desc}</p>
-                <p class="font-rethink text-white/90 text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">${data.desc}</p>
-            `;
-            pagination.style.display = 'flex';
-            startInteriorSlider();
+            descContainer.innerHTML = `<p class="${pClass}">${data.desc}</p><p class="${pClass}">${data.desc}</p>`;
         } else {
-            descContainer.innerHTML = `
-                <p class="font-rethink text-white/90 text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">${data.desc}</p>
-            `;
-            pagination.style.display = 'none';
-            stopInteriorSlider();
-            bgContainer.innerHTML = `<img src="${data.image}" class="w-full h-full object-cover transition-opacity duration-1000" alt="${serviceName}">`;
+            descContainer.innerHTML = `<p class="${pClass}">${data.desc}</p>`;
         }
 
-        headerPanel.style.opacity = '1';
+        // Handle Background (Slider for Interior, Static for others)
+        const bgContainer = document.getElementById('service-bg-container');
+        const pagination = document.getElementById('service-pagination');
+
+        clearInterval(slideInterval);
+
+        if (serviceName === 'Interior') {
+            pagination.style.display = 'flex';
+            bgContainer.innerHTML = `
+                <div id="interior-slider" class="w-full h-full relative">
+                    ${data.images.map((img, i) => `
+                        <img src="${img}" class="service-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === 0 ? 'opacity-100' : 'opacity-0'}" alt="Interior ${i + 1}">
+                    `).join('')}
+                </div>
+            `;
+            interiorSlideIndex = 0;
+            updateDots();
+            startAutoScroll();
+        } else {
+            pagination.style.display = 'none';
+            bgContainer.innerHTML = `
+                <img src="${data.image}" class="w-full h-full object-cover opacity-100" alt="${serviceName}">
+            `;
+        }
+
+        // Fade in content
         contentBox.style.opacity = '1';
-    }, 500);
+        contentBox.style.transform = 'translateY(0)';
+    }, 400);
 }
 
-function startInteriorSlider() {
-    stopInteriorSlider();
-    const bgContainer = document.getElementById('service-bg-container');
-    bgContainer.innerHTML = `
-        <div id="interior-slider" class="w-full h-full relative">
-            ${servicesData['Interior'].images.map((img, i) => `
-                <img src="${img}" class="service-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === 0 ? 'opacity-100' : 'opacity-0'}" alt="Interior ${i + 1}">
-            `).join('')}
-        </div>
-    `;
-    updateDots();
+function startAutoScroll() {
     slideInterval = setInterval(() => {
-        setSlide((currentSlide + 1) % 3);
+        interiorSlideIndex = (interiorSlideIndex + 1) % 3;
+        showSlide(interiorSlideIndex);
     }, 5000);
 }
 
-function stopInteriorSlider() {
-    if (slideInterval) clearInterval(slideInterval);
+function setSlide(index) {
+    clearInterval(slideInterval);
+    interiorSlideIndex = index;
+    showSlide(index);
+    startAutoScroll();
 }
 
-function setSlide(index) {
-    currentSlide = index;
+function showSlide(index) {
     const slides = document.querySelectorAll('.service-slide');
-    slides.forEach((slide, i) => {
-        slide.style.opacity = i === index ? '1' : '0';
+    if (!slides.length) return;
+
+    slides.forEach((s, i) => {
+        s.style.opacity = (i === index) ? '1' : '0';
     });
     updateDots();
 }
 
 function updateDots() {
     const dots = document.querySelectorAll('.service-dot');
-    dots.forEach((dot, i) => {
-        dot.classList.remove('bg-white');
-        dot.classList.add('bg-white/30');
-        if (i === currentSlide) {
-            dot.classList.add('bg-white');
-            dot.classList.remove('bg-white/30');
-        }
+    dots.forEach((d, i) => {
+        d.style.backgroundColor = (i === interiorSlideIndex) ? 'white' : 'rgba(255,255,255,0.4)';
     });
 }
 
-// Initializing the section
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    // Already set to Interior by default in HTML
-    startInteriorSlider();
+    startAutoScroll();
 });

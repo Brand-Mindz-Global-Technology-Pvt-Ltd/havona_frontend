@@ -26,18 +26,22 @@
         }
     </script>
     <style>
-        /* New York Font - Proper Declaration */
+        /* New York Font - Local Implementation */
         @font-face {
             font-family: 'New York';
-            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot');
-            src: url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.eot?#iefix') format('embedded-opentype'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff2') format('woff2'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.woff') format('woff'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.ttf') format('truetype'),
-                url('https://db.onlinewebfonts.com/t/c2322c4e40c00fdb3eac68781da9f74c.svg#New York') format('svg');
+            src: url('../assets/fonts/newyork/NewYork PERSONAL USE.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'New York', 'Times New Roman', Times, serif;
         }
 
         .font-new-york {
@@ -54,7 +58,7 @@
 
             <!-- Logo -->
             <a href="../index.html" class="flex items-center gap-2 group transition-transform hover:scale-105">
-                <img src="../assets/home/havona Group-06.png" alt="Havona Logo"
+                <img src="../assets/Header-Footer/havona-logo.png" alt="Havona Logo"
                     class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
             </a>
 
@@ -83,7 +87,7 @@
                     class="btn-consultation hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 backdrop-blur-md text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
                     <span
                         class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
-                        <img src="../assets/Header/Vector.svg" alt="Phone" class="w-4 h-4">
+                        <img src="../assets/Header-Footer/phone.svg" alt="Phone" class="w-4 h-4">
                     </span>
                     <span class="font-medium">Get a Consultation</span>
                 </button>
@@ -107,7 +111,7 @@
             <div id="mobile-menu-content"
                 class="absolute top-0 right-0 w-[280px] h-full bg-[#1A1D1F]/95 backdrop-blur-2xl border-l border-white/10 p-8 transform translate-x-full transition-transform duration-300 shadow-2xl">
                 <div class="flex items-center justify-between mb-12">
-                    <img src="../assets/home/havona Group-06.png" alt="Havona" class="w-16 h-16 object-contain">
+                    <img src="../assets/Header-Footer/havona-logo.png" alt="Havona" class="w-16 h-16 object-contain">
                     <button id="mobile-menu-close"
                         class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
                         <i class="ph ph-x text-2xl"></i>
@@ -137,7 +141,7 @@
         <!-- Hero Section -->
         <section
             class="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center overflow-hidden"
-            style="background-image:url('../assets/home/Hero-banner.png');">
+            style="background-image:url('../assets/services/Hero-Banner.webp');">
 
             <!-- Dark overlay -->
             <div class="absolute inset-0 bg-black/50"></div>
@@ -219,7 +223,7 @@
             <div class="max-w-[1600px] mx-auto relative px-[20px] md:px-0">
 
                 <!-- Left Vertical Rotated Title (Brighter, Overflowing Outside) -->
-                <div class="hidden xl:flex absolute left-[-75px] top-1/2 -translate-y-1/2 z-30 pointer-events-none">
+                <div class="hidden xl:flex absolute left-[-75px] top-1/2 -translate-y-1/2 z-0 pointer-events-none">
                     <h2 id="service-rotated-title"
                         class="[writing-mode:vertical-lr] rotate-180 font-new-york text-[100px] text-[#E0E0E0] uppercase tracking-tighter leading-none select-none opacity-80">
                         Interior
@@ -227,21 +231,20 @@
                 </div>
 
                 <!-- Main Section Container (Image + Overlays) -->
-                <div
-                    class="flex-1 relative shadow-2xl bg-gray-900 group min-h-[500px] lg:min-h-[640px] rounded-[50px] lg:rounded-[40px]">
+                <div class="flex-1 relative z-10 group min-h-[500px] lg:min-h-[640px]">
 
                     <!-- Background Images / Slider -->
                     <div id="service-bg-container"
-                        class="absolute inset-0 z-0 rounded-[50px] lg:rounded-[80px] overflow-hidden">
+                        class="absolute inset-0 z-0 rounded-[50px] lg:rounded-[40px] rounded-tr-none overflow-hidden">
                         <!-- Interior Slider (Default) -->
                         <div id="interior-slider" class="w-full h-full relative">
-                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
+                            <img src="../assets/services/Interior.webp"
                                 class="service-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000"
                                 alt="Interior 1">
-                            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop"
+                            <img src="../assets/services/Interior-1.webp"
                                 class="service-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
                                 alt="Interior 2">
-                            <img src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?q=80&w=2000&auto=format&fit=crop"
+                            <img src="../assets/services/Interior-2.webp"
                                 class="service-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
                                 alt="Interior 3">
                         </div>
@@ -249,29 +252,30 @@
 
                     <!-- Top Right Overlapping Tabs (White Box, Integrated Flow) -->
                     <div
-                        class="absolute top-0 right-0 z-50 bg-white pl-[40px] pb-[32px] rounded-bl-[40px] rounded-tr-[40px] hidden md:block shadow-sm">
-                        <div class="flex items-center gap-[40px] font-rethink pt-[32px] pr-[80px]">
+                        class="absolute top-0 right-0 z-50 bg-white pl-[30px] pb-[28px] rounded-bl-[50px] hidden md:block shadow-sm">
+                        <div
+                            class="flex items-center gap-[30px] lg:gap-[40px] font-rethink pt-[32px] pr-[40px] lg:pr-[60px]">
                             <button onclick="switchService('Architecture', this)"
-                                class="service-tab text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
+                                class="service-tab text-base lg:text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
                                 Architecture
                             </button>
                             <button onclick="switchService('Construction', this)"
-                                class="service-tab text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
+                                class="service-tab text-base lg:text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
                                 Construction
                             </button>
                             <button onclick="switchService('Interior', this)"
-                                class="service-tab text-[22px] text-black font-semibold relative py-[8px] transition-all duration-300">
+                                class="service-tab text-base lg:text-[22px] text-black font-semibold relative py-[8px] transition-all duration-300">
                                 <!-- Active Line Above Heading -->
                                 <span
                                     class="tab-indicator absolute -top-[24px] left-0 w-full h-[3px] bg-[#4D606C]"></span>
                                 Interior
                             </button>
                             <button onclick="switchService('PMC', this)"
-                                class="service-tab text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
+                                class="service-tab text-base lg:text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
                                 PMC
                             </button>
                             <button onclick="switchService('Real Estate', this)"
-                                class="service-tab text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
+                                class="service-tab text-base lg:text-[22px] text-gray-400 hover:text-black transition-all duration-300 relative py-[8px]">
                                 Real Estate
                             </button>
                         </div>
@@ -283,7 +287,7 @@
                         <!-- Small Vertical Title for smaller screens (Inside) -->
                         <div class="xl:hidden hidden md:flex absolute left-[-40px] top-1/2 -translate-y-1/2 z-30">
                             <h2 id="service-rotated-title-inner"
-                                class="[writing-mode:vertical-lr] rotate-180 font-new-york text-[100px] text-white/10 uppercase tracking-tighter leading-none select-none">
+                                class="[writing-mode:vertical-lr] rotate-180 font-new-york text-[80px] lg:text-[100px] text-white/10 uppercase tracking-tighter leading-none select-none">
                                 Interior
                             </h2>
                         </div>
@@ -291,40 +295,41 @@
 
                     <!-- Mobile Tabs (Horizontal Scroll)-->
                     <div
-                        class="md:hidden absolute top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md px-4 py-4 overflow-x-auto flex gap-6 border-b border-gray-100 no-scrollbar">
+                        class="md:hidden absolute top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md px-4 py-4 overflow-x-auto flex gap-3 border-b border-gray-100 rounded-bl-[40px] no-scrollbar touch-pan-x shadow-sm">
                         <button onclick="switchService('Architecture', this)"
-                            class="service-tab-mob shrink-0 text-gray-500 font-medium border-b-2 border-transparent pb-1">Architecture</button>
+                            class="service-tab-mob shrink-0 px-5 py-2 rounded-full text-sm font-rethink font-medium text-gray-500 bg-gray-100 transition-all whitespace-nowrap">Architecture</button>
                         <button onclick="switchService('Construction', this)"
-                            class="service-tab-mob shrink-0 text-gray-500 font-medium border-b-2 border-transparent pb-1">Construction</button>
+                            class="service-tab-mob shrink-0 px-5 py-2 rounded-full text-sm font-rethink font-medium text-gray-500 bg-gray-100 transition-all whitespace-nowrap">Construction</button>
                         <button onclick="switchService('Interior', this)"
-                            class="service-tab-mob shrink-0 text-black font-bold border-b-2 border-[#4D606C] pb-1">Interior</button>
+                            class="service-tab-mob shrink-0 px-5 py-2 rounded-full text-sm font-rethink font-bold text-white bg-black shadow-lg transition-all whitespace-nowrap">Interior</button>
                         <button onclick="switchService('PMC', this)"
-                            class="service-tab-mob shrink-0 text-gray-500 font-medium border-b-2 border-transparent pb-1">PMC</button>
+                            class="service-tab-mob shrink-0 px-5 py-2 rounded-full text-sm font-rethink font-medium text-gray-500 bg-gray-100 transition-all whitespace-nowrap">PMC</button>
                         <button onclick="switchService('Real Estate', this)"
-                            class="service-tab-mob shrink-0 text-gray-500 font-medium border-b-2 border-transparent pb-1">Real
+                            class="service-tab-mob shrink-0 px-5 py-2 rounded-full text-sm font-rethink font-medium text-gray-500 bg-gray-100 transition-all whitespace-nowrap">Real
                             Estate</button>
                     </div>
 
                     <!-- Overlay Darkening -->
-                    <div class="absolute inset-0 bg-black/30 z-10 rounded-[50px] lg:rounded-[80px]"></div>
+                    <div class="absolute inset-0 bg-black/40 z-10 rounded-[50px] lg:rounded-[40px]"></div>
 
                     <!-- Content Wrapper -->
-                    <div class="relative z-20 h-full flex flex-col justify-start pt-[80px] md:pt-[100px]">
+                    <div
+                        class="relative z-20 h-full flex flex-col justify-center sm:justify-start pt-[100px] md:pt-[120px] pb-[100px] md:pb-[40px]">
 
                         <!-- Interior Solutions Title Box (Dark Box) -->
-                        <div class="px-[40px] md:px-[64px] lg:px-[80px] mb-[24px] md:mb-[32px] transition-all duration-500"
+                        <div class="px-[24px] md:px-[64px] lg:px-[80px] mb-[24px] md:mb-[32px] transition-all duration-500"
                             id="service-header-panel">
                             <div
-                                class="inline-block bg-black/60 backdrop-blur-md p-[24px] md:p-[32px] rounded-[16px] shadow-2xl">
+                                class="inline-block bg-black/60 backdrop-blur-md p-[16px] md:p-[32px] rounded-tr-[30px] rounded-bl-[30px] rounded-tl-none rounded-br-none shadow-2xl border border-white/10">
                                 <h3 id="service-main-title"
-                                    class="font-new-york text-[32px] md:text-[42px] lg:text-[56px] text-white uppercase tracking-[0.05em] leading-tight">
+                                    class="font-new-york text-[20px] sm:text-[28px] md:text-[42px] lg:text-[56px] text-white uppercase tracking-[0.05em] leading-tight">
                                     Interior Solutions
                                 </h3>
                             </div>
                         </div>
 
                         <!-- Main Descriptive Text Overlay -->
-                        <div class="px-[40px] md:px-[64px] lg:px-[80px] max-w-[1000px] transition-all duration-500"
+                        <div class="px-[24px] md:px-[64px] lg:px-[80px] max-w-[1000px] transition-all duration-500"
                             id="service-content-box">
                             <!-- Tagline/Quote -->
                             <div class="mb-[32px]">
@@ -337,14 +342,14 @@
                             <!-- Description Text -->
                             <div id="service-description" class="space-y-[24px] max-w-[800px] mb-[40px]">
                                 <p
-                                    class="font-rethink text-white/90 text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">
+                                    class="font-rethink text-white text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">
                                     Our Interior Solutions Focus On Creating Spaces That Are Both Beautiful And
                                     Functional. From Conceptual Design To Execution, We Craft Interiors That Reflect
                                     Your Personality, Brand, And Lifestyle. Every Element Is Thoughtfully Planned To
                                     Ensure Comfort, Style, And Efficiency, Making Your Space Truly One-Of-A-Kind.
                                 </p>
                                 <p
-                                    class="font-rethink text-white/90 text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">
+                                    class="font-rethink text-white text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light">
                                     Our Interior Solutions Focus On Creating Spaces That Are Both Beautiful And
                                     Functional.
                                 </p>
@@ -353,9 +358,9 @@
                             <!-- CTA -->
                             <div class="pt-[4px]">
                                 <a href="../contact/contact.html"
-                                    class="inline-flex items-center gap-[16px] px-[32px] py-[14px] bg-[#4D606C]/80 backdrop-blur-lg rounded-full text-white font-rethink text-[15px] font-semibold hover:bg-[#4D606C] transition-all duration-300 group shadow-xl">
+                                    class="inline-flex items-center gap-[10px] md:gap-[16px] px-[20px] md:px-[32px] py-[14px] bg-[#4D606C]/80 backdrop-blur-lg rounded-full text-white font-rethink text-[14px] md:text-[15px] font-semibold hover:bg-[#4D606C] transition-all duration-300 group shadow-xl">
                                     <span
-                                        class="w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center text-[#4D606C] group-hover:rotate-12 transition-transform">
+                                        class="w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center text-[#4D606C] group-hover:rotate-12 transition-transform shrink-0">
                                         <i class="ph ph-phone-call text-[20px]"></i>
                                     </span>
                                     Get a Consultation
@@ -365,7 +370,7 @@
 
                         <!-- Slider Dots -->
                         <div id="service-pagination"
-                            class="absolute bottom-[60px] left-1/2 -translate-x-1/2 flex gap-[12px] z-30">
+                            class="flex gap-[12px] z-30 justify-center mt-8 md:absolute md:bottom-[60px] md:left-1/2 md:-translate-x-1/2 md:mt-0">
                             <button onclick="setSlide(0)"
                                 class="service-dot w-[14px] h-[14px] rounded-full bg-white transition-all duration-300 shadow-lg"></button>
                             <button onclick="setSlide(1)"
@@ -385,15 +390,15 @@
 
                 <!-- Huge Background Overlay Heading -->
                 <h2 class="absolute z-0 font-new-york text-[#EAEAEA] select-none pointer-events-none tracking-tighter leading-none opacity-60 whitespace-nowrap
-                           top-8 left-[30%] -translate-x-[50%] text-[72px]
-                           sm:top-20 sm:text-[14vw]
-                           md:top-20 md:text-[12vw]
-                           lg:top-10 lg:left-[100px] lg:translate-x-0 lg:text-[10vw]">
+                       top-6 left-6 text-[60px]
+                       sm:top-10 sm:left-10 sm:text-[14vw]
+                       md:top-12 md:left-12 md:text-[12vw]
+                       lg:top-10 lg:left-[100px] lg:translate-x-0 lg:text-[10vw]">
                     GALLERY
                 </h2>
 
                 <!-- Gallery Content Wrapper -->
-                <div class="relative z-10 mt-[40px]">
+                <div class="relative z-10 mt-[-45px] sm:mt-[20px] md:mt-[10px] lg:mt-[40px]">
 
                     <!-- Dynamic Slide Container -->
                     <div id="gallery-container" class="relative w-full">
@@ -626,7 +631,7 @@
             <div
                 class="relative w-full max-w-[1700px] mx-auto h-[400px] sm:h-[500px] md:h-[400px] rounded-[20px] overflow-hidden group">
                 <!-- Background Image -->
-                <img src="../assets/home/Hero-banner.png" alt="Modern Architecture"
+                <img src="../assets/Services/CTA.webp" alt="Modern Architecture"
                     class="absolute inset-0 w-full h-full object-cover">
 
                 <!-- Dark Overlay -->
@@ -661,7 +666,7 @@
                 <!-- Brand & Description -->
                 <div class="lg:col-span-2">
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="../assets/home/havona Group-06.png" alt="Havona Group" class="w-16 h-16">
+                        <img src="../assets/Header-Footer/havona-logo.png" alt="Havona Group" class="w-20 h-20">
                     </div>
 
                     <p class="text-sm text-white/70 leading-relaxed max-w-sm font-rethink">
@@ -672,18 +677,20 @@
 
                     <!-- Social Icons -->
                     <div class="flex items-center gap-4 mt-6 text-white/80">
-                        <a href="#" class="hover:text-white transition">
-                            <i class="ph ph-facebook-logo text-lg"></i>
+                        <a href="https://www.facebook.com/profile.php?id=61579150903137"
+                            class="hover:text-white transition">
+                            <img src="../assets/Header-Footer/Facebook.svg" alt="Facebook" class="w-4 h-4">
                         </a>
-                        <a href="#" class="hover:text-white transition">
-                            <i class="ph ph-instagram-logo text-lg"></i>
+                        <a href="https://www.instagram.com/havonagroup/" class="hover:text-white transition">
+                            <img src="../assets/Header-Footer/Instagram.svg" alt="Instagram" class="w-4 h-4">
                         </a>
-                        <a href="#" class="hover:text-white transition">
-                            <i class="ph ph-linkedin-logo text-lg"></i>
+                        <a href="https://www.linkedin.com/company/98998033/admin/dashboard/"
+                            class="hover:text-white transition">
+                            <img src="../assets/Header-Footer/Linkedin.svg" alt="Linkedin" class="w-4 h-4">
                         </a>
-                        <a href="#" class="hover:text-white transition">
-                            <i class="ph ph-youtube-logo text-lg"></i>
-                        </a>
+                        <!-- <a href="#" class="hover:text-white transition">
+              <img src="../assets/Header-Footer/Youtube.svg" alt="Youtube" class="w-4 h-4">
+            </a> -->
                     </div>
                 </div>
 
@@ -693,7 +700,7 @@
                     <ul class="space-y-3 text-sm">
                         <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
                         <li><a href="../about/about.html" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">Services</a></li>
+                        <li><a href="./service.html" class="hover:text-white transition">Services</a></li>
                         <li><a href="../blog/blog.html" class="hover:text-white transition">Blogs</a></li>
                         <li><a href="../contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
                     </ul>
@@ -705,19 +712,19 @@
 
                     <ul class="space-y-4 text-sm text-white/70">
                         <li class="flex items-start gap-3">
-                            <i class="ph ph-map-pin text-lg text-white mt-0.5"></i>
+                            <img src="../assets/Header-Footer/Location.svg" alt="Location" class="w-4 h-4 mt-0.5">
                             <span>L66, TNHB Colony, Tenkasi – 62811</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="ph ph-phone text-lg text-white"></i>
-                            <span>+91 8110000878</span>
+                            <img src="../assets/Header-Footer/Phone-symbol.svg" alt="Phone" class="w-4 h-4">
+                            <span>+91 9790190169</span>
                         </li>
+                        <!-- <li class="flex items-center gap-3">
+              <img src="../assets/Header-Footer/Whatsapp.svg" alt="Phone" class="w-4 h-4">
+              <span>+91 8110000878</span>
+            </li> -->
                         <li class="flex items-center gap-3">
-                            <i class="ph ph-phone text-lg text-white"></i>
-                            <span>+91 8110000878</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="ph ph-envelope text-lg text-white"></i>
+                            <img src="../assets/Header-Footer/Mail.svg" alt="Email" class="w-4 h-4">
                             <span>info@havona.com</span>
                         </li>
                     </ul>
@@ -733,13 +740,13 @@
                     class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
 
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="../assets/home/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
+                        <img src="../assets/Header-Footer/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
                     </div>
 
                     <div class="flex flex-wrap items-center gap-6">
-                        <a href="#" class="hover:text-white transition">Terms & Conditions</a>
-                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                        <a href="#" class="hover:text-white transition">Cookies Policy</a>
+                        <a href="../PolicyPages/terms.html" class="hover:text-white transition">Terms & Conditions</a>
+                        <a href="../PolicyPages/privacy.html" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="../PolicyPages/cookies.html" class="hover:text-white transition">Cookies Policy</a>
                     </div>
 
                     <div>
@@ -753,7 +760,7 @@
     </footer>
 
     <script src="../js/home/header.js"></script>
-    <script src="../js/blog/blog-gallery.js"></script>
+    <script src="../js/services/services-gallery.js"></script>
     <script src="../js/services/services-section.js"></script>
     <script>
         // FAQ Logic
@@ -775,6 +782,7 @@
         // Open first item by default
         document.querySelector('.faq-item')?.classList.add('active');
     </script>
+    <script src="../js/shared/scroll-to-next.js"></script>
     <script src="../js/shared/consultation-modal.js"></script>
 </body>
 
