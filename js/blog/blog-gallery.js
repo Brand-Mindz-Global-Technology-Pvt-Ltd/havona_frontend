@@ -6,52 +6,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentIndex = 0;
 
-    // Gallery Data (5 Pairs = 10 Images)
+    // Gallery Data (3 Pairs = 6 Images)
     // Structure: { horizontal: { src, text }, vertical: { src } }
     const galleryItems = [
         {
             horizontal: {
-                src: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000&auto=format&fit=crop',
+                src: '../assets/blog/Gallery-1.jpg',
                 text: 'Now is the time to turn your space into a masterpiece.'
             },
             vertical: {
-                src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop'
+                src: '../assets/blog/Gallery-2.webp'
             }
         },
         {
             horizontal: {
-                src: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1000&auto=format&fit=crop',
+                src: '../assets/blog/Gallery-3.webp',
                 text: 'Elegance is not standing out, but being remembered.'
             },
             vertical: {
-                src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop'
+                src: '../assets/blog/Gallery-4.webp'
             }
         },
         {
             horizontal: {
-                src: 'https://images.unsplash.com/photo-1600573472591-ee6c8e695394?q=80&w=1000&auto=format&fit=crop',
+                src: '../assets/blog/Gallery-5.webp',
                 text: 'Design is not just what it looks like and feels like. Design is how it works.'
             },
             vertical: {
-                src: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1000&auto=format&fit=crop'
-            }
-        },
-        {
-            horizontal: {
-                src: 'https://images.unsplash.com/photo-1600210491892-03d54cc0fabd?q=80&w=1000&auto=format&fit=crop',
-                text: 'Simplicity is the ultimate sophistication in modern living.'
-            },
-            vertical: {
-                src: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=1000&auto=format&fit=crop'
-            }
-        },
-        {
-            horizontal: {
-                src: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1000&auto=format&fit=crop',
-                text: 'Luxury must be comfortable, otherwise it is not luxury.'
-            },
-            vertical: {
-                src: 'https://images.unsplash.com/photo-1600585154526-998dce793675?q=80&w=1000&auto=format&fit=crop'
+                src: '../assets/blog/Gallery-6.webp'
             }
         }
     ];

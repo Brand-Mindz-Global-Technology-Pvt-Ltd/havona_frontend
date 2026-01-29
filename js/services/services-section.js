@@ -1,21 +1,21 @@
 // Services Data
 const servicesData = {
     'Architecture': {
-        title: 'Architectural Excellence',
-        quote: '" Innovative Designs That Harmonize With Environment And Lifestyle "',
-        desc: 'Our architecture team combines creativity with technical expertise to design spaces that are both sustainable and aesthetically pleasing. We focus on modern living standards and future-ready structures.',
+        title: 'Architecture',
+        quote: '" Smart, purposeful architecture designed for your vision and environment  "',
+        desc: 'Our Architectural Services focus on creating buildings that are both visually strong and functionally efficient. From conceptual planning to detailed design, we shape architecture that reflects your needs, context, and long-term goals. Every element is carefully considered to ensure balance, durability, and usability, making your project truly one-of-a-kind.',
         image: '../assets/Services/Architecture.webp'
     },
     'Construction': {
-        title: 'Precision Construction',
-        quote: '" Building Strong Foundations For Your Future Dreams "',
-        desc: 'With a commitment to quality and safety, our construction services deliver excellence across residential and commercial projects. We use advanced technology to ensure precision in every brick laid.',
+        title: 'Construction',
+        quote: '" Strong, reliable construction built for lasting performance "',
+        desc: 'Our Construction Services focus on delivering structures that are both durable and well-executed. From planning and material selection to on-site execution and final handover, we build with attention to quality, safety, and efficiency. Every stage is carefully managed to ensure strength, consistency, and long-term value, making your project truly one-of-a-kind.',
         image: '../assets/Services/Construction.webp'
     },
     'Interior': {
-        title: 'Interior Solutions',
-        quote: '" Smart, Elegant Interiors Tailored For Your Lifestyle Or Workspace "',
-        desc: 'Our Interior Solutions Focus On Creating Spaces That Are Both Beautiful And Functional. From Conceptual Design To Execution, We Craft Interiors That Reflect Your Personality, Brand, And Lifestyle. Every Element Is Thoughtfully Planned To Ensure Comfort, Style, And Efficiency, Making Your Space Truly One-Of-A-Kind.',
+        title: 'Interior',
+        quote: '"  Smart, elegant interiors tailored for your lifestyle or workspace "',
+        desc: 'Our Interior Solutions focus on creating spaces that are both beautiful and functional. From conceptual design to execution, we craft interiors that reflect your personality, brand, and lifestyle. Every element is thoughtfully planned to ensure comfort, style, and efficiency, making your space truly one-of-a-kind.',
         images: [
             '../assets/Services/Interior.webp',
             '../assets/Services/Interior-1.webp',
@@ -24,14 +24,14 @@ const servicesData = {
     },
     'PMC': {
         title: 'Project Management',
-        quote: '" Seamless Coordination For Complex Projects "',
-        desc: 'Our PMC division ensures that every stage of your project is handled with maximum efficiency. From budget planning to timeline management, we keep everything on track and within scope.',
+        quote: '" Structured, transparent project management for smooth execution "',
+        desc: 'Our Project Management Services focus on organizing and controlling every stage of the project with clarity and coordination. From planning and scheduling to site supervision and quality monitoring, we ensure each phase runs efficiently and on track. Every process is carefully managed to maintain timelines, budgets, and standards, making your project truly one-of-a-kind.',
         image: '../assets/Services/Project-Management.webp'
     },
     'Real Estate': {
-        title: 'Real Estate Growth',
-        quote: '" Strategic Properties For Sustainable Investment "',
-        desc: 'We help you find and develop spaces that offer long-term value. Our real estate expertise covers land acquisition, development planning, and strategic marketing for high-end properties.',
+        title: 'Real Estate',
+        quote: '" Trusted real estate guidance for confident property decisions "',
+        desc: 'Our Real Estate Services focus on helping clients find and develop properties that offer both value and potential. From property evaluation to transaction support and development planning, we guide every step with market insight and professional care. Each decision is thoughtfully supported to ensure clarity, security, and long-term benefit, making your investment truly one-of-a-kind.',
         image: '../assets/Services/Real-Estate.webp'
     }
 };
@@ -159,7 +159,50 @@ function updateDots() {
     });
 }
 
+// Helper to switch service based on URL parameter
+// Helper to switch service based on URL parameter
+function handleUrlParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceParam = urlParams.get('service');
+    const hash = window.location.hash;
+
+    if (serviceParam && servicesData[serviceParam]) {
+        // Wait a bit to ensure DOM and styles are ready
+        setTimeout(() => {
+            const tabs = document.querySelectorAll('.service-tab, .service-tab-mob');
+            let targetTab = null;
+
+            tabs.forEach(tab => {
+                const clickAttr = tab.getAttribute('onclick');
+                if (clickAttr && clickAttr.includes(`'${serviceParam}'`)) {
+                    targetTab = tab;
+                } else if (tab.textContent.trim().toLowerCase() === serviceParam.toLowerCase()) {
+                    targetTab = tab;
+                }
+            });
+
+            switchService(serviceParam, targetTab);
+
+            // Force scroll to section if hash exists
+            if (hash === '#services-section') {
+                const section = document.getElementById('services-section');
+                if (section) {
+                    // Slight delay to allow layout to settle after switchService's internal changes
+                    setTimeout(() => {
+                        const topOffset = section.getBoundingClientRect().top + window.pageYOffset;
+                        window.scrollTo({
+                            top: topOffset,
+                            behavior: 'smooth'
+                        });
+                    }, 150);
+                }
+            }
+        }, 100);
+    }
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     startAutoScroll();
+    handleUrlParams();
 });

@@ -3,15 +3,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const serviceItems = document.querySelectorAll('.service-item');
 
     serviceItems.forEach(item => {
-        item.addEventListener('click', function () {
-            const isActive = this.classList.contains('active');
-
+        // Expand on Hover
+        item.addEventListener('mouseenter', function () {
             // Close all items
             serviceItems.forEach(i => i.classList.remove('active'));
+            // Open hovered item
+            this.classList.add('active');
+        });
 
-            // Open clicked item if it wasn't active
-            if (!isActive) {
-                this.classList.add('active');
+        // Redirect on Click
+        item.addEventListener('click', function () {
+            const serviceName = this.getAttribute('data-service');
+            if (serviceName) {
+                // Redirect to service page with parameter and anchor to section
+                window.location.href = `./service/service.html?service=${encodeURIComponent(serviceName)}#services-section`;
             }
         });
     });
@@ -279,4 +284,55 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+});
+// Pricing Cards Slider Pagination (Mobile/Tablet)
+document.addEventListener('DOMContentLoaded', function () {
+    const pricingScroll = document.getElementById('pricing-cards-scroll');
+    const pricingDots = document.querySelectorAll('.pricing-pagination-dot');
+
+    if (!pricingScroll || pricingDots.length === 0) return;
+
+    function updatePricingDots() {
+        if (window.innerWidth >= 1024) return; // Only for mobile/tablet
+
+        const scrollWidth = pricingScroll.scrollWidth - pricingScroll.clientWidth;
+        if (scrollWidth <= 0) return;
+
+        const scrollPosition = pricingScroll.scrollLeft;
+        const scrollPercentage = Math.min(Math.max(scrollPosition / scrollWidth, 0), 1);
+
+        const activeIndex = Math.round(scrollPercentage * (pricingDots.length - 1));
+
+        pricingDots.forEach((dot, index) => {
+            if (index === activeIndex) {
+                dot.classList.remove('bg-gray-300');
+                dot.classList.add('bg-[#4D606C]', 'scale-125');
+            } else {
+                dot.classList.remove('bg-[#4D606C]', 'scale-125');
+                dot.classList.add('bg-gray-300');
+            }
+        });
+    }
+
+    // Scroll to specific card on dot click
+    pricingDots.forEach((dot, index) => {
+        dot.addEventListener('click', function () {
+            const cards = pricingScroll.querySelectorAll('.shrink-0');
+            if (cards[index]) {
+                const targetScroll = cards[index].offsetLeft - pricingScroll.offsetLeft;
+                pricingScroll.scrollTo({
+                    left: targetScroll,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    pricingScroll.addEventListener('scroll', updatePricingDots);
+
+    // Initial call
+    updatePricingDots();
+
+    // Re-check on resize
+    window.addEventListener('resize', updatePricingDots);
 });

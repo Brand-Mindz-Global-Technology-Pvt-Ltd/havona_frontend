@@ -3,30 +3,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = document.getElementById('gallery-prev');
     const nextBtn = document.getElementById('gallery-next');
     const pagination = document.getElementById('gallery-pagination');
+    const galleryHeading = document.getElementById('gallery-heading');
 
     let currentIndex = 0;
 
     // Gallery Data for Services Page
     const galleryItems = [
         {
-            horizontal: {
-                src: '../assets/services/Gallery-1.webp',
-                text: 'Tailored solutions for every architectural need.'
-            },
-            vertical: {
-                src: '../assets/services/Gallery-2.webp'
-            }
-        },
-        {
-            horizontal: {
-                src: '../assets/services/Gallery-3.webp',
-                text: 'Precision engineering and construction excellence.'
-            },
-            vertical: {
-                src: '../assets/services/Gallery-4.webp'
-            }
-        },
-        {
+            title: 'INTERIOR',
             horizontal: {
                 src: '../assets/services/Gallery-5.webp',
                 text: 'Innovative interiors that reflect your personality.'
@@ -36,6 +20,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
+            title: 'ARCHITECTURE',
+            horizontal: {
+                src: '../assets/services/Gallery-1.webp',
+                text: 'Tailored solutions for every architectural need.'
+            },
+            vertical: {
+                src: '../assets/services/Gallery-2.webp'
+            }
+        },
+        {
+            title: 'CONSTRUCTION',
+            horizontal: {
+                src: '../assets/services/Gallery-3.webp',
+                text: 'Precision engineering and construction excellence.'
+            },
+            vertical: {
+                src: '../assets/services/Gallery-4.webp'
+            }
+        },
+        {
+            title: 'PMC',
             horizontal: {
                 src: '../assets/services/Gallery-7.webp',
                 text: 'Effective project management from concept to completion.'
@@ -45,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
+            title: 'REAL ESTATE',
             horizontal: {
                 src: '../assets/services/Gallery-9.webp',
                 text: 'Exceptional real estate opportunities for a brighter future.'
@@ -59,12 +65,22 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!container) return;
         const item = galleryItems[index];
 
+        // Update background heading text
+        if (galleryHeading) {
+            galleryHeading.textContent = item.title;
+            // Trigger a quick re-animation effect for the heading
+            galleryHeading.style.opacity = '0';
+            setTimeout(() => {
+                galleryHeading.style.opacity = '0.6';
+            }, 50);
+        }
+
         const html = `
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-start animate-fade-in">
                 <!-- Left Column: Horizontal Image + Text -->
                 <div class="md:col-span-7 flex flex-col gap-8 opacity-0 translate-y-4 animate-slide-up" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
                     <div class="w-full h-[300px] sm:h-[400px] lg:h-[450px] rounded-[10px] overflow-hidden shadow-xl group">
-                        <img src="${item.horizontal.src}" alt="Gallery Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="${item.horizontal.src}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <p class="font-new-york text-2xl sm:text-3xl lg:text-3xl text-[#1A1A1A] leading-tight max-w-4xl">
                         ${item.horizontal.text}
@@ -74,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <!-- Right Column: Vertical Image -->
                 <div class="md:col-span-5 opacity-0 translate-y-4 animate-slide-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
                     <div class="w-full md:w-[90%] md:ml-auto h-[450px] sm:h-[550px] lg:h-[550px] rounded-[10px] overflow-hidden shadow-xl group">
-                        <img src="${item.vertical.src}" alt="Gallery Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="${item.vertical.src}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                 </div>
             </div>

@@ -70,7 +70,7 @@ function renderBlogDetail(blog) {
     if (contentContainer) {
         // If content is HTML, set innerHTML. If it's plain text with newlines, replace them.
         // Usually from a textarea, newlines are common.
-        const formattedContent = blog.content.includes('<p>') ? blog.content : blog.content.replace(/\n/g, '<br><br>');
+        const formattedContent = blog.content.includes('<p>') ? blog.content : blog.content.replace(/\n/g, '<br>');
         contentContainer.innerHTML = formattedContent;
     }
 

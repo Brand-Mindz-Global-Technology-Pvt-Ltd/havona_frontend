@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = document.getElementById('gallery-prev');
     const nextBtn = document.getElementById('gallery-next');
     const pagination = document.getElementById('gallery-pagination');
+    const galleryHeading = document.getElementById('gallery-heading');
 
     let currentIndex = 0;
 
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 text: 'Committed to delivering excellence in every interaction.'
             },
             vertical: {
-                src: '../assets/contact/Contact-1.webp'
+                src: '../assets/contact/Gallery-6.png'
             }
         }
     ];
