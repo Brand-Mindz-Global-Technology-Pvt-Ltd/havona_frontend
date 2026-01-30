@@ -23,6 +23,7 @@ function fetchBlogs() {
                 renderBlogs(data.data);
             } else {
                 tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-red-400">Error: ${data.message}</td></tr>`;
+                showToast(data.message, 'error');
             }
         })
         .catch(error => {
@@ -125,7 +126,7 @@ function showEditBlogForm(blogId) {
                     document.getElementById('imagePreview').classList.add('hidden');
                 }
             } else {
-                alert('Blog not found');
+                showToast('Blog not found', 'error');
                 showBlogSection();
             }
         });
@@ -164,15 +165,15 @@ function handleBlogSubmit(e) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert(actionType === 'add' ? 'Blog Added' : 'Blog Updated');
+                showToast(actionType === 'add' ? 'Blog Post Added' : 'Blog Post Updated', 'success');
                 showBlogSection();
             } else {
-                alert(data.message);
+                showToast(data.message, 'error');
             }
         })
         .catch(error => {
             console.error(error);
-            alert('Error saving blog');
+            showToast('Error saving blog', 'error');
         })
         .finally(() => {
             submitBtn.disabled = false;
@@ -189,7 +190,11 @@ function deleteBlog(id) {
     })
         .then(res => res.json())
         .then(data => {
-            if (data.success) fetchBlogs();
-            else alert(data.message);
+            if (data.success) {
+                showToast('Blog Deleted', 'success');
+                fetchBlogs();
+            } else {
+                showToast(data.message, 'error');
+            }
         });
 }

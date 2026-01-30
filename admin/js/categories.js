@@ -10,6 +10,7 @@ function fetchCategories() {
                 populateCategoryDropdowns(data.data);
             } else {
                 tbody.innerHTML = `<tr><td colspan="4" class="p-8 text-center text-red-400">Error: ${data.message}</td></tr>`;
+                showToast(data.message, 'error');
             }
         })
         .catch(error => {
@@ -80,6 +81,9 @@ function showEditCategoryModal(id, name, slug) {
     document.getElementById('categoryId').value = id;
     document.getElementById('catName').value = name;
     document.getElementById('catSlug').value = slug;
+
+    // Store old name to track changes for blog sync
+    document.getElementById('addCategoryForm').setAttribute('data-old-name', name);
 }
 
 function closeCategoryModal() {
@@ -115,18 +119,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(formData)
             })
                 .then(res => res.json())
-                .then(data => {
+                .then(async data => {
                     if (data.success) {
-                        alert(categoryId ? 'Category Updated' : 'Category Added');
+                        const newName = document.getElementById('catName').value;
+                        const oldName = form.getAttribute('data-old-name');
+
+                        if (categoryId && oldName && oldName !== newName) {
+                            showToast('Updating associated blogs...', 'info');
+                            await syncBlogCategories(oldName, newName);
+                        }
+
+                        showToast(categoryId ? 'Category Updated Successfully' : 'Category Added Successfully', 'success');
                         closeCategoryModal();
                         fetchCategories();
                     } else {
-                        alert(data.message);
+                        showToast(data.message, 'error');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('An error occurred. Please try again.');
+                    showToast('An error occurred. Please try again.', 'error');
                 })
                 .finally(() => {
                     submitBtn.disabled = false;
@@ -161,9 +173,65 @@ function deleteCategory(id) {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
+                showToast('Category Deleted', 'success');
                 fetchCategories();
             } else {
-                alert(data.message);
+                showToast(data.message, 'error');
             }
         });
+}
+
+/**
+ * Syncs blog categories when a category name is edited.
+ * This is a frontend workaround because the backend stores category names as strings.
+ */
+async function syncBlogCategories(oldName, newName) {
+    try {
+        const response = await fetch('https://havona.brandmindz.com/api/blogs/fetch.php');
+        const data = await response.json();
+
+        if (!data.success) return;
+
+        const blogsToUpdate = data.data.filter(blog => blog.category === oldName);
+
+        if (blogsToUpdate.length === 0) return;
+
+        const results = await Promise.allSettled(blogsToUpdate.map(async (blog) => {
+            // We need to fetch full blog data to ensure we don't lose anything during update
+            const blogRes = await fetch(`https://havona.brandmindz.com/api/blogs/fetch.php?id=${blog.id}`);
+            const blogData = await blogRes.json();
+
+            if (!blogData.success || !blogData.data.length) return;
+            const fullBlog = blogData.data[0];
+
+            const formData = new FormData();
+            formData.append('id', fullBlog.id);
+            formData.append('title', fullBlog.title);
+            formData.append('slug', fullBlog.slug);
+            formData.append('category', newName); // The Update
+            formData.append('content', fullBlog.content);
+            formData.append('short_description', fullBlog.short_description || '');
+            formData.append('status', fullBlog.status);
+            formData.append('tags', fullBlog.tags || '');
+            formData.append('meta_title', fullBlog.meta_title || '');
+            formData.append('meta_description', fullBlog.meta_description || '');
+            // We don't append a new image, the backend should keep the old one if 'image' field is empty or missing in multipart
+            // BUT some backends might delete it. Usually they check if($_FILES['image']['size'] > 0)
+
+            return fetch('https://havona.brandmindz.com/api/blogs/edit.php', {
+                method: 'POST',
+                body: formData
+            }).then(r => r.json());
+        }));
+
+        const failed = results.filter(r => r.status === 'rejected' || (r.value && !r.value.success));
+        if (failed.length > 0) {
+            showToast(`Sync partially failed: ${failed.length} blogs not updated.`, 'warning');
+        } else {
+            showToast(`Synchronized ${blogsToUpdate.length} blogs.`, 'success');
+        }
+    } catch (error) {
+        console.error('Sync Error:', error);
+        showToast('Failed to synchronize blogs.', 'error');
+    }
 }

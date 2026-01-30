@@ -67,6 +67,7 @@
         window.openConsultationModal = () => {
             console.log('Consultation Modal: Opening...');
             modal.classList.remove('hidden');
+            modal.classList.add('flex');
             // Force reflow
             void modal.offsetWidth;
             overlay.classList.remove('opacity-0');
@@ -81,6 +82,7 @@
 
             setTimeout(() => {
                 modal.classList.add('hidden');
+                modal.classList.remove('flex');
                 document.body.style.overflow = '';
                 if (form) form.reset();
             }, 300);

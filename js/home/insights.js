@@ -100,9 +100,12 @@ function createStackedColumn(blog1, blog2) {
             </div>
 
             <div class="absolute bottom-0 left-0 right-0 p-6 bg-black/20 backdrop-blur-sm rounded-b-[24px]">
-                <h3 class="font-rethink text-sm sm:text-lg lg:text-xl font-semibold leading-tight text-white line-clamp-2">
+                <h3 class="font-rethink text-sm sm:text-lg lg:text-xl font-semibold leading-tight text-white line-clamp-2 mb-2">
                     ${blog1.title}
                 </h3>
+                <p class="text-white/80 text-xs sm:text-sm font-rethink line-clamp-2 leading-relaxed">
+                    ${blog1.short_description || ''}
+                </p>
             </div>
         </div>`;
     }
@@ -124,9 +127,12 @@ function createStackedColumn(blog1, blog2) {
             </div>
 
             <div class="absolute bottom-0 left-0 right-0 p-6 bg-black/20 backdrop-blur-sm rounded-b-[24px]">
-                <h3 class="font-rethink text-sm sm:text-lg lg:text-xl font-semibold leading-tight text-white line-clamp-2">
+                <h3 class="font-rethink text-sm sm:text-lg lg:text-xl font-semibold leading-tight text-white line-clamp-2 mb-2">
                     ${blog2.title}
                 </h3>
+                <p class="text-white/80 text-xs sm:text-sm font-rethink line-clamp-2 leading-relaxed">
+                    ${blog2.short_description || ''}
+                </p>
             </div>
         </div>`;
     }

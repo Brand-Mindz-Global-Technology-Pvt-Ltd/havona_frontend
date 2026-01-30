@@ -9,6 +9,7 @@ function fetchEnquiries() {
                 renderEnquiries(data.data);
             } else {
                 tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-red-400">Error: ${data.message}</td></tr>`;
+                showToast(data.message, 'error');
             }
         })
         .catch(error => {
@@ -75,11 +76,17 @@ function markAsRead(id) {
         .then(data => {
             if (data.success) {
                 fetchEnquiries();
+                showToast('Enquiry marked as read', 'success');
                 // Also update dashboard if visible
                 if (typeof updateDashboardStats === 'function') {
                     updateDashboardStats();
                 }
+            } else {
+                showToast(data.message, 'error');
             }
         })
-        .catch(err => console.error('Error marking as read:', err));
+        .catch(err => {
+            console.error('Error marking as read:', err);
+            showToast('Failed to mark as read', 'error');
+        });
 }
