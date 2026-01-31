@@ -181,8 +181,10 @@ function handleBlogSubmit(e) {
         });
 }
 
-function deleteBlog(id) {
-    if (!confirm('Delete this blog?')) return;
+async function deleteBlog(id) {
+    const confirmed = await showConfirm('Delete Blog Post', 'Are you sure you want to delete this blog post? This action cannot be undone.', 'Delete Blog');
+    if (!confirmed) return;
+
     fetch(API_BASE + 'delete.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

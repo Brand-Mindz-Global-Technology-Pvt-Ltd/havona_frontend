@@ -12,6 +12,7 @@
 
   <!-- New York Font -->
   <link href="./dist/output.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -85,97 +86,17 @@
 </head>
 
 <body class="bg-[#F0F0F0]">
-  <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 py-6 transition-all duration-300"
-    id="main-header">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <!-- Header -->
+  <div id="main-header-placeholder" data-root="./" data-active="home" data-position="absolute"></div>
 
-      <!-- Logo -->
-      <a href="./index.html" class="flex items-center gap-2 group transition-transform hover:scale-105">
-        <img src="./assets/Header-Footer/havona-logo.png" alt="Havona Logo"
-          class="w-16 h-16 sm:w-28 sm:h-28 object-contain">
-      </a>
-
-      <!-- Desktop Navigation -->
-      <nav
-        class="hidden lg:flex items-center bg-white/10 backdrop-blur-2xl border border-white/10 rounded-full font-rethink shadow-2xl">
-        <a href="./index.html"
-          class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">Home</a>
-        <div class="flex items-center px-4">
-          <a href="./about/about.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">About Us</a>
-          <a href="./service/service.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">
-            Service
-          </a>
-          <a href="./blog/blog.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Blog</a>
-          <a href="./contact/contact.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Contact Us</a>
-        </div>
-      </nav>
-
-      <!-- CTA & Mobile Toggle -->
-      <div class="flex items-center gap-4">
-        <button
-          class="btn-consultation hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/0 backdrop-blur-sm text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
-          <span
-            class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
-            <img src="./assets/Header-Footer/Phone.svg" alt="Phone" class="w-4 h-4">
-          </span>
-          <span class="font-medium">Get a Consultation</span>
-        </button>
-
-        <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-toggle"
-          class="lg:hidden p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all">
-          <i class="ph ph-list text-2xl"></i>
-        </button>
-      </div>
-
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+    <div class="absolute inset-0 z-0">
+      <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
+        <source src="./assets/home/Hero-banner-video.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/60"></div>
     </div>
-
-    <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu" class="fixed inset-0 z-100 hidden lg:hidden">
-      <!-- Backdrop -->
-      <div id="mobile-menu-overlay"
-        class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
-
-      <!-- Content -->
-      <div id="mobile-menu-content"
-        class="absolute top-0 right-0 w-[280px] h-full bg-[#1A1D1F]/95 backdrop-blur-2xl border-l border-white/10 p-8 transform translate-x-full transition-transform duration-300 shadow-2xl">
-        <div class="flex items-center justify-between mb-12">
-          <img src="./assets/Header-Footer/havona-logo.png" alt="Havona" class="w-16 h-16 object-contain">
-          <button id="mobile-menu-close"
-            class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
-            <i class="ph ph-x text-2xl"></i>
-          </button>
-        </div>
-
-        <nav class="flex flex-col gap-6 font-rethink text-lg">
-          <a href="./index.html" class="text-white font-semibold">Home</a>
-          <a href="./about/about.html" class="text-white/70 hover:text-white transition-colors">About Us</a>
-          <a href="./service/service.html" class="text-white/70 hover:text-white transition-colors">Service</a>
-          <a href="./blog/blog.html" class="text-white/70 hover:text-white transition-colors">Blog</a>
-          <a href="./contact/contact.html" class="text-white/70 hover:text-white transition-colors">Contact Us</a>
-        </nav>
-
-        <div class="absolute bottom-10 left-8 right-8">
-          <button
-            class="btn-consultation w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
-            Get a Consultation
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-
-  <section id="hero" class="relative min-h-screen w-full bg-cover bg-center flex items-center overflow-hidden">
-    <!-- Video Background -->
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-      <source src="./assets/home/Hero-banner-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
 
     <!-- Dark overlay -->
     <div class="absolute inset-0 bg-black/50"></div>
@@ -185,7 +106,7 @@
       <div class="max-w-7xl mx-auto text-center text-white">
 
         <!-- Heading -->
-        <h1 class="font-new-york tracking-wide flex flex-col items-center">
+        <h1 class="font-new-york tracking-wide flex flex-col items-center" data-aos="fade-up">
           <span
             class="text-2xl sm:text-4xl md:text-5xl lg:text-[4rem] leading-tight mb-2 sm:mb-4 whitespace-nowrap ">DESIGNING
             TOMORROW</span>
@@ -196,22 +117,23 @@
         </h1>
 
         <!-- Subheading -->
-        <p
-          class="mt-0 sm:mt-0 text-sm sm:text-lg md:text-xl font-rethink text-white/90 max-w-3xl mx-auto font-light tracking-wide px-4">
+        <p class="mt-0 sm:mt-0 text-sm sm:text-lg md:text-xl font-rethink text-white/90 max-w-3xl mx-auto font-light tracking-wide px-4"
+          data-aos="fade-up" data-aos-delay="100">
           Future ready <span class="font-semibold text-base sm:text-xl md:text-2xl">Spaces, Seamlessely Designed, Built,
             And Managed!</span>
         </p>
 
         <!-- Buttons -->
-        <div class="mt-4 sm:mt-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+        <div class="mt-4 sm:mt-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+          data-aos="fade-up" data-aos-delay="200">
           <button
-            onclick="window.open('https://wa.me/918110000878?text=Hello%2c%20I%20need%20more%20information.', '_blank')"
-            class="w-full sm:w-auto px-6 sm:px-6 py-2 sm:py-4 rounded-full bg-black/50 border border-white font-rethink text-[12px] sm:text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 ">
+            onclick="window.open('https://wa.me/918110000878?text=Hello%20Havona%2C%20I%20want%20to%20discuss%20about%20a%20project%20with%20you.', '_blank')"
+            class="w-full sm:w-auto px-6 sm:px-4 py-2 sm:py-4 rounded-full bg-black/50 border border-white font-rethink text-[12px] sm:text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 ">
             PLAN YOUR PROJECT
           </button>
 
           <button onclick="window.location.href = './service/service.html';"
-            class="w-full sm:w-auto flex items-center justify-center gap-3 px-6 sm:px-8 py-2 sm:py-4 rounded-full backdrop-blur-xl border border-white/20 font-rethink text-[10px] sm:text-sm text-white hover:bg-[#3B4854] transition-all duration-300"
+            class="w-full sm:w-auto flex items-center justify-center gap-3 px-6 sm:px-10 py-2 sm:py-4 rounded-full backdrop-blur-xl border border-white/20 font-rethink text-[10px] sm:text-sm text-white hover:bg-[#3B4854] transition-all duration-300"
             style="background-color:#4F606D">
             <span>
               <img src="./assets/home/View-projects.svg" alt="Projects" class="w-5 h-5 sm:w-6 sm:h-6 object-contain">
@@ -236,7 +158,7 @@
   </section>
 
   <!-- Brand Trust Section -->
-  <section class="relative px-4 sm:px-8 lg:px-0 z-20 mt-4 md:mt-8 mb-0 md:mb-0">
+  <section class="relative px-4 sm:px-8 lg:px-0 z-20 mt-4 md:mt-8 mb-0 md:mb-0" data-aos="fade-up">
     <div
       class="max-w-[2500px] mx-auto bg-white rounded-[20px] shadow-[0_15px_60px_-15px_rgba(0,0,0,0.08)] px-8 sm:px-12 py-10 md:py-14">
       <div class="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 md:gap-x-24 lg:gap-x-32">
@@ -273,7 +195,7 @@
 
         <!-- Top Row: Header & Button -->
         <div class="flex flex-col lg:flex-row justify-between gap-8 mb-16 px-4 items-center lg:items-start">
-          <div class="max-w-[900px] text-left lg:text-left">
+          <div class="max-w-[900px] text-left lg:text-left" data-aos="fade-up">
             <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 tracking-tight text-[#000000]">
               BUILT ON VISION
             </h2>
@@ -301,7 +223,7 @@
         <div
           class="relative w-full h-[400px] sm:h-[500px] md:h-[600px] aspect-21/11 sm:aspect-21/9 rounded-[20px] overflow-hidden group/banner">
           <!-- Background Image -->
-          <img src="./assets/home/built-on-vision.webp" alt="Interior Design" class="w-full h-full object-cover">
+          <img src="./assets/home/Video-thumbnail.webp" alt="Interior Design" class="w-full h-full object-cover">
 
           <!-- Overlay -->
           <div class="absolute inset-0 bg-black/60"></div>
@@ -444,12 +366,8 @@
     <div class="relative z-10 max-w-[1500px] mx-auto">
       <!-- Header -->
       <div class="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20">
-        <div class="max-w-2xl">
-          <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl text-black leading-tight mb-6">
-            DESIGNS THAT SPEAK<br>BEYOND WORDS
-          </h2>
-          <!-- Custom Button -->
-          <div class="relative inline-block group cursor-pointer ml-4 mt-2">
+        <div class="max-w-2xl" data-aos="fade-right">
+          <div class="relative inline-block group cursor-pointer ml-0 mb-8">
             <!-- Decorative borders -->
             <div
               class="absolute inset-0 border border-[#4F5B66] rounded-full transition-all duration-300 group-hover:-rotate-12 group-[.active-border]:-rotate-12">
@@ -463,9 +381,15 @@
               Our Services
             </button>
           </div>
+          <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl text-black leading-tight mb-6">
+            DESIGNS THAT SPEAK<br>BEYOND WORDS
+          </h2>
+
         </div>
 
-        <div class="max-w-[600px] text-[#4D606C] font-rethink text-base md:text-xl leading-relaxed pt-2 text-justify">
+        <div
+          class="max-w-[600px] text-[#4D606C] font-rethink text-base md:text-xl leading-relaxed lg:pt-24 text-justify"
+          data-aos="fade-left">
           We Deliver End-To-End Solutions In Architecture, Construction, Interior Design, Project Management (PMC), And
           Real Estate.
         </div>
@@ -516,8 +440,8 @@
           <!-- Header -->
           <div
             class="relative z-20 w-full p-8 md:p-8 flex items-center justify-between transition-colors duration-300 group-[.active]:bg-[#313A40] group-[.active]:text-white bg-transparent text-black group-[.active]:rounded-t-[30px]">
-            <span class="font-new-york text-xl sm:text-2xl md:text-4xl tracking-wide font-normal">02. Construction
-              Service</span>
+            <span class="font-new-york text-xl sm:text-2xl md:text-4xl tracking-wide font-normal">02. CONSTRUCTION
+              SERVICE</span>
             <!-- Header Arrow (Visible when closed) -->
             <i
               class="ph ph-arrow-right text-[#4D606C] text-3xl transition-all duration-300 group-[.active]:opacity-0 group-[.active]:scale-0"></i>
@@ -552,8 +476,8 @@
           <!-- Header -->
           <div
             class="relative z-20 w-full p-8 md:p-8 flex items-center justify-between transition-colors duration-300 group-[.active]:bg-[#313A40] group-[.active]:text-white bg-transparent text-black group-[.active]:rounded-t-[30px]">
-            <span class="font-new-york text-xl sm:text-2xl md:text-4xl tracking-wide font-normal">03. Interior
-              Solutions</span>
+            <span class="font-new-york text-xl sm:text-2xl md:text-4xl tracking-wide font-normal">03. INTERIOR
+              SOLUTIONS</span>
             <!-- Header Arrow (Visible when closed) -->
             <i
               class="ph ph-arrow-right text-[#4D606C] text-3xl transition-all duration-300 group-[.active]:opacity-0 group-[.active]:scale-0"></i>
@@ -663,7 +587,7 @@
     <div class="w-full">
 
       <!-- Heading - Contained -->
-      <div class="max-w-[1400px] mx-auto px-4 mb-0">
+      <div class="max-w-[1400px] mx-auto px-4 mb-0" data-aos="fade-up">
         <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl text-center text-black leading-tight">
           SEE HOW WE'VE TRANSFORMED<br>
           SPACES INTO BEAUTIFUL WORKS OF ART.
@@ -702,10 +626,44 @@
         <!-- Active Main Slide -->
         <div
           class="relative w-full max-w-[1600px] lg:w-[95%] h-[350px] md:h-[450px] lg:h-[550px] aspect-4/5 sm:aspect-video md:aspect-18/9 lg:aspect-21/9 rounded-[10px] md:rounded-[10px] overflow-hidden shadow-2xl group transition-all duration-700 mx-4 lg:mx-auto">
-          <!-- Main Image -->
-          <img id="transform-img"
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
-            class="category-banner-img w-full h-full object-cover transition-opacity duration-500" alt="Main Image">
+          <!-- Main Comparison Slider Container -->
+          <div id="comparison-slider" class="relative w-full h-full group cursor-ew-resize">
+            <!-- After Image (Base) -->
+            <img id="transform-img"
+              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
+              class="category-banner-img absolute inset-0 w-full h-full object-cover" alt="After Transformation">
+
+            <!-- Before Image (Overlay) -->
+            <div id="before-image-wrap"
+              class="absolute inset-0 w-full h-full z-10 [clip-path:inset(0_50%_0_0)] transition-[clip-path] duration-300">
+              <img id="transform-before-img" src="./assets/home/interior-before.webp"
+                class="absolute inset-0 w-full h-full object-cover" alt="Before Transformation">
+            </div>
+
+            <!-- Slider Handle -->
+            <div id="slider-handle"
+              class="absolute top-0 bottom-0 left- w-1 bg-white z-20 -translate-x-1/2 pointer-events-none transition-all duration-300">
+              <div
+                class="absolute top-1/2 left-[23px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center shadow-2xl border border-gray-200">
+                <i class="ph ph-caret-left text-gray-800 text-lg md:text-lg font-bold"></i>
+                <i class="ph ph-caret-left-right text-gray-800 text-lg md:text-lg font-bold"></i>
+                <i class="ph ph-caret-right text-gray-800 text-lg md:text-lg font-bold"></i>
+              </div>
+            </div>
+
+            <!-- Labels -->
+            <div id="label-before"
+              class="slider-label absolute top-1/2 left-4 md:left-8 -translate-y-1/2 bg-black/40 backdrop-blur-md px-3 md:px-4 py-1.5 md:py-2 rounded-full text-white text-[16px] md:text-md font-bold uppercase tracking-widest z-20 pointer-events-none border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+              Before Havona</div>
+            <div id="label-after"
+              class="slider-label absolute top-1/2 right-4 md:right-8 -translate-y-1/2 bg-black/40 backdrop-blur-md px-3 md:px-4 py-1.5 md:py-2 rounded-full text-white text-[16px] md:text-md font-bold uppercase tracking-widest z-20 pointer-events-none border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+              After Havona</div>
+
+            <!-- Range Input Overlay -->
+            <input type="range" min="0" max="100" value="50"
+              class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 appearance-none"
+              id="transform-slider">
+          </div>
 
           <!-- Iconic 'Designed By Havona' Badge (Reordered: Logo First) -->
           <div
@@ -728,21 +686,8 @@
             <!-- Balanced items to force center toggle -->
             <div class="hidden sm:block flex-1"></div>
 
-            <!-- Before/After Toggle -->
-            <div id="transformation-toggle-container"
-              class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-full p-1.5 md:p-2 flex items-center relative shadow-2xl w-fit">
-              <!-- Sliding active background -->
-              <div id="toggle-bg"
-                class="absolute left-1.5 md:left-2 w-[calc(50%-6px)] md:w-[calc(50%-8px)] h-[calc(100%-12px)] md:h-[calc(100%-16px)] bg-white rounded-full transition-all duration-500 z-0 transform translate-x-full">
-              </div>
-
-              <button onclick="toggleTransform('before')"
-                class="relative z-10 px-6 md:px-8 lg:px-12 py-1.5 md:py-2.5 rounded-full font-rethink text-[10px] md:text-xs lg:text-sm font-bold text-black transition-colors duration-500"
-                id="btn-before">Before</button>
-              <button onclick="toggleTransform('after')"
-                class="relative z-10 px-6 md:px-8 lg:px-12 py-1.5 md:py-2.5 rounded-full font-rethink text-[10px] md:text-xs lg:text-sm font-bold text-black transition-colors duration-500"
-                id="btn-after">After</button>
-            </div>
+            <!-- Slider placeholder (Handle toggled via JS) -->
+            <div id="transformation-toggle-container" class="hidden"></div>
 
             <!-- R  each Us Button Alignment Container -->
             <div class="flex-1 flex justify-center sm:justify-end w-full sm:w-auto">
@@ -788,7 +733,7 @@
   </section>
 
   <!-- Pricing Section Heading -->
-  <div class="pt-12 pb-12 text-center">
+  <div class="pt-12 pb-12 text-center" data-aos="fade-up">
     <h2 class="font-new-york text-3xl md:text-4xl lg:text-5xl text-gray-900 tracking-wide uppercase">CHOOSE YOUR
       PLAN</h2>
   </div>
@@ -1119,7 +1064,8 @@
 
         <!-- Header -->
         <div
-          class="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-8 relative z-10">
+          class="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 md:mb-16 gap-8 relative z-10"
+          data-aos="fade-up">
           <h2 class="font-new-york font-light text-3xl md:text-4xl lg:text-5xl text-black leading-[1.1] max-w-3xl">
             DESIGN INSIGHTS FROM<br>OUR STUDIO
           </h2>
@@ -1183,11 +1129,12 @@
   <!-- Testimonials Section -->
   <section class="relative py-4 md:py-0 overflow-hidden">
 
-    <!-- Centered Boxed Container - Increased Width -->
-    <div class="relative z-10 max-w-[1800px] mx-auto my-8">
+    <!-- Centered Boxed Container - Adjusted width to remove right whitespace -->
+    <div class="relative z-10 max-w-[1700px] mx-auto my-8">
 
       <!-- Boxed Wrapper with Background Image Inside -->
-      <div class="relative rounded-[20px] px-6 py-12 md:p-16 lg:p-12 border border-gray-100 overflow-hidden bg-white">
+      <div class="relative rounded-[20px] px-6 py-12 md:p-16 lg:p-12 border border-gray-100 overflow-hidden bg-white"
+        data-aos="fade-up">
 
         <!-- Background Image inside the box -->
         <div class="absolute inset-0 opacity-50 pointer-events-none">
@@ -1224,35 +1171,28 @@
             </h2>
           </div>
 
-          <!-- Testimonials Container - Minimal Gap -->
-          <div class="flex flex-col lg:flex-row gap-8 lg:gap-4 lg:items-stretch">
+          <!-- Testimonials Container - Centered and Balanced -->
+          <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-center lg:items-stretch">
 
             <!-- Left Side: Arrows and Image Cards -->
             <div
               class="flex flex-col-reverse lg:flex-row items-center gap-6 md:gap-8 shrink-0 self-center lg:self-start lg:mt-6">
-              <!-- Vertical Arrow Navigation - Reduced Size & Refined Color -->
-              <div class="flex flex-row lg:flex-col gap-3">
-                <button id="testimonial-prev"
-                  class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-300 text-white hover:bg-gray-300 active:bg-[#4D606C] active:text-white transition-all active:scale-90 shadow-sm z-20">
-                  <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                  </svg>
-                </button>
-                <button id="testimonial-next"
-                  class="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-gray-300 text-white hover:bg-gray-300 active:bg-[#4D606C] active:text-white transition-all active:scale-90 shadow-sm z-20">
-                  <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-              </div>
+
 
               <!-- Stacked Image Cards -->
               <div class="flex flex-col gap-4">
                 <div
-                  class="testimonial-image w-[240px] sm:w-[280px] md:w-[320px] h-[100px] md:h-[120px] rounded-[10px] overflow-hidden shadow-md opacity-100 transition-all duration-500 bg-gray-200"
+                  class="testimonial-image relative w-[240px] sm:w-[280px] md:w-[320px] h-[100px] md:h-[120px] rounded-[10px] overflow-hidden shadow-md opacity-100 transition-all duration-500 bg-gray-200 group/img"
                   data-index="0">
                   <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&fit=crop"
                     class="w-full h-full object-cover grayscale" alt="Testimonial">
+                  <!-- Prev Arrow -->
+                  <button id="testimonial-prev"
+                    class="absolute top-10 left-32 translate-x-0 -translate-y-0 w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#4D606C] text-white hover:bg-black transition-all active:scale-95 shadow-lg z-20">
+                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                    </svg>
+                  </button>
                 </div>
                 <div
                   class="testimonial-image w-[240px] sm:w-[280px] md:w-[320px] h-[200px] sm:h-[220px] md:h-[240px] rounded-[10px] overflow-hidden shadow-2xl opacity-100 scale-105 transition-all duration-500 active z-10"
@@ -1261,16 +1201,23 @@
                     class="w-full h-full object-cover" alt="Testimonial">
                 </div>
                 <div
-                  class="testimonial-image w-[240px] sm:w-[280px] md:w-[320px] h-[100px] md:h-[120px] rounded-[10px] overflow-hidden shadow-md opacity-100 transition-all duration-500 bg-gray-200"
+                  class="testimonial-image relative w-[240px] sm:w-[280px] md:w-[320px] h-[100px] md:h-[120px] rounded-[10px] overflow-hidden shadow-md opacity-100 transition-all duration-500 bg-gray-200 group/img"
                   data-index="2">
                   <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&fit=crop"
                     class="w-full h-full object-cover grayscale" alt="Testimonial">
+                  <!-- Next Arrow -->
+                  <button id="testimonial-next"
+                    class="absolute top-10 left-32 -translate-x-0 -translate-y-0 w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-[#4D606C] text-white hover:bg-black transition-all active:scale-95 shadow-lg z-20">
+                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
 
-            <!-- Right Side: Testimonial Content Card - BOXED with shadow and max-width -->
-            <div class="flex-1 lg:flex lg:items-stretch lg:justify-start">
+            <!-- Right Side: Testimonial Content Card - Optimized width to remove right space -->
+            <div class="flex-1 lg:flex lg:items-stretch lg:justify-start max-w-[900px]">
               <div
                 class="w-full max-w-[1000px] bg-white rounded-[10px] shadow-2xl p-6 md:p-10 lg:p-14 border border-gray-100 relative overflow-hidden flex flex-col justify-between"
                 id="testimonial-card">
@@ -1356,109 +1303,32 @@
     </div>
   </section>
 
+
   <!-- Footer -->
-  <footer class="bg-[#0B0B0B] text-white px-4 sm:px-8 lg:px-16 pt-32 pb-8">
-    <div class="max-w-[1400px] mx-auto">
-
-      <!-- Top Footer -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
-
-        <!-- Brand & Description -->
-        <div class="lg:col-span-2 mt-[-80px]">
-          <div class="flex items-center gap-3 ">
-            <img src="./assets/Header-Footer/havona-logo.png" alt="Havona Group" class="w-28 h-28">
-          </div>
-
-          <p class="text-sm text-white/80 leading-relaxed max-w-sm font-rethink">
-            Havona Group is a multidisciplinary architecture, construction, interior, and real estate firm delivering
-            future-ready residential, commercial, and industrial projects.
-          </p>
-
-          <!-- Social Icons -->
-          <div class="flex items-center gap-4 mt-6 text-white/80">
-            <a href="https://www.facebook.com/profile.php?id=61579150903137" class="hover:text-white transition">
-              <img src="./assets/Header-Footer/Facebook.svg" alt="Facebook" class="w-4 h-4">
-            </a>
-            <a href="https://www.instagram.com/havonagroup/" class="hover:text-white transition">
-              <img src="./assets/Header-Footer/Instagram.svg" alt="Instagram" class="w-4 h-4">
-            </a>
-            <a href="https://www.linkedin.com/company/98998033/admin/dashboard/" class="hover:text-white transition">
-              <img src="./assets/Header-Footer/Linkedin.svg" alt="Linkedin" class="w-4 h-4">
-            </a>
-            <!-- <a href="#" class="hover:text-white transition">
-              <img src="./assets/Header-Footer/Youtube.svg" alt="Youtube" class="w-4 h-4">
-            </a> -->
-          </div>
-        </div>
-
-        <!-- Navigation -->
-        <div class="font-rethink">
-          <ul class="space-y-3 text-md">
-            <li><a href="./index.html" class="hover:text-white transition">Home</a></li>
-            <li><a href="./about/about.html" class="hover:text-white transition">About Us</a></li>
-            <li><a href="./service/service.html" class="hover:text-white transition">Services</a></li>
-            <li><a href="./blog/blog.html" class="hover:text-white transition">Blogs</a></li>
-            <li><a href="./contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="font-rethink">
-          <ul class="space-y-4 text-md text-white/70">
-            <li class="flex items-start gap-3">
-              <img src="./assets/Header-Footer/Location.svg" alt="Location" class="w-4 h-4 mt-0.5">
-              <span>L66, TNHB Colony, Tenkasi – 627811</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <img src="./assets/Header-Footer/Phone-symbol.svg" alt="Phone" class="w-4 h-4">
-              <span>+91 81100 00878</span>
-            </li>
-            <!-- <li class="flex items-center gap-3">
-              <img src="./assets/Header-Footer/Whatsapp.svg" alt="Phone" class="w-4 h-4">
-              <span>+91 8110000878</span>
-            </li> -->
-            <li class="flex items-center gap-3">
-              <img src="./assets/Header-Footer/Mail.svg" alt="Email" class="w-4 h-4">
-              <span>info@havona.com</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Divider -->
-      <div class="border-t border-white/10 pt-2">
-
-        <!-- Bottom Footer -->
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
-
-          <div class="flex items-center gap-3 mb-6">
-            <img src="./assets/Header-Footer/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
-          </div>
-
-          <div class="flex items-center">
-            Copyright © 2026 Havona All rights reserved. Made with ❤ by Brand Mindz.
-          </div>
-
-          <div class="gap-6">
-            <a href="./PolicyPages/terms.html" class="hover:text-white transition">Terms & Conditions</a>
-            <a href="./PolicyPages/privacy.html" class="hover:text-white transition">Privacy Policy</a>
-            <a href="./PolicyPages/cookies.html" class="hover:text-white transition">Cookies Policy</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </footer>
+  <div id="main-footer-placeholder" data-root="./"></div>
+  <script src="./js/home/footer.js"></script>
 
   <!-- External JavaScript -->
   <script src="./js/home/transformation.js"></script>
+  <script src="./js/home/services-accordion.js"></script>
   <script src="./js/home/insights.js"></script>
-  <script src="./js/home/script.js"></script>
+  <script src="./js/home/testimonials.js"></script>
+  <script src="./js/home/video-modal.js"></script>
+  <script src="./js/home/usp-scroller.js"></script>
+  <script src="./js/home/hero-scroll.js"></script>
+  <script src="./js/home/deco-buttons.js"></script>
+  <script src="./js/home/pricing-slider.js"></script>
   <script src="./js/home/header.js"></script>
 
   <script src="./js/shared/consultation-modal.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  </script>
 </body>
 
 </html>

@@ -162,8 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function deleteCategory(id) {
-    if (!confirm('Delete this category?')) return;
+async function deleteCategory(id) {
+    const confirmed = await showConfirm('Delete Category', 'Delete this category? This will also affect associated blogs.', 'Delete Category');
+    if (!confirmed) return;
 
     fetch('https://havona.brandmindz.com/api/categories/delete.php', {
         method: 'POST',

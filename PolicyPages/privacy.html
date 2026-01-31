@@ -12,6 +12,7 @@
 
   <!-- New York Font -->
   <link href="./dist/output.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -69,90 +70,8 @@
 </head>
 
 <body class="bg-[#F0F0F0]">
-  <!-- Header (exactly as Home) -->
-  <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 py-6 transition-all duration-300"
-    id="main-header">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-
-      <!-- Logo -->
-      <a href="../index.html" class="flex items-center gap-2 group transition-transform hover:scale-105">
-        <img src="../assets/Header-Footer/havona-logo.png" alt="Havona Logo"
-          class="w-16 h-16 sm:w-28 sm:h-28 object-contain">
-      </a>
-
-      <!-- Desktop Navigation -->
-      <nav
-        class="hidden lg:flex items-center bg-white/10 backdrop-blur-2xl border border-white/10 rounded-full font-rethink shadow-2xl">
-        <div class="flex items-center px-4">
-          <a href="../index.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Home</a>
-          <a href="../about/about.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">About Us</a>
-          <a href="../service/service.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Service</a>
-          <a href="../blog/blog.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Blog</a>
-        </div>
-        <div class="flex items-center px-4">
-          <a href="../contact/contact.html"
-            class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Contact Us</a>
-        </div>
-      </nav>
-
-      <!-- CTA & Mobile Toggle -->
-      <div class="flex items-center gap-4">
-        <button
-          class="btn-consultation hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/0 backdrop-blur-sm text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
-          <span
-            class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
-            <img src="../assets/Header-Footer/Phone.svg" alt="Phone" class="w-4 h-4">
-          </span>
-          <span class="font-medium">Get a Consultation</span>
-        </button>
-
-        <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-toggle"
-          class="lg:hidden p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all">
-          <i class="ph ph-list text-2xl"></i>
-        </button>
-      </div>
-
-    </div>
-
-    <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu" class="fixed inset-0 z-100 hidden lg:hidden">
-      <!-- Backdrop -->
-      <div id="mobile-menu-overlay"
-        class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
-
-      <!-- Content -->
-      <div id="mobile-menu-content"
-        class="absolute top-0 right-0 w-[280px] h-full bg-[#1A1D1F]/95 backdrop-blur-2xl border-l border-white/10 p-8 transform translate-x-full transition-transform duration-300 shadow-2xl">
-        <div class="flex items-center justify-between mb-12">
-          <img src="../assets/Header-Footer/havona-logo.png" alt="Havona" class="w-16 h-16 object-contain">
-          <button id="mobile-menu-close"
-            class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
-            <i class="ph ph-x text-2xl"></i>
-          </button>
-        </div>
-
-        <nav class="flex flex-col gap-6 font-rethink text-lg">
-          <a href="../index.html" class="text-white/70 hover:text-white transition-colors">Home</a>
-          <a href="../about/about.html" class="text-white/70 hover:text-white transition-colors">About Us</a>
-          <a href="../service/service.html" class="text-white/70 hover:text-white transition-colors">Service</a>
-          <a href="../blog/blog.html" class="text-white/70 hover:text-white transition-colors">Blog</a>
-          <a href="../contact/contact.html" class="text-white/70 hover:text-white transition-colors">Contact Us</a>
-        </nav>
-
-        <div class="absolute bottom-10 left-8 right-8">
-          <button
-            class="btn-consultation w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all font-rethink">
-            Get a Consultation
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- Header -->
+  <div id="main-header-placeholder" data-root="../" data-position="fixed"></div>
 
   <!-- Hero Banner -->
   <section class="relative min-h-[700px] w-full bg-cover bg-center overflow-hidden"
@@ -350,7 +269,7 @@
           </p>
           <p class="flex items-center gap-3">
             <i class="ph ph-phone text-xl text-[#4D606C]"></i>
-            <span>+91 81100 00878</span>
+            <a href="tel:+918110000878" class="hover:underline">+91 81100 00878</a>
           </p>
           <p class="flex items-start gap-3">
             <i class="ph ph-map-pin text-xl text-[#4D606C] mt-1"></i>
@@ -364,96 +283,19 @@
     </div>
   </section>
 
-  <footer class="bg-[#0B0B0B] text-white px-4 sm:px-8 lg:px-16 pt-32 pb-8">
-    <div class="max-w-7xl mx-auto">
+  <!-- Footer -->
+  <div id="main-footer-placeholder" data-root="../"></div>
+  <script src="../js/home/footer.js"></script>
 
-      <!-- Top Footer -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
-
-        <!-- Brand & Description -->
-        <div class="lg:col-span-2 mt-[-80px]">
-          <div class="flex items-center gap-3 mb-6">
-            <img src="../assets/Header-Footer/havona-logo.png" alt="Havona Group" class="w-28 h-28">
-          </div>
-
-          <p class="text-sm text-white/80 leading-relaxed max-w-sm font-rethink">
-            Havona Group is a multidisciplinary architecture, construction, interior, and real estate firm delivering
-            future-ready residential, commercial, and industrial projects.
-          </p>
-
-          <!-- Social Icons -->
-          <div class="flex items-center gap-4 mt-6 text-white/80">
-            <a href="https://www.facebook.com/profile.php?id=61579150903137" class="hover:text-white transition">
-              <img src="../assets/Header-Footer/Facebook.svg" alt="Facebook" class="w-4 h-4">
-            </a>
-            <a href="https://www.instagram.com/havonagroup/" class="hover:text-white transition">
-              <img src="../assets/Header-Footer/Instagram.svg" alt="Instagram" class="w-4 h-4">
-            </a>
-            <a href="https://www.linkedin.com/company/98998033/admin/dashboard/" class="hover:text-white transition">
-              <img src="../assets/Header-Footer/Linkedin.svg" alt="Linkedin" class="w-4 h-4">
-            </a>
-          </div>
-        </div>
-
-        <!-- Navigation -->
-        <div class="font-rethink">
-          <ul class="space-y-3 text-md">
-            <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
-            <li><a href="../about/about.html" class="hover:text-white transition">About Us</a></li>
-            <li><a href="../service/service.html" class="hover:text-white transition">Services</a></li>
-            <li><a href="../blog/blog.html" class="hover:text-white transition">Blogs</a></li>
-            <li><a href="../contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="font-rethink">
-          <ul class="space-y-4 text-md text-white/70">
-            <li class="flex items-start gap-3">
-              <img src="../assets/Header-Footer/Location.svg" alt="Location" class="w-4 h-4 mt-0.5">
-              <span>L66, TNHB Colony, Tenkasi – 627811</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <img src="../assets/Header-Footer/Phone-symbol.svg" alt="Phone" class="w-4 h-4">
-              <span>+91 81100 00878</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <img src="../assets/Header-Footer/Mail.svg" alt="Email" class="w-4 h-4">
-              <span>info@havona.com</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Divider -->
-      <div class="border-t border-white/10 pt-2">
-
-        <!-- Bottom Footer -->
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
-
-          <div class="flex items-center gap-3 mb-6">
-            <img src="../assets/Header-Footer/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
-          </div>
-
-          <div class="flex items-center">
-            Copyright © 2026 Havona All rights reserved. Made with ❤ by Brand Mindz.
-          </div>
-
-          <div class="gap-6">
-            <a href="./terms.html" class="hover:text-white transition">Terms & Conditions</a>
-            <a href="./privacy.html" class="hover:text-white transition">Privacy Policy</a>
-            <a href="./cookies.html" class="hover:text-white transition">Cookies Policy</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- External JavaScript -->
   <script src="../js/home/header.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  </script>
 </body>
 
 </html>

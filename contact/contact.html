@@ -12,6 +12,7 @@
 
     <!-- New York Font -->
     <link href="../dist/output.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -99,92 +100,8 @@
 </head>
 
 <body class="bg-[#F0F0F0]">
-    <header class="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 py-6 transition-all duration-300"
-        id="main-header">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-
-            <!-- Logo -->
-            <a href="../index.html" class="flex items-center gap-2 group transition-transform hover:scale-105">
-                <img src="../assets/Header-Footer/havona-logo.png" alt="Havona Logo"
-                    class="w-16 h-16 sm:w-28 sm:h-28 object-contain">
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav
-                class="hidden lg:flex items-center bg-white/10 backdrop-blur-2xl border border-white/10 rounded-full font-rethink shadow-2xl">
-                <div class="flex items-center px-4">
-                    <a href="../index.html"
-                        class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Home</a>
-                    <a href="../about/about.html"
-                        class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">About Us</a>
-                    <a href="../service/service.html"
-                        class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">
-                        Service
-                    </a>
-                    <a href="../blog/blog.html"
-                        class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">Blog</a>
-                </div>
-                <a href="./contact.html"
-                    class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">Contact
-                    Us</a>
-            </nav>
-
-            <!-- CTA & Mobile Toggle -->
-            <div class="flex items-center gap-4">
-                <button
-                    class="btn-consultation hidden lg:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/0 backdrop-blur-sm text-white font-rethink text-sm border border-white/10 hover:bg-white/15 transition-all shadow-lg group">
-                    <span
-                        class="w-8 h-8 flex items-center justify-center bg-white rounded-full transition-transform group-hover:rotate-12">
-                        <img src="../assets/Header-Footer/Phone.svg" alt="Phone" class="w-4 h-4">
-                    </span>
-                    <span class="font-medium">Get a Consultation</span>
-                </button>
-
-                <!-- Mobile Menu Toggle -->
-                <button id="mobile-menu-toggle"
-                    class="lg:hidden p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all">
-                    <i class="ph ph-list text-2xl"></i>
-                </button>
-            </div>
-
-        </div>
-
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="fixed inset-0 z-100 hidden lg:hidden">
-            <!-- Backdrop -->
-            <div id="mobile-menu-overlay"
-                class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
-
-            <!-- Content -->
-            <div id="mobile-menu-content"
-                class="absolute top-0 right-0 w-[280px] h-full bg-[#1A1D1F]/95 backdrop-blur-2xl border-l border-white/10 p-8 transform translate-x-full transition-transform duration-300 shadow-2xl">
-                <div class="flex items-center justify-between mb-12">
-                    <img src="../assets/Header-Footer/havona-logo.png" alt="Havona" class="w-16 h-16 object-contain">
-                    <button id="mobile-menu-close"
-                        class="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all">
-                        <i class="ph ph-x text-2xl"></i>
-                    </button>
-                </div>
-
-                <nav class="flex flex-col gap-6 font-rethink text-lg">
-                    <a href="../index.html" class="text-white/70 hover:text-white transition-colors">Home</a>
-                    <a href="../about/about.html" class="text-white/70 hover:text-white transition-colors">About Us</a>
-                    <a href="../service/service.html"
-                        class="text-white/70 hover:text-white transition-colors">Service</a>
-                    <a href="../blog/blog.html" class="text-white/70 hover:text-white transition-colors">Blog</a>
-                    <a href="./contact.html" class="text-white font-semibold">Contact
-                        Us</a>
-                </nav>
-
-                <div class="absolute bottom-10 left-8 right-8">
-                    <button
-                        class="btn-consultation w-full flex items-center justify-center gap-3 py-4 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-all">
-                        Get a Consultation
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
+    <!-- Header -->
+    <div id="main-header-placeholder" data-root="../" data-active="contact" data-position="absolute"></div>
 
     <!-- Hero Banner Section -->
     <section class="relative min-h-screen w-full bg-cover bg-center flex items-center"
@@ -198,8 +115,8 @@
             <div class="max-w-6xl mx-auto text-center text-white">
 
                 <!-- Heading -->
-                <h1
-                    class="font-new-york text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-tight sm:leading-none tracking-wide drop-shadow-xl flex flex-col items-center gap-3 sm:gap-4 text-center">
+                <h1 class="font-new-york text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-tight sm:leading-none tracking-wide drop-shadow-xl flex flex-col items-center gap-3 sm:gap-4 text-center"
+                    data-aos="fade-up">
                     <span class="block">WHERE CONVERSATIONS</span>
                     <span
                         class="block bg-black/40 backdrop-blur-sm px-4 xs:px-6 sm:px-10 py-2 rounded-tr-3xl rounded-bl-3xl text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[5rem]">
@@ -217,7 +134,7 @@
                 <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
 
                     <button
-                        onclick="window.open('https://wa.me/918110000878?text=Hi%2c%20I%20have%20a%20plan%20to%20discuss%20with%20you.%20Can%20you%20reach%20me%3f', '_blank')"
+                        onclick="window.open('https://wa.me/918110000878?text=Hello%20Havona%2C%20I%20want%20to%20discuss%20about%20a%20project%20with%20you.', '_blank')"
                         class="group px-8 py-3 rounded-full bg-transparent border border-white font-rethink text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md">
                         CONTACT US NOW
                     </button>
@@ -250,7 +167,7 @@
             class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-24 items-start relative z-10">
 
             <!-- Left Column (Images & Cards) -->
-            <div class="relative h-[580px] sm:h-[600px] lg:h-[600px] w-full">
+            <div class="relative h-[580px] sm:h-[600px] lg:h-[600px] w-full" data-aos="fade-right">
 
                 <!-- Image 1 (Top Left) -->
                 <div
@@ -305,7 +222,7 @@
             </div>
 
             <!-- Right Column (Content) -->
-            <div class="pl-0 lg:pl-0 pt-0 lg:pt-8">
+            <div class="pl-0 lg:pl-0 pt-0 lg:pt-8" data-aos="fade-left">
 
                 <h2 class="mb-6 sm:mb-8 leading-tight">
                     <span
@@ -322,7 +239,7 @@
                 </p>
 
                 <button
-                    onclick="window.open('https://wa.me/918110000878?text=Hi%2c%20I%20have%20a%20plan%20to%20discuss%20with%20you.%20Can%20you%20reach%20me%3f', '_blank')"
+                    onclick="window.open('https://wa.me/918110000878?text=Hello%20Havona%2C%20I%20want%20to%20discuss%20about%20a%20project%20with%20you.', '_blank')"
                     class="bg-black text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full font-rethink text-[10px] sm:text-xs font-medium tracking-widest uppercase hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform">
                     PLAN WITH US
                 </button>
@@ -344,15 +261,15 @@
         <div class="relative z-10 w-full max-w-[1200px] mx-auto">
 
             <!-- Floating Title (Outside Sidebar) -->
-            <div class="mb-4 sm:mb-8 lg:mb-12 text-left">
+            <div class="mb-4 sm:mb-8 lg:mb-12 text-left" data-aos="fade-up">
                 <h2
                     class="font-new-york text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight tracking-wide text-white">
                     CONTACT<br>INFORMATION
                 </h2>
             </div>
 
-            <div
-                class="flex flex-col lg:flex-row rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] overflow-hidden shadow-2xl text-white min-h-[500px] sm:min-h-[550px] lg:min-h-[600px]">
+            <div class="flex flex-col lg:flex-row rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] overflow-hidden shadow-2xl text-white min-h-[500px] sm:min-h-[550px] lg:min-h-[600px]"
+                data-aos="fade-up" data-aos-delay="100">
 
                 <!-- Left Sidebar (Dark Info Panel) -->
                 <div
@@ -370,7 +287,8 @@
                         <!-- Email -->
                         <div class="flex items-center gap-3 sm:gap-4">
                             <i class="ph-fill ph-envelope-simple text-lg sm:text-xl shrink-0"></i>
-                            <span class="text-xs sm:text-sm lg:text-base wrap-break-word">hello@havonagroup.in</span>
+                            <a href="mailto:hello@havonagroup.in"
+                                class="text-xs sm:text-sm lg:text-base wrap-break-word hover:underline">hello@havonagroup.in</a>
                         </div>
 
                         <!-- Address -->
@@ -397,15 +315,15 @@
                     <!-- Social Icons (Bottom Center) -->
                     <div
                         class="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-0 right-0 flex items-center justify-center gap-3 sm:gap-4 z-10">
-                        <a href="#"
-                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#00ACEE] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
-                            <i class="ph-fill ph-twitter-logo text-white text-lg sm:text-xl"></i>
+                        <a href="https://www.facebook.com/profile.php?id=61579150903137" target="_blank"
+                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#1877F2] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <i class="ph-fill ph-facebook-logo text-white text-lg sm:text-xl"></i>
                         </a>
-                        <a href="#"
-                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-linear-to-tr from-[#FD5949] to-[#D6249F] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                        <a href="https://www.instagram.com/havonagroup/" target="_blank"
+                            class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-tr from-[#FD5949] via-[#D6249F] to-[#285AEB] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
                             <i class="ph-fill ph-instagram-logo text-white text-lg sm:text-xl"></i>
                         </a>
-                        <a href="#"
+                        <a href="https://www.linkedin.com/company/havonagroup/" target="_blank"
                             class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#0077B5] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
                             <i class="ph-fill ph-linkedin-logo text-white text-lg sm:text-xl"></i>
                         </a>
@@ -421,7 +339,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
                             <div class="group relative">
                                 <label
-                                    class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">First
+                                    class="block text-sm font-rethink text-white/90 mb-2 tracking-wide font-medium">First
                                     Name</label>
                                 <input type="text" id="firstName"
                                     class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
@@ -429,7 +347,7 @@
                             </div>
                             <div class="group relative">
                                 <label
-                                    class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">Last
+                                    class="block text-sm font-rethink text-white/90 mb-2 tracking-wide font-medium">Last
                                     Name</label>
                                 <input type="text" id="lastName"
                                     class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
@@ -441,14 +359,14 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
                             <div class="group relative">
                                 <label
-                                    class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">Email</label>
+                                    class="block text-sm font-rethink text-white/90 mb-2 tracking-wide font-medium">Email</label>
                                 <input type="email" id="email"
                                     class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-transparent focus:outline-none focus:border-white transition-colors font-rethink font-light"
                                     placeholder="Email" required>
                             </div>
                             <div class="group relative">
                                 <label
-                                    class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">Phone
+                                    class="block text-sm font-rethink text-white/90 mb-2 tracking-wide font-medium">Phone
                                     Number</label>
                                 <input type="tel" id="phone"
                                     class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-white/50 focus:outline-none focus:border-white transition-colors font-rethink font-light"
@@ -520,7 +438,7 @@
                         <!-- Message -->
                         <div class="group relative pt-2 sm:pt-4">
                             <label
-                                class="block text-xs font-rethink text-white/90 mb-2 tracking-wide font-medium">Message</label>
+                                class="block text-sm font-rethink text-white/90 mb-2 tracking-wide font-medium">Message</label>
                             <textarea rows="1" id="message"
                                 class="w-full bg-transparent border-b border-white/40 pb-2 text-sm sm:text-base text-white placeholder-white/50 focus:outline-none focus:border-white transition-colors font-rethink font-light resize-none"
                                 placeholder="Write your message.." required></textarea>
@@ -624,7 +542,7 @@
                 </p>
 
                 <!-- CTA Button -->
-                <a href="https://wa.me/918110000878?text=Hi%2c%20I%20have%20a%20plan%20to%20discuss%20with%20you.%20Can%20you%20reach%20me%3f"
+                <a href="https://wa.me/918110000878?text=Hello%20Havona%2C%20I%20want%20to%20discuss%20about%20a%20project%20with%20you."
                     target="_blank"
                     class="inline-block px-10 py-4 bg-black/60 border border-white/80 rounded-full text-white font-rethink tracking-widest text-xs sm:text-sm md:text-base hover:bg-black/40 transition-all duration-500">
                     PLAN YOUR PROJECT
@@ -808,97 +726,9 @@
         </div>
     </section>
 
-    <footer class="bg-[#0B0B0B] text-white px-4 sm:px-8 lg:px-16 pt-32 pb-8">
-        <div class="max-w-7xl mx-auto">
-
-            <!-- Top Footer -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
-
-                <!-- Brand & Description -->
-                <div class="lg:col-span-2 mt-[-80px]">
-                    <div class="flex items-center gap-3 mb-6">
-                        <img src="../assets/Header-Footer/havona-logo.png" alt="Havona Group" class="w-28 h-28">
-                    </div>
-
-                    <p class="text-sm text-white/80 leading-relaxed max-w-sm font-rethink">
-                        Havona Group is a multidisciplinary architecture, construction, interior, and real estate firm
-                        delivering
-                        future-ready residential, commercial, and industrial projects.
-                    </p>
-
-                    <!-- Social Icons -->
-                    <div class="flex items-center gap-4 mt-6 text-white/80">
-                        <a href="https://www.facebook.com/profile.php?id=61579150903137"
-                            class="hover:text-white transition">
-                            <img src="../assets/Header-Footer/Facebook.svg" alt="Facebook" class="w-4 h-4">
-                        </a>
-                        <a href="https://www.instagram.com/havonagroup/" class="hover:text-white transition">
-                            <img src="../assets/Header-Footer/Instagram.svg" alt="Instagram" class="w-4 h-4">
-                        </a>
-                        <a href="https://www.linkedin.com/company/98998033/admin/dashboard/"
-                            class="hover:text-white transition">
-                            <img src="../assets/Header-Footer/Linkedin.svg" alt="Linkedin" class="w-4 h-4">
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Navigation -->
-                <div class="font-rethink">
-                    <ul class="space-y-3 text-md">
-                        <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
-                        <li><a href="../about/about.html" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="../service/service.html" class="hover:text-white transition">Services</a></li>
-                        <li><a href="../blog/blog.html" class="hover:text-white transition">Blogs</a></li>
-                        <li><a href="../contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="font-rethink">
-                    <ul class="space-y-4 text-md text-white/70">
-                        <li class="flex items-start gap-3">
-                            <img src="../assets/Header-Footer/Location.svg" alt="Location" class="w-4 h-4 mt-0.5">
-                            <span>L66, TNHB Colony, Tenkasi – 627811</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <img src="../assets/Header-Footer/Phone-symbol.svg" alt="Phone" class="w-4 h-4">
-                            <span>+91 81100 00878</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <img src="../assets/Header-Footer/Mail.svg" alt="Email" class="w-4 h-4">
-                            <span>info@havona.com</span>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <!-- Divider -->
-            <div class="border-t border-white/10 pt-2">
-
-                <!-- Bottom Footer -->
-                <div
-                    class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
-
-                    <div class="flex items-center gap-3 mb-6">
-                        <img src="../assets/Header-Footer/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
-                    </div>
-
-                    <div class="flex items-center">
-                        Copyright © 2026 Havona All rights reserved. Made with ❤ by Brand Mindz.
-                    </div>
-
-                    <div class="gap-6">
-                        <a href="../PolicyPages/terms.html" class="hover:text-white transition">Terms & Conditions</a>
-                        <a href="../PolicyPages/privacy.html" class="hover:text-white transition">Privacy Policy</a>
-                        <a href="../PolicyPages/cookies.html" class="hover:text-white transition">Cookies Policy</a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </footer>
+    <!-- Footer -->
+    <div id="main-footer-placeholder" data-root="../"></div>
+    <script src="../js/home/footer.js"></script>
 
     <!-- Scripts -->
     <script src="../js/contact/faq.js"></script>
@@ -907,6 +737,14 @@
     <script src="../js/contact/contact.js"></script>
     <script src="../js/shared/scroll-to-next.js"></script>
     <script src="../js/shared/consultation-modal.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 
 </html>

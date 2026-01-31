@@ -67,3 +67,53 @@ function showToast(message, type = 'success') {
 
 // Map old alerts to Toast (Safe global override if needed, but better to call directly)
 // window.alert = (msg) => showToast(msg, 'info'); 
+
+/**
+ * Premium Confirmation Modal
+ * Returns a Promise that resolves to true if confirmed, false otherwise.
+ */
+function showConfirm(title = 'Are you sure?', message = 'This action cannot be undone.', confirmText = 'Confirm Action') {
+    return new Promise((resolve) => {
+        const modal = document.getElementById('confirmModal');
+        const backdrop = document.getElementById('confirmBackdrop');
+        const content = document.getElementById('confirmContent');
+        const confirmBtn = document.getElementById('confirmBtn');
+        const cancelBtn = document.getElementById('cancelConfirmBtn');
+
+        if (!modal) {
+            // Fallback if modal HTML is missing
+            resolve(confirm(message));
+            return;
+        }
+
+        // Setup Content
+        document.getElementById('confirmTitle').textContent = title;
+        document.getElementById('confirmMessage').textContent = message;
+        confirmBtn.textContent = confirmText;
+
+        // Show Modal
+        modal.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            backdrop.classList.remove('opacity-0');
+            backdrop.classList.add('opacity-100');
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        });
+
+        const close = (result) => {
+            backdrop.classList.remove('opacity-100');
+            backdrop.classList.add('opacity-0');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                resolve(result);
+            }, 300);
+        };
+
+        confirmBtn.onclick = () => close(true);
+        cancelBtn.onclick = () => close(false);
+        backdrop.onclick = () => close(false);
+    });
+}

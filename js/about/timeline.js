@@ -1,35 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const wrapper = document.getElementById('timeline-scroll-wrapper');
+    const carouselInner = document.getElementById('timeline-carousel');
     const slides = document.querySelectorAll('.timeline-slide');
     const dots = document.querySelectorAll('.timeline-dot');
-    const prevBtn = document.getElementById('timeline-prev');
-    const nextBtn = document.getElementById('timeline-next');
 
-    let currentIndex = 0;
+    if (!wrapper || !carouselInner || !slides.length) return;
+
+    let currentIndex = -1;
     const totalSlides = slides.length;
 
     function updateCarousel(index) {
-        // Handle range
-        if (index >= totalSlides) index = 0;
-        if (index < 0) index = totalSlides - 1;
-
+        if (index === currentIndex) return;
         currentIndex = index;
 
-        // Update Slides
+        // Slide the entire container
+        const translateX = -(index * (100 / totalSlides));
+        carouselInner.style.transform = `translateX(${translateX}%)`;
+
+        // Update Slides content animations
         slides.forEach((slide, i) => {
+            const content = slide.querySelectorAll('.animate-on-slide');
             if (i === currentIndex) {
-                slide.classList.remove('opacity-0', 'pointer-events-none');
-                slide.classList.add('opacity-100');
-                // Trigger animations for content inside slide
-                const content = slide.querySelectorAll('.animate-on-slide');
                 content.forEach(el => {
                     el.classList.add('translate-y-0', 'opacity-100');
                     el.classList.remove('translate-y-4', 'opacity-0');
                 });
             } else {
-                slide.classList.add('opacity-0', 'pointer-events-none');
-                slide.classList.remove('opacity-100');
-
-                const content = slide.querySelectorAll('.animate-on-slide');
                 content.forEach(el => {
                     el.classList.remove('translate-y-0', 'opacity-100');
                     el.classList.add('translate-y-4', 'opacity-0');
@@ -49,14 +45,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Event Listeners
-    if (prevBtn) prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+    function handleScroll() {
+        if (!wrapper) return;
 
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const wrapperTop = wrapperRect.top;
+        const wrapperHeight = wrapperRect.height;
+        const viewportHeight = window.innerHeight;
+
+        // Calculate progress within the wrapper
+        const scrollDistance = -wrapperTop;
+        const maxScroll = wrapperHeight - viewportHeight;
+
+        // Progress (0 to 1)
+        let progress = Math.max(0, Math.min(1, scrollDistance / maxScroll));
+
+        // Map progress to slide index
+        let index = Math.floor(progress * totalSlides);
+        if (index >= totalSlides) index = totalSlides - 1;
+
+        updateCarousel(index);
+    }
+
+    // Event Listeners
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Smooth dot navigation
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => updateCarousel(index));
+        dot.addEventListener('click', () => {
+            if (!wrapper) return;
+            const scrollStart = wrapper.offsetTop;
+            const scrollDistance = (wrapper.offsetHeight - window.innerHeight) * (index / (totalSlides - 1 || 1));
+            window.scrollTo({
+                top: scrollStart + scrollDistance + 5, // Offset slightly into the section
+                behavior: 'smooth'
+            });
+        });
     });
 
     // Initialize
-    updateCarousel(0);
+    handleScroll();
 });

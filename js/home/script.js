@@ -148,22 +148,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Update image cards
         imageCards.forEach((card, index) => {
-            card.classList.remove('active', 'opacity-50', 'opacity-100', 'scale-105', 'h-[80px]', 'h-[90px]', 'h-[180px]', 'h-[200px]');
+            card.classList.remove(
+                'active',
+                'opacity-50',
+                'opacity-100',
+                'scale-105',
+                'h-[80px]',
+                'h-[90px]',
+                'h-[180px]',
+                'h-[200px]',
+                'blur-sm',
+                'blur-md'
+            );
+            // remove possible blur filter directly on image for safety
+            card.querySelector('img').style.filter = "";
 
             if (index === 0) {
                 // Top card (previous testimonial)
                 const prevIndex = (newIndex - 1 + testimonials.length) % testimonials.length;
                 card.querySelector('img').src = testimonials[prevIndex].image;
-                card.classList.add('opacity-100', 'h-[90px]');
+                card.classList.add('h-[90px]');
+                card.querySelector('img').style.filter = "blur(5px)";
             } else if (index === 1) {
                 // Middle card (current testimonial) - ACTIVE
                 card.querySelector('img').src = testimonials[newIndex].image;
-                card.classList.add('active', 'opacity-100', 'scale-105', 'h-[200px]');
+                card.classList.add('active', 'scale-105', 'h-[200px]');
+                card.querySelector('img').style.filter = "";
             } else if (index === 2) {
                 // Bottom card (next testimonial)
                 const nextIndex = (newIndex + 1) % testimonials.length;
                 card.querySelector('img').src = testimonials[nextIndex].image;
-                card.classList.add('opacity-100', 'h-[90px]');
+                card.classList.add('h-[90px]');
+                card.querySelector('img').style.filter = "blur(5px)";
             }
         });
 

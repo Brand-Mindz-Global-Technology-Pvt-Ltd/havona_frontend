@@ -2,59 +2,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('brand-values-track');
     if (!track) return;
 
-    let currentIndex = 0;
-    let autoScrollInterval;
-
-    function getItemsPerView() {
-        if (window.innerWidth >= 1024) return 4;
-        if (window.innerWidth >= 768) return 2;
-        return 1;
-    }
-
-    function updateBrandCarousel() {
-        const itemsPerView = getItemsPerView();
-        const totalItems = track.children.length;
-
-        // Ensure index doesn't go out of bounds for the current view
-        if (currentIndex >= totalItems) currentIndex = 0;
-
-        const offset = currentIndex * (100 / itemsPerView);
-        track.style.transform = `translateX(-${offset}%)`;
-    }
-
-    function nextSet() {
-        const itemsPerView = getItemsPerView();
-        const totalItems = track.children.length;
-
-        currentIndex += itemsPerView;
-
-        if (currentIndex >= totalItems) {
-            currentIndex = 0;
-        }
-
-        updateBrandCarousel();
-    }
-
-    function startAutoScroll() {
-        stopAutoScroll();
-        autoScrollInterval = setInterval(nextSet, 3000);
-    }
-
-    function stopAutoScroll() {
-        if (autoScrollInterval) clearInterval(autoScrollInterval);
-    }
-
-    window.addEventListener('resize', () => {
-        updateBrandCarousel();
+    // Clone the items for infinite scroll
+    const items = Array.from(track.children);
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
     });
 
-    // Start autoscrolling
-    startAutoScroll();
+    let scrollPos = 0;
+    let speed = 0.5; // Controls the speed of the scroll
+    let animationId;
 
-    // Pause on hover
-    // track.parentElement.addEventListener('mouseenter', stopAutoScroll);
-    // track.parentElement.addEventListener('mouseleave', startAutoScroll);
+    function animate() {
+        scrollPos += speed;
 
-    // Initial call
-    updateBrandCarousel();
+        // If we've scrolled past the first set of items, reset to the start
+        // The first set is half of the track's total scroll width
+        const halfWidth = track.scrollWidth / 2;
+        if (scrollPos >= halfWidth) {
+            scrollPos = 0;
+        }
+
+        track.style.transform = `translateX(-${scrollPos}px)`;
+        animationId = requestAnimationFrame(animate);
+    }
+
+    // Handle visibility change to prevent animation glitches when tab is inactive
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            cancelAnimationFrame(animationId);
+        } else {
+            animationId = requestAnimationFrame(animate);
+        }
+    });
+
+    // Start animation
+    animationId = requestAnimationFrame(animate);
+
+    // Initial check for layout
+    window.addEventListener('resize', () => {
+        // Reset scroll position on resize to avoid jumps if track width changes
+        scrollPos = 0;
+        track.style.transform = `translateX(0)`;
+    });
 });
