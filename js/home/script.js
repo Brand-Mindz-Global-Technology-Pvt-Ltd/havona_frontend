@@ -167,18 +167,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Top card (previous testimonial)
                 const prevIndex = (newIndex - 1 + testimonials.length) % testimonials.length;
                 card.querySelector('img').src = testimonials[prevIndex].image;
-                card.classList.add('h-[90px]');
+                card.classList.add('h-[100px]', 'md:h-[120px]');
                 card.querySelector('img').style.filter = "blur(5px)";
             } else if (index === 1) {
                 // Middle card (current testimonial) - ACTIVE
                 card.querySelector('img').src = testimonials[newIndex].image;
-                card.classList.add('active', 'scale-105', 'h-[200px]');
+                card.classList.add('active', 'scale-105', 'h-[200px]', 'sm:h-[220px]', 'md:h-[240px]');
                 card.querySelector('img').style.filter = "";
             } else if (index === 2) {
                 // Bottom card (next testimonial)
                 const nextIndex = (newIndex + 1) % testimonials.length;
                 card.querySelector('img').src = testimonials[nextIndex].image;
-                card.classList.add('h-[90px]');
+                card.classList.add('h-[100px]', 'md:h-[120px]');
                 card.querySelector('img').style.filter = "blur(5px)";
             }
         });
