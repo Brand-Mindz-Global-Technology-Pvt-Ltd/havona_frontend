@@ -127,12 +127,13 @@
                                 class="flex items-center gap-6 text-gray-500 font-rethink text-sm border-b border-gray-100 pb-8">
                                 <div class="flex items-center gap-2">
                                     <i class="ph ph-eye text-lg"></i>
-                                    <span>9</span>
+                                    <span id="view-count">0</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <i class="ph ph-heart text-lg"></i>
-                                    <span>0</span>
-                                </div>
+                                <button id="like-btn" class="flex items-center gap-2 group transition-all">
+                                    <i id="heart-icon"
+                                        class="ph ph-heart text-lg group-hover:scale-110 transition-transform"></i>
+                                    <span id="like-count">0</span>
+                                </button>
                                 <button
                                     class="flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors">
                                     <i class="ph ph-share-network text-lg"></i>

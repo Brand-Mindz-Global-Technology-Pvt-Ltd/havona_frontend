@@ -157,35 +157,101 @@
     </div>
   </section>
 
-  <!-- Brand Trust Section -->
+  <!-- Brand Trust Section - Auto-Scrolling Carousel -->
   <section class="relative px-4 sm:px-8 lg:px-0 z-20 mt-4 md:mt-8 mb-0 md:mb-0" data-aos="fade-up">
     <div
-      class="max-w-[2500px] mx-auto bg-white rounded-[20px] shadow-[0_15px_60px_-15px_rgba(0,0,0,0.08)] px-8 sm:px-12 py-10 md:py-14">
-      <div class="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 md:gap-x-24 lg:gap-x-32">
-        <!-- Logo 1: Nike -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike"
-          class="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0" />
+      class="max-w-[2500px] mx-auto bg-white rounded-[20px] shadow-[0_15px_60px_-15px_rgba(0,0,0,0.08)] py-10 md:py-14 overflow-hidden">
 
-        <!-- Logo 2: H&M -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="H&M"
-          class="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0" />
+      <!-- Logo Carousel Container -->
+      <div class="partners-carousel-wrapper relative">
+        <!-- Gradient Fade Left -->
+        <div
+          class="absolute left-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
+        </div>
+        <!-- Gradient Fade Right -->
+        <div
+          class="absolute right-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
+        </div>
 
-        <!-- Logo 3: Levi's -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Levi%27s_logo.svg" alt="Levi's"
-          class="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0" />
+        <!-- Scrolling Track -->
+        <div class="partners-carousel-track flex items-center gap-12 sm:gap-16 md:gap-20 lg:gap-24 animate-scroll-left">
+          <!-- Logo Set 1 (Original) -->
+          <img src="./assets/Partners-Logo/ASIANPAINT.NS.png" alt="Asian Paints"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/ASTRAL.NS_BIG.png" alt="Astral"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/BERGEPAINT.NS.png" alt="Berger Paints"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/CERA.NS_BIG.svg" alt="Cera"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/HAVELLS.NS_BIG.svg" alt="Havells"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/JSWSTEEL.NS.svg" alt="JSW Steel"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/LR.PA_BIG.svg" alt="Legrand"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/LT.NS.svg" alt="L&T"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/RAMCOCEM.NS_BIG.svg" alt="Ramco Cements"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/SGO.PA_BIG.svg" alt="Saint-Gobain"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/TATASTEEL.NS_BIG.png" alt="Tata Steel"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/ULTRACEMCO.NS.png" alt="UltraTech Cement"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/agni-logo.png" alt="Agni"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/dalmia-cement.svg" alt="Dalmia Cement"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/fybros.png" alt="Fybros"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/lp-logo.png" alt="LP"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/parryware-brand.png" alt="Parryware"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
 
-        <!-- Logo 4: USPA -->
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/3/37/U.S._Polo_Assn._logo.svg/1280px-U.S._Polo_Assn._logo.svg.png"
-          alt="U.S. Polo Assn"
-          class="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0" />
-
-        <!-- Logo 5: Puma -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Puma_complete_logo.svg" alt="Puma"
-          class="h-8 sm:h-9 md:h-10 opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0" />
+          <!-- Logo Set 2 (Duplicate for seamless loop) -->
+          <img src="./assets/Partners-Logo/ASIANPAINT.NS.png" alt="Asian Paints"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/ASTRAL.NS_BIG.png" alt="Astral"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/BERGEPAINT.NS.png" alt="Berger Paints"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/CERA.NS_BIG.svg" alt="Cera"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/HAVELLS.NS_BIG.svg" alt="Havells"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/JSWSTEEL.NS.svg" alt="JSW Steel"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/LR.PA_BIG.svg" alt="Legrand"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/LT.NS.svg" alt="L&T"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/RAMCOCEM.NS_BIG.svg" alt="Ramco Cements"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/SGO.PA_BIG.svg" alt="Saint-Gobain"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/TATASTEEL.NS_BIG.png" alt="Tata Steel"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/ULTRACEMCO.NS.png" alt="UltraTech Cement"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/agni-logo.png" alt="Agni"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/dalmia-cement.svg" alt="Dalmia Cement"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/fybros.png" alt="Fybros"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/lp-logo.png" alt="LP"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+          <img src="./assets/Partners-Logo/parryware-brand.png" alt="Parryware"
+            class="h-8 sm:h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 shrink-0" />
+        </div>
       </div>
     </div>
   </section>
+
+
 
 
   <!-- Vision Section -->
@@ -791,52 +857,42 @@
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Initial Consultation & Site Visit</span>
+                      <span>Initial consultation & basic site visit</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Site Visit</span>
+                      <span>Basic architectural floor plans</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Basic Architectural Plans</span>
+                      <span>Standard material selection (economy brands)</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Standard Material Selection</span>
+                      <span>Basic project timeline</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Selection</span>
+                      <span>Email / WhatsApp support</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Project Timeline & Milestones</span>
+                      <span>2 design revisions</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Email Support</span>
+                      <span>Basic permit assistance</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>2 Design Revisions</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <i
-                        class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Basic Permits Assistance</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <i
-                        class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Standard Finishes</span>
+                      <span>Standard finishes</span>
                     </li>
                   </ul>
                 </div>
@@ -889,43 +945,31 @@
                   <ul class="space-y-4 font-rethink text-sm text-white text-left pl-2 mb-4">
                     <li class="flex items-start gap-3">
                       <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Initial Consultation & Site Visit</span>
+                      <span>Everything in Minimal, PLUS</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Site Visit</span>
+                      <span>Detailed space planning & optimized layouts</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Basic Architectural Plans</span>
+                      <span>Better material options (mid-range, value-for-money brands)</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Standard Material Selection</span>
+                      <span>Structured project milestones & monitoring</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Selection</span>
+                      <span>Improved finish quality</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Project Timeline & Milestones</span>
+                      <span>Better coordination between design & execution</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Email Support</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>2 Design Revisions</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Basic Permits Assistance</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <i class="ph-fill ph-check-square text-white text-base mt-0.5"></i>
-                      <span>Standard Finishes</span>
+                      <span>Priority communication support</span>
                     </li>
                   </ul>
                 </div>
@@ -979,52 +1023,42 @@
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Initial Consultation & Site Visit</span>
+                      <span>Everything in Essential, PLUS</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Site Visit</span>
+                      <span>Custom architectural design (luxury-focused)</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Basic Architectural Plans</span>
+                      <span>Premium material & brand selection</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Standard Material Selection</span>
+                      <span>Elevation design with premium finishes</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Selection</span>
+                      <span>Enhanced detailing & execution quality</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Project Timeline & Milestones</span>
+                      <span>More design flexibility & personalization</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Email Support</span>
+                      <span>Dedicated project attention & faster response</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <i
                         class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>2 Design Revisions</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <i
-                        class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Basic Permits Assistance</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <i
-                        class="ph-fill ph-check-square text-[#ccc] group-hover:text-white text-base mt-0.5 transition-colors duration-500"></i>
-                      <span>Standard Finishes</span>
+                      <span>Superior workmanship standards</span>
                     </li>
                   </ul>
                 </div>

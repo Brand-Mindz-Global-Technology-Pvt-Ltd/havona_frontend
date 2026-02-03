@@ -5,12 +5,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (slug) {
         fetchBlogDetail(slug);
+        incrementBlogView(slug);
+        initLikeButton(slug);
     } else {
         // Handle missing slug (redirect or show error)
         console.error('No slug provided');
         document.querySelector('main').innerHTML = '<div class="text-center py-20">Blog not found.</div>';
     }
 });
+
+function incrementBlogView(slug) {
+    const apiUrl = 'https://havona.brandmindz.com/api/blogs/increment_view.php';
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug: slug })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const viewCountEl = document.getElementById('view-count');
+                if (viewCountEl) viewCountEl.textContent = data.views;
+            }
+        })
+        .catch(error => console.error('Error incrementing view:', error));
+}
+
+function initLikeButton(slug) {
+    const likeBtn = document.getElementById('like-btn');
+    const heartIcon = document.getElementById('heart-icon');
+    const likeCountEl = document.getElementById('like-count');
+
+    if (!likeBtn) return;
+
+    // Check if user has already liked this blog (local storage for session/persistence)
+    let likedBlogs = JSON.parse(localStorage.getItem('liked_blogs') || '[]');
+    let isLiked = likedBlogs.includes(slug);
+
+    if (isLiked) {
+        heartIcon.classList.remove('ph');
+        heartIcon.classList.add('ph-fill', 'text-red-500');
+    }
+
+    likeBtn.onclick = () => {
+        const action = isLiked ? 'unlike' : 'like';
+        const apiUrl = 'https://havona.brandmindz.com/api/blogs/toggle_like.php';
+
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug: slug, action: action })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    isLiked = !isLiked;
+                    if (isLiked) {
+                        likedBlogs.push(slug);
+                        heartIcon.classList.remove('ph');
+                        heartIcon.classList.add('ph-fill', 'text-red-500');
+                    } else {
+                        likedBlogs = likedBlogs.filter(s => s !== slug);
+                        heartIcon.classList.remove('ph-fill', 'text-red-500');
+                        heartIcon.classList.add('ph');
+                    }
+                    localStorage.setItem('liked_blogs', JSON.stringify(likedBlogs));
+                    if (likeCountEl) likeCountEl.textContent = data.likes;
+                }
+            })
+            .catch(error => console.error('Error toggling like:', error));
+    };
+}
 
 function fetchBlogDetail(slug) {
     // API endpoint to fetch specific blog
@@ -73,6 +138,13 @@ function renderBlogDetail(blog) {
         const formattedContent = blog.content.includes('<p>') ? blog.content : blog.content.replace(/\n/g, '<br>');
         contentContainer.innerHTML = formattedContent;
     }
+
+    // Update Views and Likes
+    const viewCountEl = document.getElementById('view-count');
+    if (viewCountEl) viewCountEl.textContent = blog.views || 0;
+
+    const likeCountEl = document.getElementById('like-count');
+    if (likeCountEl) likeCountEl.textContent = blog.likes || 0;
 
     // Update Page Title
     document.title = `${blog.title} - Havona`;

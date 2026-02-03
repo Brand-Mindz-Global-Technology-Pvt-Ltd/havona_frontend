@@ -22,13 +22,13 @@ function fetchBlogs() {
             if (data.success) {
                 renderBlogs(data.data);
             } else {
-                tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-red-400">Error: ${data.message}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-red-400">Error: ${data.message}</td></tr>`;
                 showToast(data.message, 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-red-400">Failed to load blogs.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-red-400">Failed to load blogs.</td></tr>`;
         });
 }
 
@@ -37,7 +37,7 @@ function renderBlogs(blogs) {
     tbody.innerHTML = '';
 
     if (blogs.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-gray-400">No blogs found.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-gray-400">No blogs found.</td></tr>`;
         return;
     }
 
@@ -57,6 +57,16 @@ function renderBlogs(blogs) {
             </td>
             <td class="p-6 font-medium text-gray-900">${blog.title}</td>
             <td class="p-6 text-gray-600">${blog.category || '-'}</td>
+            <td class="p-6 text-center text-gray-600 font-medium">
+                <div class="flex flex-col items-center">
+                    <span class="text-sm">${blog.views || 0}</span>
+                </div>
+            </td>
+            <td class="p-6 text-center text-gray-600 font-medium">
+                <div class="flex flex-col items-center">
+                    <span class="text-sm font-semibold text-red-500">${blog.likes || 0}</span>
+                </div>
+            </td>
             <td class="p-6">
                 <span class="inline-block px-3 py-1 rounded-full text-xs font-medium ${blog.status === 'Published' ? 'bg-green-100 text-green-700' : 'bg-gray-200 text-gray-700'}">
                     ${blog.status}
