@@ -137,28 +137,28 @@ document.addEventListener('DOMContentLoaded', function () {
             content: "Havona completely understood what we were looking for. They suggested practical ideas, handled everything smoothly, and delivered a space that feels like home. We couldn’t be happier with the results.",
             name: "Raghav & Priya",
             // title_role: "Founder Of Princeton, Chennai",
-            image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop"
+            image: "./assets/home/Raghav.webp"
         },
         {
             title: "Professional, Friendly, and Reliable",
             content: "The team at Havona made the whole process simple and enjoyable. They answered all our questions, gave honest recommendations, and the final interiors look better than we imagined.",
             name: "Anita Sharma",
             // title_role: "CEO Of Tech Innovations, Chennai",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop"
+            image: "./assets/home/Anita.webp"
         },
         {
             title: "Attention to Every Detail",
             content: "From start to finish, Havona paid attention to even the smallest details. Their designs are creative, the quality is top-notch, and we always felt involved in the process. Truly a team that cares.",
             name: "Vikram & Neha",
             // title_role: "Managing Director, Bangalore",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+            image: "./assets/home/Vikram.webp"
         },
         {
             title: "Beautiful Spaces, Happy Clients",
             content: "Havona transformed our home in a way that exceeded our expectations. The team was responsive, patient, and really dedicated to delivering the best results. Our space now feels modern, functional, and welcoming.",
             name: "Sanjay Rao",
             // title_role: "Managing Director, Bangalore",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+            image: "./assets/home/Sanjay-Rao.jpg"
         }
     ];
 
