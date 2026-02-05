@@ -135,23 +135,23 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             title: "Turning Our Vision Into Reality",
             content: "Havona completely understood what we were looking for. They suggested practical ideas, handled everything smoothly, and delivered a space that feels like home. We couldn’t be happier with the results.",
-            name: "Raghav & Priya",
+            name: "Karthik",
             // title_role: "Founder Of Princeton, Chennai",
-            image: "./assets/home/Raghav.webp"
+            image: "./assets/home/Karthik.jpeg"
         },
         {
             title: "Professional, Friendly, and Reliable",
             content: "The team at Havona made the whole process simple and enjoyable. They answered all our questions, gave honest recommendations, and the final interiors look better than we imagined.",
-            name: "Anita Sharma",
+            name: "Prem Prabhakaran",
             // title_role: "CEO Of Tech Innovations, Chennai",
-            image: "./assets/home/Anita.webp"
+            image: "./assets/home/Prem-Prabhakaran.jpeg"
         },
         {
             title: "Attention to Every Detail",
             content: "From start to finish, Havona paid attention to even the smallest details. Their designs are creative, the quality is top-notch, and we always felt involved in the process. Truly a team that cares.",
-            name: "Vikram & Neha",
+            name: "Muralidharan",
             // title_role: "Managing Director, Bangalore",
-            image: "./assets/home/Vikram.webp"
+            image: "./assets/home/Muralidharan.jpeg"
         },
         {
             title: "Beautiful Spaces, Happy Clients",

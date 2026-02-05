@@ -1,43 +1,43 @@
 // Header Component Logic
 
 document.addEventListener('DOMContentLoaded', function () {
-    const placeholder = document.getElementById('main-header-placeholder');
-    if (placeholder) {
-        const rootPath = placeholder.getAttribute('data-root') || './';
-        const activePage = placeholder.getAttribute('data-active') || 'home';
-        const positionClass = placeholder.getAttribute('data-position') || 'absolute'; // absolute or fixed
+  const placeholder = document.getElementById('main-header-placeholder');
+  if (placeholder) {
+    const rootPath = placeholder.getAttribute('data-root') || './';
+    const activePage = placeholder.getAttribute('data-active') || 'home';
+    const positionClass = placeholder.getAttribute('data-position') || 'absolute'; // absolute or fixed
 
-        // Define Navigation Items (Name, Link, ID)
-        // IDs must match data-active values
-        const navItems = [
-            { name: 'Home', link: 'index.html', id: 'home' },
-            { name: 'About Us', link: 'about/about.html', id: 'about' },
-            { name: 'Service', link: 'service/service.html', id: 'service' },
-            { name: 'Blog', link: 'blog/blog.html', id: 'blog' },
-            { name: 'Contact Us', link: 'contact/contact.html', id: 'contact' }
-        ];
+    // Define Navigation Items (Name, Link, ID)
+    // IDs must match data-active values
+    const navItems = [
+      { name: 'Home', link: 'index.html', id: 'home' },
+      { name: 'About Us', link: 'about/about.html', id: 'about' },
+      { name: 'Service', link: 'service/service.html', id: 'service' },
+      { name: 'Blog', link: 'blog/blog.html', id: 'blog' },
+      { name: 'Contact Us', link: 'contact/contact.html', id: 'contact' }
+    ];
 
-        // --- Build Desktop Navigation ---
-        // The design separates the active item (pill style) from the rest.
-        // Items to the left of active, and items to the right.
+    // --- Build Desktop Navigation ---
+    // The design separates the active item (pill style) from the rest.
+    // Items to the left of active, and items to the right.
 
-        const activeIndex = navItems.findIndex(item => item.id === activePage);
-        let desktopNavHTML = '';
+    const activeIndex = navItems.findIndex(item => item.id === activePage);
+    let desktopNavHTML = '';
 
-        if (activeIndex !== -1) {
-            const activeItem = navItems[activeIndex];
+    if (activeIndex !== -1) {
+      const activeItem = navItems[activeIndex];
 
-            // Render items BEFORE the active one
-            const leftItemsHTML = navItems.slice(0, activeIndex).map(item =>
-                `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
-            ).join('');
+      // Render items BEFORE the active one
+      const leftItemsHTML = navItems.slice(0, activeIndex).map(item =>
+        `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
+      ).join('');
 
-            // Render items AFTER the active one
-            const rightItemsHTML = navItems.slice(activeIndex + 1).map(item =>
-                `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
-            ).join('');
+      // Render items AFTER the active one
+      const rightItemsHTML = navItems.slice(activeIndex + 1).map(item =>
+        `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
+      ).join('');
 
-            desktopNavHTML = `
+      desktopNavHTML = `
                 ${leftItemsHTML ? `<div class="flex items-center px-4">${leftItemsHTML}</div>` : ''}
                 
                 <a href="${rootPath}${activeItem.link}"
@@ -47,34 +47,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 ${rightItemsHTML ? `<div class="flex items-center px-4">${rightItemsHTML}</div>` : ''}
             `;
-        } else {
-            // Fallback: If no active item (e.g. policy pages), show all simple links?
-            // Or maybe keep "Home" active? No, that's misleading.
-            // Let's render them all as simple links in one container for neutral pages.
-            desktopNavHTML = `
+    } else {
+      // Fallback: If no active item (e.g. policy pages), show all simple links?
+      // Or maybe keep "Home" active? No, that's misleading.
+      // Let's render them all as simple links in one container for neutral pages.
+      desktopNavHTML = `
                 <div class="flex items-center px-4">
                     ${navItems.map(item =>
-                `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
-            ).join('')}
+        `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
+      ).join('')}
                 </div>
             `;
-        }
+    }
 
-        // --- Build Mobile Navigation ---
-        // Simple list with styling for active item
-        const mobileNavHTML = navItems.map(item =>
-            `<a href="${rootPath}${item.link}" class="${item.id === activePage ? 'text-white font-semibold' : 'text-white/70 hover:text-white transition-colors'}">${item.name}</a>`
-        ).join('');
+    // --- Build Mobile Navigation ---
+    // Simple list with styling for active item
+    const mobileNavHTML = navItems.map(item =>
+      `<a href="${rootPath}${item.link}" class="${item.id === activePage ? 'text-white font-semibold' : 'text-white/70 hover:text-white transition-colors'}">${item.name}</a>`
+    ).join('');
 
 
-        // --- Full Header HTML ---
-        const headerHTML = `
+    // --- Full Header HTML ---
+    const headerHTML = `
   <header class="${positionClass} top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 py-6 transition-all duration-300" id="main-header">
     <div class="max-w-[1450px] mx-auto flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center justify-between relative">
 
       <!-- Logo -->
-      <a href="${rootPath}index.html" class="flex items-center gap-2 group transition-transform hover:scale-105 lg:justify-self-start">
-        <img src="${rootPath}assets/Header-Footer/havona-logo.png" alt="Havona Logo" class="w-16 h-16 sm:w-28 sm:h-28 object-contain">
+      <a href="${rootPath}index.html" class="flex items-center gap-0 group transition-transform hover:scale-105 lg:justify-self-start">
+        <img src="${rootPath}assets/Header-Footer/havona-logo.png" alt="Havona Logo" class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
+        <img src="${rootPath}assets/Header-Footer/havona-footer-logo.png" alt="Havona Footer Logo" class="w-16 h-16 sm:w-36 sm:h-36 object-contain">
       </a>
 
       <!-- Desktop Navigation -->
@@ -130,59 +131,59 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </header>`;
 
-        placeholder.outerHTML = headerHTML;
+    placeholder.outerHTML = headerHTML;
 
-        // Initialize Logic
-        initHeaderLogic();
-    } else {
-        // Fallback or initialization for existing static headers
-        initHeaderLogic();
-    }
+    // Initialize Logic
+    initHeaderLogic();
+  } else {
+    // Fallback or initialization for existing static headers
+    initHeaderLogic();
+  }
 });
 
 function initHeaderLogic() {
-    // Mobile Menu Toggle Logic
-    const toggleBtn = document.getElementById('mobile-menu-toggle');
-    const closeBtn = document.getElementById('mobile-menu-close');
-    const menu = document.getElementById('mobile-menu');
-    const overlay = document.getElementById('mobile-menu-overlay');
-    const content = document.getElementById('mobile-menu-content');
+  // Mobile Menu Toggle Logic
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const content = document.getElementById('mobile-menu-content');
 
-    if (toggleBtn && menu && content && overlay) {
-        const openMenu = () => {
-            menu.classList.remove('hidden');
-            setTimeout(() => {
-                overlay.classList.add('opacity-100');
-                content.classList.remove('translate-x-full');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-        };
+  if (toggleBtn && menu && content && overlay) {
+    const openMenu = () => {
+      menu.classList.remove('hidden');
+      setTimeout(() => {
+        overlay.classList.add('opacity-100');
+        content.classList.remove('translate-x-full');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    };
 
-        const closeMenu = () => {
-            overlay.classList.remove('opacity-100');
-            content.classList.add('translate-x-full');
-            setTimeout(() => {
-                menu.classList.add('hidden');
-            }, 300);
-            document.body.style.overflow = '';
-        };
+    const closeMenu = () => {
+      overlay.classList.remove('opacity-100');
+      content.classList.add('translate-x-full');
+      setTimeout(() => {
+        menu.classList.add('hidden');
+      }, 300);
+      document.body.style.overflow = '';
+    };
 
-        toggleBtn.addEventListener('click', openMenu);
-        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-        overlay.addEventListener('click', closeMenu);
-    }
+    toggleBtn.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+  }
 
-    // Sticky Header Effect
-    const header = document.getElementById('main-header');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('bg-black/80', 'backdrop-blur-xl', 'py-4');
-                header.classList.remove('py-6');
-            } else {
-                header.classList.remove('bg-black/80', 'backdrop-blur-xl', 'py-4');
-                header.classList.add('py-6');
-            }
-        });
-    }
+  // Sticky Header Effect
+  const header = document.getElementById('main-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-black/80', 'backdrop-blur-xl', 'py-4');
+        header.classList.remove('py-6');
+      } else {
+        header.classList.remove('bg-black/80', 'backdrop-blur-xl', 'py-4');
+        header.classList.add('py-6');
+      }
+    });
+  }
 }

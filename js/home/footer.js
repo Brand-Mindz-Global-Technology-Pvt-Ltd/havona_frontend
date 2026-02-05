@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const rootPath = placeholder.getAttribute('data-root') || './';
 
         const footerHTML = `
-    <footer class="bg-[#0B0B0B] text-white px-4 sm:px-8 lg:px-16 pt-28 pb-8">
+    <footer class="bg-[#4D606C] text-white px-4 sm:px-8 lg:px-16 pt-28 pb-8">
         <div class="max-w-[1400px] mx-auto">
 
             <!-- Top Footer -->
@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 <!-- Brand & Description -->
                 <div class="lg:col-span-2 mt-[-95px]">
-                    <div class="flex items-center gap-3 mb-4 ">
-                        <img src="${rootPath}assets/Header-Footer/havona-logo.png" alt="Havona Group" class="w-28 h-28">
+                    <div class="flex items-center gap-0 mb-0 justify-start">
+                        <img src="${rootPath}assets/Header-Footer/havona-logo.png" alt="Havona Group" class="w-20 h-20 object-contain">
+                         <img src="${rootPath}assets/Header-Footer/havona-footer-logo.png" alt="Havona Footer Logo" class="w-32 h-32 object-contain">
                     </div>
 
                     <p class="text-md text-white/80 leading-relaxed text-justify max-w-sm font-rethink">
@@ -100,8 +101,34 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
 
         </div>
+        <!-- Scroll To Top Button -->
+        <button id="scrollToTopBtn" class="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-white text-black shadow-2xl translate-y-20 opacity-0 pointer-events-none transition-all duration-500 flex items-center justify-center hover:bg-gray-100/90 border border-black/5 hover:-translate-y-1 group">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 transition-transform group-hover:-translate-y-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+            </svg>
+        </button>
+
     </footer>`;
 
         placeholder.outerHTML = footerHTML;
+
+        // Scroll to Top Logic
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        if (scrollBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    scrollBtn.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+                } else {
+                    scrollBtn.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+                }
+            });
+
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     }
 });
