@@ -2,14 +2,14 @@
 const categories = ['architecture', 'construction', 'interior', 'pmc', 'realestate'];
 const categoryImages = {
     'architecture': {
-        after: './assets/home/architecture-after.webp'
+        after: './assets/home/Architecture-after.webp'
     },
     'construction': {
-        after: './assets/home/construction-after.webp'
+        after: './assets/home/Construction-after.webp'
     },
     'interior': {
-        after: './assets/home/interior-after.webp',
-        before: './assets/home/interior-before.webp'
+        after: './assets/home/Interior-after.webp',
+        before: './assets/home/Interior-before.webp'
     },
     'pmc': {
         after: './assets/home/Project-Management-after.webp'

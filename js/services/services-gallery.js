@@ -12,51 +12,51 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             title: 'INTERIOR',
             horizontal: {
-                src: '../assets/services/Gallery-5.webp',
+                src: '../assets/Services/Gallery-5.webp',
                 text: 'Innovative interiors that reflect your personality.'
             },
             vertical: {
-                src: '../assets/services/Gallery-6.webp'
+                src: '../assets/Services/Gallery-6.webp'
             }
         },
         {
             title: 'ARCHITECTURE',
             horizontal: {
-                src: '../assets/services/Gallery-1.webp',
+                src: '../assets/Services/Gallery-1.webp',
                 text: 'Tailored solutions for every architectural need.'
             },
             vertical: {
-                src: '../assets/services/Gallery-2.webp'
+                src: '../assets/Services/Gallery-2.webp'
             }
         },
         {
             title: 'CONSTRUCTION',
             horizontal: {
-                src: '../assets/services/Gallery-3.webp',
+                src: '../assets/Services/Gallery-3.webp',
                 text: 'Precision engineering and construction excellence.'
             },
             vertical: {
-                src: '../assets/services/Gallery-4.webp'
+                src: '../assets/Services/Gallery-4.webp'
             }
         },
         {
             title: 'PMC',
             horizontal: {
-                src: '../assets/services/Gallery-7.webp',
+                src: '../assets/Services/Gallery-7.webp',
                 text: 'Effective project management from concept to completion.'
             },
             vertical: {
-                src: '../assets/services/Gallery-8.webp'
+                src: '../assets/Services/Gallery-8.webp'
             }
         },
         {
             title: 'REAL ESTATE',
             horizontal: {
-                src: '../assets/services/Gallery-9.webp',
+                src: '../assets/Services/Gallery-9.webp',
                 text: 'Exceptional real estate opportunities for a brighter future.'
             },
             vertical: {
-                src: '../assets/services/Gallery-10.webp'
+                src: '../assets/Services/Gallery-10.webp'
             }
         }
     ];

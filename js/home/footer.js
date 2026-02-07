@@ -86,15 +86,15 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="border-t border-white/10 pt-2">
 
                 <!-- Bottom Footer -->
-                <div class="flex flex-col md:flex-row items-center justify-between gap- text-xs text-white/60 font-rethink">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60 font-rethink">
 
-                    <div class="flex items-center gap-3 mt-0">
+                    <div class="flex items-center gap-3">
                         <img src="${rootPath}assets/Header-Footer/havona-footer-logo.png" alt="Havona Group" class="w-36 h-12">
                     </div>
 
-                    <div class="flex items-center text-[15px] mb-4">
-                        Copyright © 2026 Havona All rights reserved. Made with ❤ by <a href="https://brandmindz.com/"
-                            target="_blank" class="hover:text-white transition ml-1">Brand Mindz</a>.
+                    <div class="flex flex-wrap items-center justify-center md:justify-end text-[12px] sm:text-[15px] mb-4 text-center md:text-right">
+                        Copyright © 2026 Havona All rights reserved.&nbsp;<span>Made with ❤ by <a href="https://brandmindz.com/"
+                            target="_blank" class="hover:text-white transition ml-1">Brand Mindz</a></span>.
                     </div>
                 </div>
 

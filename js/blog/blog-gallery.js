@@ -11,29 +11,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const galleryItems = [
         {
             horizontal: {
-                src: '../assets/blog/Gallery-1.jpg',
+                src: '../assets/Blog/Gallery-1.jpg',
                 text: 'Now is the time to turn your space into a masterpiece.'
             },
             vertical: {
-                src: '../assets/blog/Gallery-2.webp'
+                src: '../assets/Blog/Gallery-2.webp'
             }
         },
         {
             horizontal: {
-                src: '../assets/blog/Gallery-3.webp',
+                src: '../assets/Blog/Gallery-3.webp',
                 text: 'Elegance is not standing out, but being remembered.'
             },
             vertical: {
-                src: '../assets/blog/Gallery-4.webp'
+                src: '../assets/Blog/Gallery-4.webp'
             }
         },
         {
             horizontal: {
-                src: '../assets/blog/Gallery-5.webp',
+                src: '../assets/Blog/Gallery-5.webp',
                 text: 'Design is not just what it looks like and feels like. Design is how it works.'
             },
             vertical: {
-                src: '../assets/blog/Gallery-6.webp'
+                src: '../assets/Blog/Gallery-6.webp'
             }
         }
     ];

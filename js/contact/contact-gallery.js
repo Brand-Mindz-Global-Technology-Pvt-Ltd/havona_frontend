@@ -11,29 +11,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const galleryItems = [
         {
             horizontal: {
-                src: '../assets/contact/Gallery-1.webp',
+                src: '../assets/Contact/Gallery-1.webp',
                 text: 'We are here to listen and help you build your future.'
             },
             vertical: {
-                src: '../assets/contact/Gallery-2.webp'
+                src: '../assets/Contact/Gallery-2.webp'
             }
         },
         {
             horizontal: {
-                src: '../assets/contact/Gallery-3.webp',
+                src: '../assets/Contact/Gallery-3.webp',
                 text: 'Your vision is our mission. Let us connect today.'
             },
             vertical: {
-                src: '../assets/contact/Gallery-4.webp'
+                src: '../assets/Contact/Gallery-4.webp'
             }
         },
         {
             horizontal: {
-                src: '../assets/contact/Gallery-5.webp',
+                src: '../assets/Contact/Gallery-5.webp',
                 text: 'Committed to delivering excellence in every interaction.'
             },
             vertical: {
-                src: '../assets/contact/Gallery-6.png'
+                src: '../assets/Contact/Gallery-6.png'
             }
         }
     ];
