@@ -9,7 +9,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     messageEl.classList.add('hidden');
 
     try {
-        const response = await fetch('https://havona.brandmindz.com/auth/admin/login_admin.php', {
+        const response = await fetch('https://backend.havonagroup.in/auth/admin/login_admin.php', {
             method: 'POST',
             body: formData
         });

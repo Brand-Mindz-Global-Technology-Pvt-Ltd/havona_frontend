@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function updateDashboardStats() {
     // 1. Fetch Blogs for count
-    fetch('https://havona.brandmindz.com/api/blogs/fetch.php')
+    fetch('https://backend.havonagroup.in/api/blogs/fetch.php')
         .then(res => res.json())
         .then(data => {
             if (data.success) {
@@ -16,7 +16,7 @@ function updateDashboardStats() {
         .catch(err => console.error('Error fetching blog stats:', err));
 
     // 2. Fetch Categories for count
-    fetch('https://havona.brandmindz.com/api/categories/fetch.php')
+    fetch('https://backend.havonagroup.in/api/categories/fetch.php')
         .then(res => res.json())
         .then(data => {
             if (data.success) {
@@ -28,7 +28,7 @@ function updateDashboardStats() {
         .catch(err => console.error('Error fetching category stats:', err));
 
     // 3. Fetch Enquiries for unread count
-    fetch('https://havona.brandmindz.com/api/enquiries/fetch.php')
+    fetch('https://backend.havonagroup.in/api/enquiries/fetch.php')
         .then(res => res.json())
         .then(data => {
             if (data.success) {

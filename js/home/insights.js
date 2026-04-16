@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function fetchInsights() {
     // using absolute URL as seen in other scripts to ensure it works
-    const apiUrl = 'https://havona.brandmindz.com/api/blogs/fetch.php?status=Published';
+    const apiUrl = 'https://backend.havonagroup.in/api/blogs/fetch.php?status=Published';
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -52,7 +52,7 @@ function renderInsights(blogs) {
 }
 
 function createLargeCard(blog) {
-    const imgUrl = blog.image ? `https://havona.brandmindz.com/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/420x520';
+    const imgUrl = blog.image ? `https://backend.havonagroup.in/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/420x520';
     // Using layout from the user's static HTML
     return `
     <div class="shrink-0 w-[300px] sm:w-[350px] md:w-[420px] h-[520px] rounded-[24px] overflow-hidden relative group cursor-pointer snap-start border border-gray-100" onclick="window.location.href='blog/blogdetail.html?slug=${blog.slug}'">
@@ -85,7 +85,7 @@ function createStackedColumn(blog1, blog2) {
 
     // Top Card
     if (blog1) {
-        const img1 = blog1.image ? `https://havona.brandmindz.com/uploads/blogs/${blog1.image}` : 'https://via.placeholder.com/420x246';
+        const img1 = blog1.image ? `https://backend.havonagroup.in/uploads/blogs/${blog1.image}` : 'https://via.placeholder.com/420x246';
         html += `
         <div class="w-[300px] sm:w-[350px] md:w-[420px] h-[246px] rounded-[24px] overflow-hidden shadow-[0_15px_50px_-12px_rgba(0,0,0,0.15)] relative group cursor-pointer border border-gray-100" onclick="window.location.href='blog/blogdetail.html?slug=${blog1.slug}'">
             <img src="${img1}"
@@ -112,7 +112,7 @@ function createStackedColumn(blog1, blog2) {
 
     // Bottom Card
     if (blog2) {
-        const img2 = blog2.image ? `https://havona.brandmindz.com/uploads/blogs/${blog2.image}` : 'https://via.placeholder.com/420x246';
+        const img2 = blog2.image ? `https://backend.havonagroup.in/uploads/blogs/${blog2.image}` : 'https://via.placeholder.com/420x246';
         html += `
         <div class="w-[300px] sm:w-[350px] md:w-[420px] h-[246px] rounded-[24px] overflow-hidden shadow-[0_15px_50px_-12px_rgba(0,0,0,0.15)] relative group cursor-pointer border border-gray-100" onclick="window.location.href='blog/blogdetail.html?slug=${blog2.slug}'">
             <img src="${img2}"

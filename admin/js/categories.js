@@ -2,7 +2,7 @@ function fetchCategories() {
     const tbody = document.getElementById('categoriesTableBody');
     if (!tbody) return;
 
-    fetch('https://havona.brandmindz.com/api/categories/fetch.php')
+    fetch('https://backend.havonagroup.in/api/categories/fetch.php')
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Saving...';
 
-            fetch(`https://havona.brandmindz.com/api/categories/${action}`, {
+            fetch(`https://backend.havonagroup.in/api/categories/${action}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -166,7 +166,7 @@ async function deleteCategory(id) {
     const confirmed = await showConfirm('Delete Category', 'Delete this category? This will also affect associated blogs.', 'Delete Category');
     if (!confirmed) return;
 
-    fetch('https://havona.brandmindz.com/api/categories/delete.php', {
+    fetch('https://backend.havonagroup.in/api/categories/delete.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: id })
@@ -188,7 +188,7 @@ async function deleteCategory(id) {
  */
 async function syncBlogCategories(oldName, newName) {
     try {
-        const response = await fetch('https://havona.brandmindz.com/api/blogs/fetch.php');
+        const response = await fetch('https://backend.havonagroup.in/api/blogs/fetch.php');
         const data = await response.json();
 
         if (!data.success) return;
@@ -199,7 +199,7 @@ async function syncBlogCategories(oldName, newName) {
 
         const results = await Promise.allSettled(blogsToUpdate.map(async (blog) => {
             // We need to fetch full blog data to ensure we don't lose anything during update
-            const blogRes = await fetch(`https://havona.brandmindz.com/api/blogs/fetch.php?id=${blog.id}`);
+            const blogRes = await fetch(`https://backend.havonagroup.in/api/blogs/fetch.php?id=${blog.id}`);
             const blogData = await blogRes.json();
 
             if (!blogData.success || !blogData.data.length) return;
@@ -219,7 +219,7 @@ async function syncBlogCategories(oldName, newName) {
             // We don't append a new image, the backend should keep the old one if 'image' field is empty or missing in multipart
             // BUT some backends might delete it. Usually they check if($_FILES['image']['size'] > 0)
 
-            return fetch('https://havona.brandmindz.com/api/blogs/edit.php', {
+            return fetch('https://backend.havonagroup.in/api/blogs/edit.php', {
                 method: 'POST',
                 body: formData
             }).then(r => r.json());

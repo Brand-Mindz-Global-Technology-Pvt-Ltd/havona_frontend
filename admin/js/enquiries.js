@@ -2,7 +2,7 @@ function fetchEnquiries() {
     const tbody = document.getElementById('enquiriesTableBody');
     if (!tbody) return;
 
-    fetch('https://havona.brandmindz.com/api/enquiries/fetch.php')
+    fetch('https://backend.havonagroup.in/api/enquiries/fetch.php')
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -67,7 +67,7 @@ function renderEnquiries(enquiries) {
 }
 
 function markAsRead(id) {
-    fetch('https://havona.brandmindz.com/api/enquiries/mark_read.php', {
+    fetch('https://backend.havonagroup.in/api/enquiries/mark_read.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: id, is_read: 1 })

@@ -24,7 +24,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     btn.innerHTML = '<i class="ph ph-spinner animate-spin text-xl"></i> Processing...';
 
     try {
-        const response = await fetch('https://havona.brandmindz.com/auth/admin/register_admin.php', {
+        const response = await fetch('https://backend.havonagroup.in/auth/admin/register_admin.php', {
             method: 'POST',
             body: formData
         });

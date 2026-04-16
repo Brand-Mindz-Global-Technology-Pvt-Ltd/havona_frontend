@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Blog script similar to before but pointing to ../../Havona-Back-End/api/blogs/
-const API_BASE = 'https://havona.brandmindz.com/api/blogs/';
+const API_BASE = 'https://backend.havonagroup.in/api/blogs/';
 
 function fetchBlogs() {
     const tbody = document.getElementById('blogsTableBody');
@@ -47,7 +47,7 @@ function renderBlogs(blogs) {
 
         // Correctly handle image URL for live server
         // If blog.image contains 'Havona-Back-End/uploads...', we just prepend domain
-        const imgUrl = blog.image ? `https://havona.brandmindz.com/uploads/blogs/${blog.image}` : `https://via.placeholder.com/80?text=No+Img`;
+        const imgUrl = blog.image ? `https://backend.havonagroup.in/uploads/blogs/${blog.image}` : `https://via.placeholder.com/80?text=No+Img`;
 
         tr.innerHTML = `
             <td class="p-6">
@@ -130,7 +130,7 @@ function showEditBlogForm(blogId) {
 
                 if (blog.image) {
                     const preview = document.getElementById('imagePreview');
-                    preview.src = `https://havona.brandmindz.com/uploads/blogs/${blog.image}`;
+                    preview.src = `https://backend.havonagroup.in/uploads/blogs/${blog.image}`;
                     preview.classList.remove('hidden');
                 } else {
                     document.getElementById('imagePreview').classList.add('hidden');

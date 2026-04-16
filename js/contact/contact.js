@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 message: message
             };
 
-            fetch('https://havona.brandmindz.com/api/enquiries/add.php', {
+            fetch('https://backend.havonagroup.in/api/enquiries/add.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

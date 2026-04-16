@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function fetchFrontendBlogs() {
-    const apiUrl = 'https://havona.brandmindz.com/api/blogs/fetch.php?status=Published';
+    const apiUrl = 'https://backend.havonagroup.in/api/blogs/fetch.php?status=Published';
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -32,7 +32,7 @@ function renderLatestInsights(blogs) {
 
     // Helper to generate Large Card
     const createLargeCard = (blog) => {
-        const imgUrl = blog.image ? `https://havona.brandmindz.com/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/450x550';
+        const imgUrl = blog.image ? `https://backend.havonagroup.in/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/450x550';
         return `
          <div class="shrink-0 w-[300px] sm:w-[350px] md:w-[450px] h-[550px] rounded-[30px] overflow-hidden relative group cursor-pointer snap-start shadow-xl" onclick="window.location.href='blogdetail.html?slug=${blog.slug}'">
             <img src="${imgUrl}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="${blog.title}">
@@ -52,7 +52,7 @@ function renderLatestInsights(blogs) {
         let html = '<div class="shrink-0 flex flex-col gap-6 lg:gap-8 snap-start">';
 
         if (blog1) {
-            const img1 = blog1.image ? `https://havona.brandmindz.com/uploads/blogs/${blog1.image}` : 'https://via.placeholder.com/450x262';
+            const img1 = blog1.image ? `https://backend.havonagroup.in/uploads/blogs/${blog1.image}` : 'https://via.placeholder.com/450x262';
             html += `
             <div class="w-[300px] sm:w-[350px] md:w-[450px] h-[262px] rounded-[30px] overflow-hidden relative group cursor-pointer shadow-lg" onclick="window.location.href='blogdetail.html?slug=${blog1.slug}'">
                 <img src="${img1}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="${blog1.title}">
@@ -67,7 +67,7 @@ function renderLatestInsights(blogs) {
         }
 
         if (blog2) {
-            const img2 = blog2.image ? `https://havona.brandmindz.com/uploads/blogs/${blog2.image}` : 'https://via.placeholder.com/450x262';
+            const img2 = blog2.image ? `https://backend.havonagroup.in/uploads/blogs/${blog2.image}` : 'https://via.placeholder.com/450x262';
             html += `
             <div class="w-[300px] sm:w-[350px] md:w-[450px] h-[262px] rounded-[30px] overflow-hidden relative group cursor-pointer shadow-lg" onclick="window.location.href='blogdetail.html?slug=${blog2.slug}'">
                 <img src="${img2}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="${blog2.title}">
@@ -116,7 +116,7 @@ function renderFrontendBlogs(blogs) {
     }
 
     blogs.forEach(blog => {
-        const imgUrl = blog.image ? `https://havona.brandmindz.com/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/400x550';
+        const imgUrl = blog.image ? `https://backend.havonagroup.in/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/400x550';
 
         // Using the "Card 3 (Large)" style as general style for Studio Notes
         const blogCard = document.createElement('div');

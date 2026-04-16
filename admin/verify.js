@@ -27,7 +27,7 @@ document.getElementById('verifyForm').addEventListener('submit', async function 
     btn.innerHTML = 'Verifying...';
 
     try {
-        const response = await fetch('https://havona.brandmindz.com/auth/admin/verify_otp.php', {
+        const response = await fetch('https://backend.havonagroup.in/auth/admin/verify_otp.php', {
             method: 'POST',
             body: formData
         });
@@ -65,7 +65,7 @@ document.getElementById('resendBtn').addEventListener('click', async function ()
         const formData = new FormData();
         formData.append('email', email);
 
-        const response = await fetch('https://havona.brandmindz.com/auth/admin/resend_otp.php', {
+        const response = await fetch('https://backend.havonagroup.in/auth/admin/resend_otp.php', {
             method: 'POST',
             body: formData
         });

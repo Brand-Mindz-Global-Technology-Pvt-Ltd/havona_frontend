@@ -2,7 +2,7 @@
  * Consultation Modal System
  */
 (function () {
-    const API_URL = 'https://havona.brandmindz.com/api/enquiries/add.php';
+    const API_URL = 'https://backend.havonagroup.in/api/enquiries/add.php';
 
     // Determine the base path for components based on this script's own location
     const getComponentPath = () => {

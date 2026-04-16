@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function incrementBlogView(slug) {
-    const apiUrl = 'https://havona.brandmindz.com/api/blogs/increment_view.php';
+    const apiUrl = 'https://backend.havonagroup.in/api/blogs/increment_view.php';
     fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -49,7 +49,7 @@ function initLikeButton(slug) {
 
     likeBtn.onclick = () => {
         const action = isLiked ? 'unlike' : 'like';
-        const apiUrl = 'https://havona.brandmindz.com/api/blogs/toggle_like.php';
+        const apiUrl = 'https://backend.havonagroup.in/api/blogs/toggle_like.php';
 
         fetch(apiUrl, {
             method: 'POST',
@@ -79,7 +79,7 @@ function initLikeButton(slug) {
 
 function fetchBlogDetail(slug) {
     // API endpoint to fetch specific blog
-    const apiUrl = `https://havona.brandmindz.com/api/blogs/fetch.php?slug=${slug}`;
+    const apiUrl = `https://backend.havonagroup.in/api/blogs/fetch.php?slug=${slug}`;
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -109,7 +109,7 @@ function renderBlogDetail(blog) {
     // Update Hero Image
     const heroImage = document.getElementById('hero-image');
     if (heroImage && blog.image) {
-        heroImage.src = `https://havona.brandmindz.com/uploads/blogs/${blog.image}`;
+        heroImage.src = `https://backend.havonagroup.in/uploads/blogs/${blog.image}`;
     }
 
     // Update Content Title
@@ -152,7 +152,7 @@ function renderBlogDetail(blog) {
 
 function fetchRelatedBlogs(category, currentId) {
     // Fetch all blogs and filter by category, excluding current one
-    const apiUrl = `https://havona.brandmindz.com/api/blogs/fetch.php?category=${category}&status=Published`;
+    const apiUrl = `https://backend.havonagroup.in/api/blogs/fetch.php?category=${category}&status=Published`;
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -177,7 +177,7 @@ function renderRelatedBlogs(blogs) {
     container.innerHTML = ''; // Clear existing static cards
 
     blogs.forEach(blog => {
-        const imgUrl = blog.image ? `https://havona.brandmindz.com/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/400x400';
+        const imgUrl = blog.image ? `https://backend.havonagroup.in/uploads/blogs/${blog.image}` : 'https://via.placeholder.com/400x400';
 
         const card = document.createElement('div');
         card.className = 'flex gap-4 group cursor-pointer';
