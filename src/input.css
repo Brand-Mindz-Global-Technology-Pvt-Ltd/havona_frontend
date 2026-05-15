@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+  --font-new-york: "New York", "Times New Roman", Times, serif;
+  --font-rethink: "Rethink Sans", sans-serif;
+  
+  --z-100: 100;
+}

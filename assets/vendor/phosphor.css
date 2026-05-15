@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Phosphor";
+  src: url("./Phosphor-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Phosphor-Fill";
+  src: url("./Phosphor-fill.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.ph {
+  font-family: "Phosphor" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ph-fill {
+  font-family: "Phosphor-Fill" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Icons used in Havona */
+.ph-caret-down:before { content: "\e136"; }
+.ph-caret-up:before { content: "\e13c"; }
+.ph-caret-left:before { content: "\e138"; }
+.ph-caret-right:before { content: "\e13a"; }
+.ph-caret-left-right:before { content: "\e140"; }
+.ph-play:before { content: "\e3d0"; }
+.ph-x:before { content: "\e4f6"; }
+.ph-arrow-right:before { content: "\e06c"; }
+.ph-arrow-up-right:before { content: "\e092"; }
+.ph-check-square:before { content: "\e186"; }
+.ph-arrow-circle-right:before { content: "\e02e"; }
