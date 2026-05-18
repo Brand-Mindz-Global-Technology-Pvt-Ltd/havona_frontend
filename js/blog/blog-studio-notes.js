@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             id: 5,
-            category: 'Real Estate',
+            category: 'PEB Construction',
             date: '24.01.2025',
             author: 'Jessica White',
-            title: 'Real Estate Trends for 2025',
-            description: 'What every investor should know about the upcoming market shifts.',
+            title: 'PEB Construction Trends for 2025',
+            description: 'What every builder should know about the advantages of prefabricated steel buildings.',
             image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop'
         },
         {

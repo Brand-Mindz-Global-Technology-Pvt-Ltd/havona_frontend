@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
 
                     <p class="text-md text-white/80 leading-relaxed text-justify max-w-sm font-rethink">
-                        Havona Group is a multidisciplinary architecture, construction, interior, and real estate firm delivering
+                        Havona Group is a multidisciplinary architecture, construction, interior, and PEB construction firm delivering
                         future-ready residential, commercial, and industrial projects.
                     </p>
 

@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            title: 'REAL ESTATE',
+            title: 'PEB CONSTRUCTION',
             horizontal: {
                 src: '../assets/Services/Gallery-9.webp',
-                text: 'Exceptional real estate opportunities for a brighter future.'
+                text: 'Smart, durable PEB solutions designed for faster and efficient construction.'
             },
             vertical: {
                 src: '../assets/Services/Gallery-10.webp'

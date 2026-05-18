@@ -140,10 +140,10 @@ document.addEventListener('DOMContentLoaded', function () {
             image: "./assets/home/Karthik.jpeg"
         },
         {
-            title: "Professional, Friendly, and Reliable",
-            content: "The team at Havona made the whole process simple and enjoyable. They answered all our questions, gave honest recommendations, and the final interiors look better than we imagined.",
+            title: "Professional, Transparent, and Reliable",
+            content: "Havona made the entire process smooth and stress-free. Their team provided clear communication, practical guidance, and quality execution throughout the project. The final result exceeded our expectations in both design and finishing quality.",
             name: "Prem Prabhakaran",
-            // title_role: "CEO Of Tech Innovations, Chennai",
+            title_role: "",
             image: "./assets/home/Prem-Prabhakaran.jpeg"
         },
         {

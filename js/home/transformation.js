@@ -1,5 +1,5 @@
 // Transformation Showcase Logic
-const categories = ['architecture', 'construction', 'interior', 'pmc', 'realestate'];
+const categories = ['architecture', 'construction', 'interior', 'pmc', 'peb'];
 const categoryImages = {
     'architecture': {
         after: './assets/home/Architecture-after.webp'
@@ -14,7 +14,7 @@ const categoryImages = {
     'pmc': {
         after: './assets/home/Project-Management-after.webp'
     },
-    'realestate': {
+    'peb': {
         after: './assets/home/Real-Estate-after.webp'
     }
 };

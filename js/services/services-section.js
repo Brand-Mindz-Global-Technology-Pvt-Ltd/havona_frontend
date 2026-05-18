@@ -1,21 +1,21 @@
 // Services Data
 const servicesData = {
     'Architecture': {
-        title: 'Architecture',
-        quote: '" Smart, purposeful architecture designed for your vision and environment  "',
-        desc: 'Our Architectural Services focus on creating buildings that are both visually strong and functionally efficient. From conceptual planning to detailed design, we shape architecture that reflects your needs, context, and long-term goals. Every element is carefully considered to ensure balance, durability, and usability, making your project truly one-of-a-kind.',
+        title: 'Custom Architectural Design Services in Tenkasi',
+        quote: '" Smart, purposeful architecture designed for your vision and environment "',
+        desc: 'Our Architecture design in Tenkasi focuses on creating spaces that combine modern aesthetics, smart planning, and long-term functionality. From concept development to structural planning, we deliver designs that match your lifestyle, business goals, and surrounding environment.<br><br>With our Custom architectural design services in Tenkasi, every project is carefully planned to ensure strength, comfort, space efficiency, and visual appeal. We pay close attention to every detail to create structures that are practical, durable, and uniquely designed to reflect your vision with precision and quality craftsmanship.',
         image: '../assets/Services/Architecture.webp'
     },
     'Construction': {
-        title: 'Construction',
+        title: 'Construction Companies in Tenkasi',
         quote: '" Strong, reliable construction built for lasting performance "',
-        desc: 'Our Construction Services focus on delivering structures that are both durable and well-executed. From planning and material selection to on-site execution and final handover, we build with attention to quality, safety, and efficiency. Every stage is carefully managed to ensure strength, consistency, and long-term value, making your project truly one-of-a-kind.',
+        desc: 'Our Residential construction services focus on building spaces that combine strength, quality, and long-term reliability. From project planning and material selection to site execution and final completion, we manage every stage with precision and professional workmanship.<br><br>As one of the trusted Construction companies in Tenkasi, we deliver construction solutions that are safe, durable, and designed to meet modern living standards. Our experienced team pays close attention to structural quality, timelines, and finishing details to ensure every project is completed with consistency and lasting value.<br><br>Recognized among the Best building contractors in Tenkasi, Havona creates residential and commercial spaces that are practical, visually appealing, and built to perform for years to come.',
         image: '../assets/Services/Construction.webp'
     },
     'Interior': {
-        title: 'Interior',
-        quote: '"  Smart, elegant interiors tailored for your lifestyle or workspace "',
-        desc: 'Our Interior Solutions focus on creating spaces that are both beautiful and functional. From conceptual design to execution, we craft interiors that reflect your personality, brand, and lifestyle. Every element is thoughtfully planned to ensure comfort, style, and efficiency, making your space truly one-of-a-kind.',
+        title: 'Home Interior Designers in Tenkasi',
+        quote: '" Smart, elegant interiors tailored for your lifestyle or workspace "',
+        desc: 'Our Interior design services in Tenkasi focus on creating spaces that combine comfort, functionality, and modern aesthetics. From concept planning to final execution, we design interiors that reflect your personality, lifestyle, and practical needs with attention to every detail.<br><br>As trusted Home interior designers in Tenkasi, we create stylish and comfortable living spaces that improve everyday living. Every element, including layout, lighting, furniture placement, materials, and finishes, is carefully planned to ensure balance, elegance, and long-term usability.<br><br>We also specialize in Commercial interior design in Tenkasi, delivering professional and visually appealing interiors for offices, retail spaces, and business environments. Our team focuses on creating interiors that enhance productivity, brand value, and customer experience while maintaining quality and design consistency.',
         images: [
             '../assets/Services/Interior.webp',
             '../assets/Services/Interior-1.webp',
@@ -23,15 +23,15 @@ const servicesData = {
         ]
     },
     'PMC': {
-        title: 'Project Management',
+        title: 'Construction Project Management in Tenkasi',
         quote: '" Structured, transparent project management for smooth execution "',
-        desc: 'Our Project Management Services focus on organizing and controlling every stage of the project with clarity and coordination. From planning and scheduling to site supervision and quality monitoring, we ensure each phase runs efficiently and on track. Every process is carefully managed to maintain timelines, budgets, and standards, making your project truly one-of-a-kind.',
+        desc: 'Our Construction project management in Tenkasi focuses on handling every stage of the project with proper planning, coordination, and execution control. From scheduling and resource management to site supervision and quality monitoring, we ensure every process runs smoothly and efficiently.<br><br>As one of the trusted Project management companies in Tenkasi, we maintain clear communication, organized workflows, and strict timeline management to help projects stay on track and within budget. Every phase is carefully monitored to maintain quality standards, safety, and execution consistency.<br><br>Our team also works as reliable Building project consultants in Tenkasi, guiding clients through planning, execution, vendor coordination, and project decision-making. We focus on delivering well-managed projects that combine efficiency, transparency, and long-term value.',
         image: '../assets/Services/Project-Management.webp'
     },
-    'Real Estate': {
-        title: 'Real Estate',
-        quote: '" Trusted real estate guidance for confident property decisions "',
-        desc: 'Our Real Estate Services focus on helping clients find and develop properties that offer both value and potential. From property evaluation to transaction support and development planning, we guide every step with market insight and professional care. Each decision is thoughtfully supported to ensure clarity, security, and long-term benefit, making your investment truly one-of-a-kind.',
+    'PEB': {
+        title: 'PEB Construction Company in Tenkasi',
+        quote: '" Smart, durable PEB solutions designed for faster and efficient construction "',
+        desc: 'Our PEB warehouse construction in Tenkasi focuses on delivering strong and cost-effective steel structures built for long-term performance and operational efficiency. From planning and structural design to fabrication and on-site installation, we manage every stage with precision and technical expertise.<br><br>As a trusted PEB building company in Tenkasi, we create industrial, commercial, and warehouse structures that are durable, scalable, and completed with faster turnaround times. Every project is carefully executed to ensure structural strength, safety, space optimization, and long-term reliability, making your investment truly one-of-a-kind.',
         image: '../assets/Services/Real-Estate.webp'
     }
 };
@@ -87,15 +87,12 @@ function switchService(serviceName, btn) {
         document.getElementById('service-main-title').textContent = data.title;
         document.getElementById('service-quote').textContent = data.quote;
 
-        // Handle Description (repeat text for Interior as per image)
+        // Handle Description (split by <br><br> to support multiple paragraphs)
         const descContainer = document.getElementById('service-description');
         const pClass = "font-rethink text-white text-[15px] md:text-[16px] lg:text-[17px] leading-relaxed font-light";
 
-        if (serviceName === 'Interior') {
-            descContainer.innerHTML = `<p class="${pClass}">${data.desc}</p><p class="${pClass}">${data.desc}</p>`;
-        } else {
-            descContainer.innerHTML = `<p class="${pClass}">${data.desc}</p>`;
-        }
+        const paragraphs = data.desc.split('<br><br>');
+        descContainer.innerHTML = paragraphs.map(p => `<p class="${pClass}">${p}</p>`).join('');
 
         // Handle Background (Slider for Interior, Static for others)
         const bgContainer = document.getElementById('service-bg-container');
@@ -160,11 +157,15 @@ function updateDots() {
 }
 
 // Helper to switch service based on URL parameter
-// Helper to switch service based on URL parameter
 function handleUrlParams() {
     const urlParams = new URLSearchParams(window.location.search);
-    const serviceParam = urlParams.get('service');
+    let serviceParam = urlParams.get('service');
     const hash = window.location.hash;
+
+    // Normalize old Real Estate calls to PEB Construction
+    if (serviceParam === 'Real Estate') {
+        serviceParam = 'PEB';
+    }
 
     if (serviceParam && servicesData[serviceParam]) {
         // Wait a bit to ensure DOM and styles are ready
