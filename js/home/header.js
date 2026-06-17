@@ -17,10 +17,51 @@ document.addEventListener('DOMContentLoaded', function () {
       { name: 'Contact Us', link: 'contact/contact.html', id: 'contact' }
     ];
 
-    // --- Build Desktop Navigation ---
-    // The design separates the active item (pill style) from the rest.
-    // Items to the left of active, and items to the right.
+    // Helper function to render a nav item
+    const renderNavItem = (item, isActive) => {
+      if (item.id === 'service') {
+        if (isActive) {
+          return `
+            <div class="relative group z-10">
+              <button class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 flex items-center gap-1">
+                Services <i class="ph ph-caret-down text-sm"></i>
+              </button>
+              <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-[#1A1D1F] border border-white/10 rounded-2xl shadow-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 text-left">
+                <a href="${rootPath}service/residential-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">Residential Construction</a>
+                <a href="${rootPath}service/commercial-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">Commercial Construction</a>
+                <a href="${rootPath}service/peb-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">PEB Construction</a>
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="relative group py-4 px-2">
+              <button class="text-white/80 text-md font-medium hover:text-white transition-colors flex items-center gap-1">
+                Services <i class="ph ph-caret-down text-sm"></i>
+              </button>
+              <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-[#1A1D1F] border border-white/10 rounded-2xl shadow-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 text-left">
+                <a href="${rootPath}service/residential-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">Residential Construction</a>
+                <a href="${rootPath}service/commercial-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">Commercial Construction</a>
+                <a href="${rootPath}service/peb-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">PEB Construction</a>
+              </div>
+            </div>
+          `;
+        }
+      }
 
+      if (isActive) {
+        return `
+          <a href="${rootPath}${item.link}"
+             class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">
+             ${item.name}
+          </a>
+        `;
+      } else {
+        return `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`;
+      }
+    };
+
+    // --- Build Desktop Navigation ---
     const activeIndex = navItems.findIndex(item => item.id === activePage);
     let desktopNavHTML = '';
 
@@ -28,43 +69,43 @@ document.addEventListener('DOMContentLoaded', function () {
       const activeItem = navItems[activeIndex];
 
       // Render items BEFORE the active one
-      const leftItemsHTML = navItems.slice(0, activeIndex).map(item =>
-        `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
-      ).join('');
+      const leftItemsHTML = navItems.slice(0, activeIndex).map(item => renderNavItem(item, false)).join('');
 
       // Render items AFTER the active one
-      const rightItemsHTML = navItems.slice(activeIndex + 1).map(item =>
-        `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
-      ).join('');
+      const rightItemsHTML = navItems.slice(activeIndex + 1).map(item => renderNavItem(item, false)).join('');
 
       desktopNavHTML = `
-                ${leftItemsHTML ? `<div class="flex items-center px-4">${leftItemsHTML}</div>` : ''}
-                
-                <a href="${rootPath}${activeItem.link}"
-                   class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 bg-opacity-100 backdrop-blur-none z-10">
-                   ${activeItem.name}
-                </a>
-                
-                ${rightItemsHTML ? `<div class="flex items-center px-4">${rightItemsHTML}</div>` : ''}
+                ${leftItemsHTML ? `<div class="flex items-center px-4 gap-2">${leftItemsHTML}</div>` : ''}
+                ${renderNavItem(activeItem, true)}
+                ${rightItemsHTML ? `<div class="flex items-center px-4 gap-2">${rightItemsHTML}</div>` : ''}
             `;
     } else {
-      // Fallback: If no active item (e.g. policy pages), show all simple links?
-      // Or maybe keep "Home" active? No, that's misleading.
-      // Let's render them all as simple links in one container for neutral pages.
       desktopNavHTML = `
-                <div class="flex items-center px-4">
-                    ${navItems.map(item =>
-        `<a href="${rootPath}${item.link}" class="px-4 text-white/80 text-md font-medium hover:text-white transition-colors">${item.name}</a>`
-      ).join('')}
+                <div class="flex items-center px-4 gap-2">
+                    ${navItems.map(item => renderNavItem(item, false)).join('')}
                 </div>
             `;
     }
 
     // --- Build Mobile Navigation ---
-    // Simple list with styling for active item
-    const mobileNavHTML = navItems.map(item =>
-      `<a href="${rootPath}${item.link}" class="${item.id === activePage ? 'text-white font-semibold' : 'text-white/70 hover:text-white transition-colors'}">${item.name}</a>`
-    ).join('');
+    const mobileNavHTML = navItems.map(item => {
+      if (item.id === 'service') {
+        return `
+          <div class="flex flex-col gap-2">
+            <button onclick="document.getElementById('mobile-services-sub').classList.toggle('hidden')" class="flex items-center justify-between text-left ${item.id === activePage ? 'text-white font-semibold' : 'text-white/70 hover:text-white transition-colors'}">
+              <span>Services</span>
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div id="mobile-services-sub" class="hidden pl-4 flex flex-col gap-3 border-l border-white/10 mt-2">
+              <a href="${rootPath}service/residential-construction.html" class="text-white/70 hover:text-white text-sm transition-colors">Residential Construction</a>
+              <a href="${rootPath}service/commercial-construction.html" class="text-white/70 hover:text-white text-sm transition-colors">Commercial Construction</a>
+              <a href="${rootPath}service/peb-construction.html" class="text-white/70 hover:text-white text-sm transition-colors">PEB Construction</a>
+            </div>
+          </div>
+        `;
+      }
+      return `<a href="${rootPath}${item.link}" class="${item.id === activePage ? 'text-white font-semibold' : 'text-white/70 hover:text-white transition-colors'}">${item.name}</a>`;
+    }).join('');
 
 
     // --- Full Header HTML ---
