@@ -153,13 +153,13 @@ document.addEventListener('DOMContentLoaded', function () {
             // title_role: "Managing Director, Bangalore",
             image: "./assets/home/Muralidharan.jpeg"
         },
-        {
-            title: "Beautiful Spaces, Happy Clients",
-            content: "Havona transformed our home in a way that exceeded our expectations. The team was responsive, patient, and really dedicated to delivering the best results. Our space now feels modern, functional, and welcoming.",
-            name: "Sanjay Rao",
-            // title_role: "Managing Director, Bangalore",
-            image: "./assets/home/Sanjay-Rao.jpg"
-        }
+        // {
+        //     title: "Beautiful Spaces, Happy Clients",
+        //     content: "Havona transformed our home in a way that exceeded our expectations. The team was responsive, patient, and really dedicated to delivering the best results. Our space now feels modern, functional, and welcoming.",
+        //     name: "Sanjay Rao",
+        //     // title_role: "Managing Director, Bangalore",
+        //     image: "./assets/home/Sanjay-Rao.jpg"
+        // }
     ];
 
     let currentIndex = 1; // Start with middle item (index 1)

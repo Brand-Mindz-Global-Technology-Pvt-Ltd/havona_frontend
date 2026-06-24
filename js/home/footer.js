@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </li>
                         <li class="flex items-center gap-3">
                             <img src="${rootPath}assets/Header-Footer/Mail.svg" alt="Email" class="w-4 h-4">
-                            <a href="mailto:info@havona.com" class="hover:text-white transition">info@havona.com</a>
+                            <a href="mailto:hello@havonagroup.in" class="hover:text-white transition">hello@havonagroup.in</a>
                         </li>
                     </ul>
                 </div>

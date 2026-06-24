@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isActive) {
           return `
             <div class="relative group z-10">
-              <button class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 flex items-center gap-1">
+              <a href="${rootPath}service/service.html" class="px-10 py-4 rounded-full bg-white text-black text-md font-bold shadow-lg transition-all hover:scale-105 flex items-center gap-1">
                 Services <i class="ph ph-caret-down text-sm"></i>
-              </button>
+              </a>
               <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-[#1A1D1F] border border-white/10 rounded-2xl shadow-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 text-left">
                 <a href="${rootPath}service/residential-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">Residential Construction</a>
                 <a href="${rootPath}service/commercial-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">Commercial Construction</a>
@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
           return `
             <div class="relative group py-4 px-2">
-              <button class="text-white/80 text-md font-medium hover:text-white transition-colors flex items-center gap-1">
-                Services <i class="ph ph-caret-down text-sm"></i>
-              </button>
+                <a href="${rootPath}service/service.html" class="text-white/80 text-md font-medium hover:text-white transition-colors flex items-center gap-1">
+                  Services <i class="ph ph-caret-down text-sm"></i>
+                </a>
               <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-[#1A1D1F] border border-white/10 rounded-2xl shadow-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 text-left">
                 <a href="${rootPath}service/residential-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">Residential Construction</a>
                 <a href="${rootPath}service/commercial-construction.html" class="block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">Commercial Construction</a>
@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
       if (item.id === 'service') {
         return `
           <div class="flex flex-col gap-2">
-            <button onclick="document.getElementById('mobile-services-sub').classList.toggle('hidden')" class="flex items-center justify-between text-left ${item.id === activePage ? 'text-white font-semibold' : 'text-white/70 hover:text-white transition-colors'}">
+            <a href="${rootPath}service/service.html" class="flex items-center justify-between text-left ${item.id === activePage ? 'text-white font-semibold' : 'text-white/70 hover:text-white transition-colors'}">
               <span>Services</span>
               <i class="ph ph-caret-down"></i>
-            </button>
-            <div id="mobile-services-sub" class="hidden pl-4 flex flex-col gap-3 border-l border-white/10 mt-2">
+            </a>
+            <div id="mobile-services-sub" class="pl-4 flex flex-col gap-3 border-l border-white/10 mt-2">
               <a href="${rootPath}service/residential-construction.html" class="text-white/70 hover:text-white text-sm transition-colors">Residential Construction</a>
               <a href="${rootPath}service/commercial-construction.html" class="text-white/70 hover:text-white text-sm transition-colors">Commercial Construction</a>
               <a href="${rootPath}service/peb-construction.html" class="text-white/70 hover:text-white text-sm transition-colors">PEB Construction</a>
