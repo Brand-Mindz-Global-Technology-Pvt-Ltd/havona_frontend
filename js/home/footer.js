@@ -49,7 +49,25 @@ document.addEventListener('DOMContentLoaded', function () {
                     <ul class="space-y-3 text-md">
                         <li><a href="${rootPath}index.html" class="hover:text-white transition">Home</a></li>
                         <li><a href="${rootPath}about/about.html" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="${rootPath}service/service.html" class="hover:text-white transition">Services</a></li>
+                        <li>
+                            <button id="footer-services-toggle" type="button"
+                                class="flex items-center gap-2 hover:text-white transition"
+                                aria-expanded="false" aria-controls="footer-services-menu">
+                                <span>Services</span>
+                                <svg class="w-4 h-4 transition-transform duration-300" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                                </svg>
+                            </button>
+                            <ul id="footer-services-menu"
+                                class="max-h-0 opacity-0 overflow-hidden pl-3 space-y-2 text-sm text-white/70 transition-all duration-300"
+                                aria-hidden="true">
+                                <li class="pt-2"><a href="${rootPath}service/residential-construction.html" class="hover:text-white transition">Residential Construction</a></li>
+                                <li><a href="${rootPath}service/commercial-construction.html" class="hover:text-white transition">Commercial Construction</a></li>
+                                <li><a href="${rootPath}service/peb-construction.html" class="hover:text-white transition">PEB Construction</a></li>
+                            </ul>
+                        </li>
                         <li><a href="${rootPath}blog/blog.html" class="hover:text-white transition">Blogs</a></li>
                         <li><a href="${rootPath}contact/contact.html" class="hover:text-white transition">Contact Us</a></li>
                     </ul>
@@ -67,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <ul class="space-y-4 text-md text-white/70">
                         <li class="flex items-start gap-3">
                             <img src="${rootPath}assets/Header-Footer/Location.svg" alt="Location" class="w-4 h-4 mt-0.5">
-                            <span>L66, TNHB Colony, Tenkasi – 627811</span>
+                            <span>97/27, 3 Annanagar, 11th Street, Kuthukalvalasai, Tamil Nadu - 627803</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <img src="${rootPath}assets/Header-Footer/Phone-symbol.svg" alt="Phone" class="w-4 h-4">
@@ -111,6 +129,22 @@ document.addEventListener('DOMContentLoaded', function () {
     </footer>`;
 
         placeholder.outerHTML = footerHTML;
+
+        // Footer Services Dropdown
+        const servicesToggle = document.getElementById('footer-services-toggle');
+        const servicesMenu = document.getElementById('footer-services-menu');
+        if (servicesToggle && servicesMenu) {
+            servicesToggle.addEventListener('click', () => {
+                const isOpen = servicesToggle.getAttribute('aria-expanded') === 'true';
+                servicesToggle.setAttribute('aria-expanded', String(!isOpen));
+                servicesMenu.setAttribute('aria-hidden', String(isOpen));
+                servicesMenu.classList.toggle('max-h-0', isOpen);
+                servicesMenu.classList.toggle('opacity-0', isOpen);
+                servicesMenu.classList.toggle('max-h-40', !isOpen);
+                servicesMenu.classList.toggle('opacity-100', !isOpen);
+                servicesToggle.querySelector('svg')?.classList.toggle('rotate-180', !isOpen);
+            });
+        }
 
         // Scroll to Top Logic
         const scrollBtn = document.getElementById('scrollToTopBtn');
